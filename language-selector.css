@@ -38,7 +38,7 @@
   cursor: default;
 }
 .languages .lang-btn:focus-visible {
-  outline: 2px solid var(--brass, #b88a44);
+  outline: 2px solid var(--brass-text, #866229);
   outline-offset: 2px;
 }
 /* keep visible on phones — the WEB-27 base hides .languages under 720px */
@@ -80,7 +80,7 @@ html:not(.i18n-pending) [data-i18n] { transition: opacity .18s ease; }
   background: var(--ink, #0b2c26);
   transition: transform .2s ease, opacity .2s ease;
 }
-.menu-toggle:focus-visible { outline: 2px solid var(--brass, #b88a44); outline-offset: 2px; }
+.menu-toggle:focus-visible { outline: 2px solid var(--brass-text, #866229); outline-offset: 2px; }
 .menu-toggle[aria-expanded="true"] .menu-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .menu-toggle[aria-expanded="true"] .menu-bar:nth-child(2) { opacity: 0; }
 .menu-toggle[aria-expanded="true"] .menu-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }

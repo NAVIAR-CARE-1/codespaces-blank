@@ -65,7 +65,8 @@ p{margin:0}
 ul,ol{margin:0;padding:0;list-style:none}
 strong{font-weight:600}
 ::selection{background:var(--brass-soft);color:var(--ink)}
-:focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:var(--radius)}
+:focus-visible{outline:2px solid var(--brass-text);outline-offset:3px;border-radius:var(--radius)}
+.dark :focus-visible,.final :focus-visible,.standard :focus-visible{outline-color:var(--brass-soft)}
 .container{width:100%;max-width:var(--content-max);margin-inline:auto;padding-inline:var(--gutter)}
 .section{padding-block:var(--section)}
 .section-hairline{border-top:1px solid var(--line)}
@@ -79,7 +80,7 @@ strong{font-weight:600}
 .dark .lead{color:rgba(252,251,247,.82)}
 .mono{font-family:var(--font-mono);font-weight:500;font-size:var(--text-xs);letter-spacing:.1em;text-transform:uppercase}
 .muted{color:var(--muted)}
-.note{margin-top:24px;font-family:var(--font-mono);font-size:var(--text-xs);letter-spacing:.04em;color:var(--muted);line-height:1.6}
+.note{margin-top:24px;max-width:var(--reading-max);font-family:var(--font-mono);font-size:var(--text-xs);letter-spacing:.04em;color:var(--muted);line-height:1.6}
 .dark .note{color:rgba(252,251,247,.62)}
 .skip{position:absolute;left:12px;top:-60px;z-index:200;padding:12px 16px;background:var(--green-900);color:#fff;font-weight:600;text-decoration:none;border-radius:var(--radius);transition:top var(--fast) ease}
 .skip:focus{top:12px}
@@ -224,7 +225,7 @@ strong{font-weight:600}
 .fit-col.is-no li::before{content:"—";color:var(--muted)}
 .boundary{margin-top:40px;padding:22px 24px;background:var(--white);border:1px solid var(--line);border-left:3px solid var(--brass);max-width:56rem}
 .boundary strong{display:block;font-family:var(--font-mono);font-weight:500;font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--brass-text);margin-bottom:8px}
-.boundary p{font-size:.98rem}
+.boundary p{font-size:.98rem;max-width:var(--reading-max)}
 
 /* ------------------------------------------------------------ perspectives */
 .persp-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);margin-top:48px}
@@ -291,7 +292,7 @@ strong{font-weight:600}
 .footer-brand img{height:28px;width:auto}
 .footer-tagline{margin-top:18px;font-family:var(--font-display);font-weight:600;font-size:1.15rem;letter-spacing:-.015em;color:var(--green-900)}
 .footer-pos{margin-top:8px;font-family:var(--font-mono);font-size:var(--text-xs);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.footer h4{font-family:var(--font-mono);font-weight:500;font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--brass-text);margin-bottom:14px}
+.footer h2.footer-h{font-family:var(--font-mono);font-weight:500;font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--brass-text);margin-bottom:14px}
 .footer-list li{padding:6px 0;font-size:.92rem}
 .footer-list a{text-decoration:none;border-bottom:1px solid transparent}
 .footer-list a:hover{border-bottom-color:var(--brass-text)}

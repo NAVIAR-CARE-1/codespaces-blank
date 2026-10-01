@@ -155,7 +155,9 @@
     m.appendChild(p);
     if (link) {
       var a = el('a', 'nv-msg-link', linkLabel || link);
-      a.href = link; a.setAttribute('data-jump', '');
+      // on subpages the index anchors don't exist locally — route them home
+      a.href = (link.charAt(0) === '#' && !document.getElementById(link.slice(1))) ? './' + link : link;
+      a.setAttribute('data-jump', '');
       m.appendChild(a);
     }
     els.log.appendChild(m);

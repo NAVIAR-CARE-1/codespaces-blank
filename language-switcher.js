@@ -182,6 +182,7 @@
       storageSet(lang);
       if (!opts.silentUrl) syncUrl(lang);
       document.documentElement.classList.remove('i18n-pending');
+      announce(lang);
       document.dispatchEvent(new CustomEvent('naviar:language-changed', { detail: { language: lang, previous: previous } }));
       return true;
     };
@@ -216,6 +217,23 @@
     });
   }
 
+
+  /* one atomic polite live region — announces the result of a language switch */
+  var ANNOUNCE = { no: 'Språk: Norsk', en: 'Language: English', tr: 'Dil: Türkçe' };
+  function announce(lang) {
+    var r = document.getElementById('naviar-live-status');
+    if (!r) {
+      r = document.createElement('div');
+      r.id = 'naviar-live-status';
+      r.setAttribute('role', 'status');
+      r.setAttribute('aria-live', 'polite');
+      r.setAttribute('aria-atomic', 'true');
+      r.style.cssText = 'position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0';
+      document.body.appendChild(r);
+    }
+    r.textContent = ANNOUNCE[lang] || lang;
+  }
+
   /* -------------------------------------------------------- mobile menu */
   function closeMenu() {
     var t = document.querySelector('.menu-toggle');
@@ -233,7 +251,12 @@
     });
     var nav = document.getElementById('primary-nav');
     if (nav) nav.addEventListener('click', function (e) { if (e.target.closest('a')) closeMenu(); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      var wasOpen = t.getAttribute('aria-expanded') === 'true';
+      closeMenu();
+      if (wasOpen) t.focus(); // keyboard-closed → focus returns to the opener
+    });
     window.addEventListener('resize', function () { if (window.innerWidth > 1200) closeMenu(); });
   }
 
