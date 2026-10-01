@@ -46,6 +46,10 @@
   .languages { display: flex !important; }
   .languages .lang-btn { min-width: 40px; min-height: 40px; padding: 8px 6px; font-size: .72rem; }
 }
+/* 320 px: NO·EN·TR + menu toggle must fit without horizontal overflow */
+@media (max-width: 360px) {
+  .languages .lang-btn { min-width: 34px; padding: 8px 4px; }
+}
 
 /* ------------------------------------------------ pre-paint transition */
 /* Visitors with EN/TR stored: hide translatable text until the JSON is

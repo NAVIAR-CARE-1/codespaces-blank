@@ -305,35 +305,35 @@ strong{font-weight:600}
   .nav{gap:18px;font-size:.86rem}
 }
 @media (max-width:1000px){
-  .hero-grid{grid-template-columns:1fr;gap:48px}
+  .hero-grid{grid-template-columns:minmax(0,1fr);gap:48px}
   .sig-card{max-width:520px}
-  .problem-grid,.start-grid,.about-grid,.final-grid{grid-template-columns:1fr}
-  .sig-row{grid-template-columns:1fr;gap:0}
+  .problem-grid,.start-grid,.about-grid,.final-grid{grid-template-columns:minmax(0,1fr)}
+  .sig-row{grid-template-columns:minmax(0,1fr);gap:0}
   .sig-arrow{padding:14px 0 14px;font-size:1.2rem}
   .sig-arrow::before{content:"↓"}
   .sig-block{padding-top:18px}
   .sig-block .sig-q{max-width:none}
-  .need-grid{grid-template-columns:1fr 1fr}
-  .footer-grid{grid-template-columns:1fr 1fr}
+  .need-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .footer-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
   .footer-brand{grid-column:1/-1}
 }
 @media (max-width:760px){
   body{font-size:16px}
-  .steps,.insights-grid,.about-blocks{grid-template-columns:1fr;gap:28px}
-  .fit-grid,.persp-grid,.proof-grid{grid-template-columns:1fr;gap:36px}
-  .services-list li{grid-template-columns:1fr;gap:6px}
+  .steps,.insights-grid,.about-blocks{grid-template-columns:minmax(0,1fr);gap:28px}
+  .fit-grid,.persp-grid,.proof-grid{grid-template-columns:minmax(0,1fr);gap:36px}
+  .services-list li{grid-template-columns:minmax(0,1fr);gap:6px}
   .services-list .tag{text-align:left;order:-1}
-  .facts{grid-template-columns:1fr}
+  .facts{grid-template-columns:minmax(0,1fr)}
   .doc{padding:24px 20px 20px}
   .doc-head{flex-direction:column;align-items:flex-start}
   .doc-head .doc-meta{text-align:left;white-space:normal}
-  .doc-row{grid-template-columns:1fr;gap:4px}
+  .doc-row{grid-template-columns:minmax(0,1fr);gap:4px}
   .doc-row .doc-meta-row{grid-column:1}
   .hero h1 .h1-no{font-size:1.35rem}
-  .footer-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:560px){
-  .need-grid{grid-template-columns:1fr}
+  .need-grid{grid-template-columns:minmax(0,1fr)}
   .hero-actions .button,.final-actions .button,.start-actions .button{width:100%}
   .hero{padding-top:40px}
 }
