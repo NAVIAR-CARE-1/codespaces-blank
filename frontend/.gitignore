@@ -10,6 +10,7 @@ pnpm-debug.log*
 out/
 build/
 dist/
+next-env.d.ts
 
 # Production
 .env.production.local
