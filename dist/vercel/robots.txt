@@ -1,0 +1,3 @@
+# Closed until Betul approves publication. Change to Allow: / only when she says "yayınla".
+User-agent: *
+Disallow: /
