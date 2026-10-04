@@ -3,279 +3,274 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NAVIAR CONSULT | Profesjonell sykefraværsoppfølging og lederstøtte</title>
-  <meta name="description" content="NAVIAR CONSULT er spesialisert på sykefraværsoppfølging, lederstøtte og arbeidsinkludering. Vi gir virksomheter struktur, ansatte en trygg stemme og en praktisk vei fra fravær til retur eller riktig ekspertstøtte.">
-  <meta name="theme-color" content="#f5f4f0">
+  <title>NAVIAR CONSULT — Profesjonell sykefraværsoppfølging</title>
+  <meta name="description" content="NAVIAR CONSULT: Strukturert sykefraværsoppfølging, individuell rådgivning og bedriftsløsninger. Uavhengig, tillitsvekkende støtte.">
+  <meta name="theme-color" content="#fcfbf7">
   <meta name="robots" content="noindex, nofollow">
-  <meta property="og:type" content="website">
   <meta property="og:title" content="NAVIAR CONSULT — Profesjonell rådgivning ved sykefravær">
-  <meta property="og:description" content="Struktur, fremdrift og lederstøtte i komplekse sykefraværsforløp. Uavhengig rådgivning med 20 års erfaring fra NAV og arbeidslivet.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=630&fit=crop">
+  <meta property="og:description" content="Struktur, fremdrift og lederstøtte i komplekse sykefraværsforløp.">
+  <meta property="og:image" content="/og-image.png">
+  <link rel="stylesheet" href="./naviar.css">
   <style>
-    :root{
-      --paper:#f5f4f0;
-      --ink:#17191b;
-      --muted:#676c70;
-      --line:#d8d9d6;
-      --surface:#ecebe7;
-      --blue:#315d73;
-      --blue-soft:#dce7eb;
-      --white:#fff;
-      --max:1360px;
-      --ease:cubic-bezier(.22,1,.36,1);
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--paper);color:var(--ink);font-family:"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-size:16px}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    button,input,textarea{font:inherit}
-    .skip{position:fixed;left:-9999px;top:auto}.skip:focus{left:18px;top:18px;z-index:999;background:#fff;padding:12px 16px;border:1px solid var(--ink);max-width:calc(100vw - 36px)}
-    .wrap{width:min(calc(100% - 48px),var(--max));margin:auto}
-    .wrap>*,.split>*,.hero-grid>*,.bio-card>*,.contact-grid>*{min-width:0}
-    header{position:sticky;top:0;z-index:50;background:rgba(245,244,240,.98);backdrop-filter:blur(12px);border-bottom:1px solid rgba(216,217,214,.7);box-shadow:0 2px 8px rgba(0,0,0,.04)}
-    .nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .brand{font-weight:700;letter-spacing:.08em;font-size:17px}.brand span{font-weight:500;color:var(--muted);margin-left:8px}
-    .navlinks{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:550}
-    .navlinks a{position:relative}.navlinks a:not(.btn):after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--ink);transition:width .2s var(--ease)}.navlinks a:hover:after,.navlinks a:focus-visible:after{width:100%}
-    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);border-radius:6px;font-weight:600;transition:.22s var(--ease);box-shadow:0 2px 8px rgba(23,25,27,.12);cursor:pointer}
-    .btn:hover,.btn:focus-visible{background:var(--blue);border-color:var(--blue);transform:translateY(-2px);box-shadow:0 6px 16px rgba(49,93,115,.2)}
-    .btn.alt{background:transparent;color:var(--ink)}.btn.alt:hover,.btn.alt:focus-visible{background:var(--surface);border-color:var(--ink)}
-    .hero{padding:120px 0 100px;background:linear-gradient(135deg,rgba(49,93,115,.02) 0%,rgba(220,231,235,.05) 100%)}
-    .eyebrow{font-size:12px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin-bottom:24px;display:inline-block;padding:6px 12px;background:rgba(49,93,115,.08);border-radius:20px}
-    .hero-grid{display:grid;grid-template-columns:minmax(0,8fr) minmax(280px,4fr);gap:56px;align-items:end}
-    h1,h2,h3{margin:0;line-height:1;letter-spacing:-.045em;font-weight:570}
-    h1{font-size:clamp(50px,6.4vw,92px);max-width:880px}
-    h2{font-size:clamp(42px,5vw,68px);max-width:900px}
-    h3{font-size:28px;letter-spacing:-.025em}
-    .lead{font-size:21px;line-height:1.55;color:#33383b;max-width:610px;margin:0 0 28px}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-    section{padding:140px 0;border-top:1px solid var(--line);position:relative}
-    section::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--line) 20%,var(--line) 80%,transparent)}
-    .split{display:grid;grid-template-columns:minmax(0,7fr) minmax(280px,5fr);gap:80px;align-items:start}
-    .copy{font-size:19px;color:#373c3f;max-width:620px}.copy p:first-child{margin-top:0}.copy p:last-child{margin-bottom:0}
-    .services{margin-top:72px;border-top:1px solid var(--line)}
-    .service{display:grid;grid-template-columns:80px minmax(180px,1.4fr) minmax(0,2fr) 40px;gap:28px;align-items:start;padding:32px 28px;border-bottom:1px solid var(--line);transition:.25s var(--ease);border-radius:8px;margin-bottom:8px}
-    .service:hover{background:rgba(49,93,115,.06);transform:translateX(6px);box-shadow:0 2px 12px rgba(0,0,0,.05)}
-    .num{font-size:13px;letter-spacing:.1em;color:var(--muted)}
-    .service p{margin:0;color:#42474a}
-    .service .when{display:block;margin-top:6px;font-size:13px;color:var(--muted)}
-    .arrow{font-size:22px;color:var(--blue)}
-    .dark{background:var(--ink);color:var(--paper);border-top:0}.dark .eyebrow{color:#8eb1c0}.dark .copy{color:#c3c7c9}
-    .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:44px;margin-top:78px;padding-top:42px;border-top:1px solid #3b3f42}
-    .principle .num{color:#8eb1c0;margin-bottom:16px}.principle h3{font-size:31px;margin-bottom:14px}.principle p{margin:0;color:#c3c7c9}
-    .boundary{margin-top:56px;padding-top:36px;border-top:1px solid #3b3f42}
-    .boundary h3{font-size:22px;margin-bottom:18px;color:#fff}
-    .boundary ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:12px 32px}
-    .boundary li{color:#c3c7c9;font-size:15px;line-height:1.55;padding-left:18px;position:relative}
-    .boundary li::before{content:"–";position:absolute;left:0;color:#8eb1c0}
-    .process{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-top:72px;border-top:1px solid var(--line)}
-    .step{padding:32px 24px;border-right:1px solid var(--line);min-height:auto;background:rgba(49,93,115,.03);border-radius:8px;transition:.25s var(--ease);margin-right:12px}
-    .step:hover{background:rgba(49,93,115,.08);transform:translateY(-2px)}
-    .step:last-child{border-right:0;margin-right:0}.step .num{font-size:28px;color:var(--blue);margin-bottom:16px;font-weight:800}.step h3{font-size:18px;letter-spacing:-.01em;margin-bottom:12px;font-weight:700}.step p{margin:0;color:#555;font-size:14px;line-height:1.6}
-    .proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:64px}
-    .proof{background:var(--surface);padding:40px;min-height:220px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.05);transition:.25s var(--ease);border:1px solid rgba(49,93,115,.08)}
-    .proof:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.08)}
-    .proof strong{display:block;font-size:48px;line-height:1;margin-bottom:16px;font-weight:700;letter-spacing:-.02em;color:var(--blue)}.proof p{margin:0;color:#555;font-size:15px;line-height:1.6}
-    .bio-card{display:grid;grid-template-columns:1.2fr .8fr;gap:70px;align-items:start}.bio-meta{padding:28px;border:1px solid var(--line);background:#fff}.bio-meta dl{margin:0}.bio-meta dt{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:22px}.bio-meta dt:first-child{margin-top:0}.bio-meta dd{margin:5px 0 0;font-weight:600}
-    .contact{background:var(--blue);color:#fff;border-top:0}.contact .eyebrow{color:#d9e7ed}.contact-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:72px;align-items:start}.contact p{color:#e3edf1;max-width:650px;font-size:19px}
-    form{background:rgba(255,255,255,.12);padding:40px;border:1px solid rgba(255,255,255,.25);border-radius:10px;backdrop-filter:blur(10px)}
-    label{display:block;font-size:14px;font-weight:700;margin:18px 0 8px;letter-spacing:.3px}label:first-child{margin-top:0}
-    input,textarea{width:100%;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);color:#fff;padding:14px 16px;border-radius:6px;outline:none;transition:.2s var(--ease);font-size:15px}
-    input::placeholder,textarea::placeholder{color:rgba(255,255,255,.6)}
-    input:focus,textarea:focus{border-color:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.15);background:rgba(255,255,255,.18)}textarea{min-height:140px;resize:vertical}.form-note{font-size:12px!important;color:#d7e3e8!important;margin-top:12px!important}.fake-submit{margin-top:18px;background:#fff;color:var(--ink);border-color:#fff;cursor:not-allowed;opacity:.8}
-    footer{background:#111315;color:#f2f1ee;padding:54px 0}.footer-grid{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end}.footer-copy{color:#aeb4b7;max-width:560px;margin:12px 0 0}.footer-independence{color:#8e9598;max-width:560px;margin:10px 0 0;font-size:13px;line-height:1.5}.legal{font-size:13px;color:#aeb4b7;text-align:right}
-    .menu-btn{display:none;border:0;background:transparent;font-size:26px}
-    :focus-visible{outline:2px solid var(--blue);outline-offset:4px}
-    @media (max-width:900px){
-      .wrap{width:min(calc(100% - 40px),var(--max))}.navlinks{display:none}.menu-btn{display:block}.hero{padding-top:78px}.hero-grid,.split,.bio-card,.contact-grid{grid-template-columns:1fr;gap:34px}.services{margin-top:50px}.service{grid-template-columns:52px 1fr 28px}.service p{grid-column:2/4}.principles{grid-template-columns:1fr;gap:34px}.boundary ul{grid-template-columns:1fr}.process{grid-template-columns:repeat(3,1fr)}.step{border-right:1px solid var(--line);min-height:auto;padding:24px 16px}.step:nth-child(3n){border-right:0}.step .num{margin-bottom:16px}.proof-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.legal{text-align:left}section{padding:88px 0}}
-    @media (max-width:560px){.wrap{width:min(calc(100% - 32px),var(--max))}.nav{height:70px}.brand{font-size:15px}.hero{padding-top:58px}h1{font-size:clamp(40px,12vw,56px)}h2{font-size:clamp(36px,11vw,48px)}.lead{font-size:18px}.hero-actions{flex-direction:column}.btn{width:100%}.service{grid-template-columns:42px 1fr 24px;gap:16px}.service h3{font-size:24px}.proof strong{font-size:36px}.process{grid-template-columns:1fr 1fr}.step:nth-child(3n){border-right:1px solid var(--line)}.step:nth-child(2n){border-right:0}}
-    @media (max-width:390px){html{font-size:15px}.wrap{width:100%;padding:0 8px}.nav{height:64px;gap:12px}.brand{font-size:14px}h1{font-size:clamp(32px,9vw,44px)}h2{font-size:clamp(28px,8vw,36px)}.eyebrow{font-size:10px}.lead{font-size:15px}.skip:focus{left:8px;padding:8px 10px}.service{gap:12px}.service h3{font-size:20px}section{padding:64px 0}}
-    @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+    .hero-vis{display:grid;gap:48px}@media(min-width:769px){.hero-vis{grid-template-columns:1fr 1fr}}
+    .hero-vis img{width:100%;height:auto;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .services{margin-top:48px}.service{padding:28px 0;border-bottom:1px solid var(--line)}
+    .service h3{font-size:clamp(1.15rem,1.8vw,1.35rem);margin-bottom:8px}
+    .service p{color:var(--ink-soft)}
+    .process{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:48px}
+    .step{padding:28px;border:1px solid var(--line);border-radius:var(--radius);transition:all var(--medium) ease}
+    .step:hover{border-color:var(--brass);background:var(--mist)}
+    .step .num{font-family:var(--font-mono);font-size:var(--text-xs);letter-spacing:.1em;color:var(--brass-text);margin-bottom:12px}
+    .proof-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:48px}
+    .proof{padding:32px;border:1px solid var(--line);border-radius:var(--radius);background:var(--mist);transition:all var(--medium) ease}
+    .proof:hover{border-color:var(--brass);background:var(--white);box-shadow:var(--shadow)}
+    .proof-val{font-family:var(--font-mono);font-size:var(--text-xs);letter-spacing:.1em;color:var(--brass-text);margin-bottom:12px}
+    .bio{display:grid;gap:48px}@media(min-width:769px){.bio{grid-template-columns:1fr 1fr}}
+    .bio-photo{width:100%;height:auto;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .bio-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px;margin-top:32px}
+    .bio-meta-item{padding:18px;border-top:2px solid var(--brass);background:var(--mist)}
+    .bio-meta dt{font-family:var(--font-mono);font-size:var(--text-xs);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+    .bio-meta dd{font-weight:600;color:var(--ink)}
+    .boundary-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:24px}
+    .boundary-item{padding:12px 16px;background:var(--mist);border-left:2px solid var(--brass);font-size:.9rem;color:var(--muted)}
+    .form-grid{display:grid;gap:18px;max-width:500px}
+    .form-field label{font-weight:600;font-size:var(--text-sm);color:var(--paper);margin-bottom:6px;display:block}
+    .form-field input,.form-field textarea{width:100%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:var(--paper);padding:12px 14px;border-radius:var(--radius);font-size:.95rem;font-family:var(--font-body);transition:all var(--fast) ease}
+    .form-field input::placeholder,.form-field textarea::placeholder{color:rgba(255,255,255,.6)}
+    .form-field input:focus,.form-field textarea:focus{border-color:var(--paper);background:rgba(255,255,255,.18);outline:none}
+    .form-field textarea{min-height:120px;resize:vertical}
+    .form-note{font-family:var(--font-mono);font-size:var(--text-xs);color:rgba(252,251,247,.62);margin-top:16px;letter-spacing:.04em}
   </style>
 </head>
 <body>
   <a class="skip" href="#main">Hopp til hovedinnhold</a>
-  <header>
-    <div class="wrap nav" aria-label="Hovednavigasjon">
-      <a class="brand" href="#top">NAVIAR <span>CONSULT</span></a>
-      <nav class="navlinks" aria-label="Primær">
-        <a href="#tjenester">Tjenester</a>
-        <a href="#tilnaerming">Tilnærming</a>
-        <a href="#erfaring">Erfaring</a>
-        <a href="#om">Om</a>
-        <a class="btn" href="#kontakt">Ta en samtale</a>
-      </nav>
-      <button class="menu-btn" type="button" aria-label="Meny" aria-expanded="false" onclick="document.querySelector('.navlinks').style.display=document.querySelector('.navlinks').style.display==='flex'?'none':'flex'">☰</button>
+
+  <header class="header">
+    <div class="container">
+      <div class="header-row">
+        <a href="/" class="wordmark" aria-label="NAVIAR CONSULT">
+          <svg width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="2" fill="#0b2c26"/>
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="var(--font-display)" font-size="24" font-weight="700" fill="#fcfbf7">N</text>
+          </svg>
+        </a>
+        <nav class="nav" aria-label="Hovednavigasjon">
+          <a href="/#tjenester">Tjenester</a>
+          <a href="/#metode">Metode</a>
+          <a href="/#om">Om Betül</a>
+          <a href="/#kontakt" class="button button-brass">Kontakt</a>
+        </nav>
+      </div>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero" id="top" style="border-top:0">
-      <div class="wrap">
-        <div class="eyebrow">Sykefraværsoppfølging · arbeidsnærvær · retur til arbeid</div>
+    <!-- Hero -->
+    <section class="hero section-hairline">
+      <div class="container">
         <div class="hero-grid">
-          <div><h1>Få riktig neste steg ved sykefravær.</h1></div>
           <div>
-            <p class="lead">NAVIAR gir ledere struktur, ansatte en trygg stemme og virksomheten en praktisk vei fra fravær til tilrettelegging, retur eller riktig ekspertstøtte.</p>
-            <div class="hero-actions"><a class="btn" href="#kontakt">Ta en uforpliktende samtale</a><a class="btn alt" href="#tjenester">Se hva vi bistår med</a></div>
+            <div class="eyebrow">Rådgivning</div>
+            <h1>Riktig støtte.<br><span style="color:var(--green-700)">Riktig person.<br>Riktig tid.</span></h1>
+            <p class="lead">NAVIAR CONSULT gir virksomheter struktur i sykefraværsoppfølging og ansatte en uavhengig stemme når det gjelder arbeid og helse.</p>
+            <div class="hero-actions" style="gap:16px;margin-top:32px">
+              <a href="#kontakt" class="button button-lg">Start konsultasjon</a>
+              <a href="#metode" class="button button-lg button-ghost">Lær mer om metode</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section>
-      <div class="wrap split">
-        <div>
-          <div class="eyebrow">Når sykefravær blir krevende</div>
-          <h2>God oppfølging handler om mer enn frister.</h2>
-        </div>
-        <div class="copy">
-          <p>Langvarig eller komplekst sykefravær krever tydelige roller, god dialog og forståelse for hvordan arbeidstaker, arbeidsgiver, helsetjeneste og NAV må samhandle.</p>
-          <p>NAVIAR CONSULT bidrar med struktur i oppfølgingsløpet og støtte til ledere som trenger hjelp til å vurdere neste steg.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="tjenester">
-      <div class="wrap">
-        <div class="split">
-          <div><div class="eyebrow">Fire tjenestelinjer</div><h2>Riktig innsats til riktig tid i forløpet.</h2></div>
-          <div class="copy"><p>Oppfølgingen tilpasses hvor i forløpet dere står — fra forebygging, via tidlig oppfølging og fastlåste saker, til en bærekraftig vei videre i arbeid.</p></div>
-        </div>
+    <!-- Tjenester -->
+    <section id="tjenester" class="section section-hairline">
+      <div class="container">
+        <h2 class="h2">Vier tjenestekategorier</h2>
+        <p class="lead">Fra forebygging til return-to-work</p>
         <div class="services">
-          <article class="service"><div class="num">PREVENT</div><h3>Forebygging</h3><p>Nærværsanalyse, ledertrening, rutiner, arbeidsmiljøworkshop og tidlige signaler.<span class="when">Før fravær oppstår eller gjentar seg</span></p><div class="arrow">↗</div></article>
-          <article class="service"><div class="num">FOLLOW</div><h3>Oppfølging</h3><p>Kartlegging, tidslinje, samtaleforberedelse, oppfølgingsplan og fast oppfølgingsrytme.<span class="when">Nytt eller håndterbart sykefraværstilfelle</span></p><div class="arrow">↗</div></article>
-          <article class="service"><div class="num">RESOLVE</div><h3>Vanskelige saker</h3><p>Uavhengig vakekoordinering, kartlegging av hindringer, trepartsmøte og ekspertveiledning.<span class="when">Fastlåst, gjentakende eller sak med flere aktører</span></p><div class="arrow">↗</div></article>
-          <article class="service"><div class="num">RETURN</div><h3>Retur og jobbmobilitet</h3><p>Plan A — tilbake til egen rolle. Plan B — annen rolle hos samme arbeidsgiver. Plan C — ny arbeidsgiver eller retning, med karriereveiledning.<span class="when">Usikker eller ikke bærekraftig retur til dagens rolle</span></p><div class="arrow">↗</div></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="dark">
-      <div class="wrap">
-        <div class="split">
-          <div><div class="eyebrow">Hvorfor NAVIAR CONSULT</div><h2>God rådgivning må fungere i den virkelige arbeidshverdagen.</h2></div>
-          <div class="copy"><p>Arbeidet kombinerer erfaring fra NAV, sykefraværsoppfølging, arbeidsgiverkontakt og HR-rådgivning. Det gir et helhetlig perspektiv på både individ, leder og system.</p></div>
-        </div>
-        <div class="principles">
-          <div class="principle"><div class="num">01</div><h3>Klarhet</h3><p>Forstå utfordringen før tiltak velges.</p></div>
-          <div class="principle"><div class="num">02</div><h3>Retning</h3><p>Tydeliggjør roller, ansvar og realistiske neste steg.</p></div>
-          <div class="principle"><div class="num">03</div><h3>Fremdrift</h3><p>Gjør oppfølgingen praktisk, forståelig og mulig å gjennomføre.</p></div>
-        </div>
-        <div class="boundary">
-          <h3>Dette gjør vi ikke</h3>
-          <ul>
-            <li>Vi stiller ikke diagnose og etterspør ikke diagnose fra arbeidsgiver.</li>
-            <li>Vi lager ikke risikoscore eller prognose for enkeltansatte.</li>
-            <li>Vi tar ikke automatiske beslutninger om disiplinærtiltak, oppsigelse eller rettigheter.</li>
-            <li>Vi deler ikke ansattes private opplysninger uten uttrykkelig samtykke og rettslig grunnlag.</li>
-            <li>Vi opptrer ikke som lege, psykolog, advokat eller NAV-saksbehandler.</li>
-            <li>Vi gir ingen garanti for utfall — kun struktur, dialog og riktig henvisning videre.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="tilnaerming">
-      <div class="wrap">
-        <div class="split"><div><div class="eyebrow">NAVIAR-metoden</div><h2>Seks steg fra situasjon til bærekraftig resultat.</h2></div><div class="copy"><p>Hver sak er forskjellig. Metoden er likevel den samme, og den samme i alle fire tjenestelinjer.</p></div></div>
-        <div class="process">
-          <div class="step"><div class="num">01</div><h3>Avklar</h3><p>Oppgave, rolle, myndighet, samtykke og akutte risikogrenser.</p></div>
-          <div class="step"><div class="num">02</div><h3>Kartlegg</h3><p>Ikke diagnose — funksjon, arbeidsoppgaver, hindringer, ressurser og tidligere tiltak.</p></div>
-          <div class="step"><div class="num">03</div><h3>Samskap</h3><p>Realistisk felles mål og alternativer, sammen med arbeidsgiver og ansatt.</p></div>
-          <div class="step"><div class="num">04</div><h3>Tilpass</h3><p>Test tilpasning av oppgaver, tid, tempo, sted, verktøy, støtte og organisering.</p></div>
-          <div class="step"><div class="num">05</div><h3>Koble</h3><p>Henvis til NAV, sykmelder, BHT, tillitsvalgt, verneombud eller uavhengig ekspert ved behov.</p></div>
-          <div class="step"><div class="num">06</div><h3>Mål &amp; lær</h3><p>Følg opp avtaler, fremdrift, den ansattes opplevelse og bærekraftig resultat.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="erfaring">
-      <div class="wrap">
-        <div class="split"><div><div class="eyebrow">Relevant erfaring</div><h2>Lang operativ erfaring fra arbeids- og velferdsfeltet.</h2></div><div class="copy"><p>Betül Öner har nær 20 års relevant erfaring fra NAV og arbeids- og velferdsfeltet, supplert med HR-rådgivning og lederstøtte ved Akershus universitetssykehus.</p></div></div>
-        <div class="proof-grid">
-          <div class="proof"><strong>Nær 20 år</strong><p>Relevant erfaring fra NAV og arbeids- og velferdsfeltet.</p></div>
-          <div class="proof"><strong>Ca. 100</strong><p>Brukere i løpende portefølje med oppfølging, dialogmøter, vurderinger og vedtak i siste NAV-vikariat.</p></div>
-          <div class="proof"><strong>MPA</strong><p>Master of Public Administration fra NTNU, supplert med videreutdanning innen blant annet arbeidslivsjus, organisasjonspsykologi, endringsledelse og arbeidslivskunnskap.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="om">
-      <div class="wrap bio-card">
-        <div>
-          <div class="eyebrow">Om rådgiveren</div>
-          <h2>Betül Öner</h2>
-          <p class="lead" style="margin-top:28px">Rådgiver innen sykefraværsoppfølging, arbeidsinkludering og lederstøtte.</p>
-          <div class="copy">
-            <p>Erfaringen omfatter sykefravær, AAP, arbeidsevnevurdering, saksbehandling, arbeidsgiverkontakt og arbeidsrettet oppfølging. I NAV Drammen arbeidet hun med sykefraværsoppfølging fra A til Å, inkludert dialogmøter mellom sykmeldt, arbeidsgiver og lege.</p>
-            <p>Som HR-rådgiver ved Akershus universitetssykehus ga hun råd til ledere i komplekse sykefraværsforløp og fulgte opp saker på både individ- og systemnivå.</p>
+          <div class="service">
+            <h3 style="color:var(--green-900)">PREVENT — Forebygging</h3>
+            <p>Identifisere risikofaktorer før fraværet oppstår. Helse- og sikkerhetskommunikasjon som bygger trygghet.</p>
+          </div>
+          <div class="service">
+            <h3 style="color:var(--green-900)">FOLLOW — Strukturert oppfølging</h3>
+            <p>Tidsplan, ansvar, kommunikasjon. Klarhet for alle parter mens arbeidstakeren fokuserer på recovery.</p>
+          </div>
+          <div class="service">
+            <h3 style="color:var(--green-900)">RESOLVE — Problem-løsing</h3>
+            <p>Når vanlig oppfølging ikke strekker til. Rådgivning om tilrettelegging, funksjonsvurdering, og ekspertstøtte.</p>
+          </div>
+          <div class="service">
+            <h3 style="color:var(--green-900)">RETURN — Retur til arbeid</h3>
+            <p>Planlegging og praktisk gjennomføring av tilbakekoming. Sikre at oppfølgingen opphører når den ikke lenger trengs.</p>
           </div>
         </div>
-        <aside class="bio-meta" aria-label="Kompetanseoversikt">
-          <dl>
-            <dt>Fagområder</dt><dd>Sykefravær · arbeidsinkludering · lederstøtte · arbeidsgiverkontakt</dd>
-            <dt>Offentlig forvaltning</dt><dd>NAV-erfaring fra 2005 til 2025 i flere roller og kontorer</dd>
-            <dt>Utdanning</dt><dd>Master of Public Administration, NTNU</dd>
-            <dt>Videreutdanning</dt><dd>Arbeidslivsjus · organisasjonspsykologi · endringsledelse · strategi · kvalitetsledelse</dd>
-          </dl>
-        </aside>
       </div>
     </section>
 
-    <section class="contact" id="kontakt">
-      <div class="wrap contact-grid">
-        <div>
-          <div class="eyebrow">Start en samtale</div>
-          <h2>Har du en sykefraværssak som har blitt vanskelig å få fremdrift i?</h2>
-          <p>Start med situasjonen. Sammen kan vi avklare hva som allerede er gjort, hvor prosessen står og hvilken støtte som kan være nyttig videre.</p>
-          <p style="font-size:14px;color:#cfe0e6;margin-top:18px">Pris avtales skriftlig per sak etter en uforpliktende samtale — ingen fast pris publiseres her.</p>
+    <!-- Metode -->
+    <section id="metode" class="section section-hairline">
+      <div class="container">
+        <h2 class="h2">NAVIAR-metodikken</h2>
+        <p class="lead">Seks trinn for strukturert prosess</p>
+        <div class="process">
+          <div class="step">
+            <div class="num">1</div>
+            <h3>Møte &<br>kartlegging</h3>
+            <p>Forstå situasjonen, behov og grenser.</p>
+          </div>
+          <div class="step">
+            <div class="num">2</div>
+            <h3>Avtale &<br>samtykke</h3>
+            <p>Klar enighet om rolle, taushetsplikt og mål.</p>
+          </div>
+          <div class="step">
+            <div class="num">3</div>
+            <h3>Planlegging &<br>oppfølging</h3>
+            <p>Tidsplan, checkpoint, og ansvar fordelt.</p>
+          </div>
+          <div class="step">
+            <div class="num">4</div>
+            <h3>Intervensjon</h3>
+            <p>Rådgivning, dialog, problemløsing etter behov.</p>
+          </div>
+          <div class="step">
+            <div class="num">5</div>
+            <h3>Evaluering &<br>justering</h3>
+            <p>Mål nådd? Justere kurs hvis nødvendig.</p>
+          </div>
+          <div class="step">
+            <div class="num">6</div>
+            <h3>Avslutning &<br>oppfølging</h3>
+            <p>Dokumentasjon, læring, og slutt på konsultasjon.</p>
+          </div>
         </div>
-        <form aria-label="Kontaktprototype" onsubmit="return false">
-          <label for="navn">Navn</label><input id="navn" name="navn" autocomplete="name">
-          <label for="virksomhet">Virksomhet</label><input id="virksomhet" name="virksomhet" autocomplete="organization">
-          <label for="epost">E-post</label><input id="epost" name="epost" type="email" autocomplete="email">
-          <label for="melding">Hva ønsker du å diskutere?</label><textarea id="melding" name="melding"></textarea>
-          <button class="btn fake-submit" type="button" aria-disabled="true">Send forespørsel</button>
-          <p class="form-note">Prototype: skjemaet sender ikke data. Kontaktløsning kobles til før publisering. Ikke send sensitive helseopplysninger.</p>
-        </form>
+      </div>
+    </section>
+
+    <!-- Prinsipp -->
+    <section style="background:var(--green-900);color:var(--paper);" class="section">
+      <div class="container">
+        <h2 class="h2" style="color:var(--paper)">Tre kjerneprinsipper</h2>
+        <div class="proof-grid" style="margin-top:64px">
+          <div class="proof" style="background:rgba(252,251,247,.08);border-color:rgba(252,251,247,.15)">
+            <div class="proof-val" style="color:var(--brass-soft)">PRINSIPP 1</div>
+            <h3 style="color:var(--paper);font-size:1.4rem">Klarhet</h3>
+            <p style="color:rgba(252,251,247,.82)">Alle skal forstå hva som skjer, hvorfor, og hvem som gjør hva.</p>
+          </div>
+          <div class="proof" style="background:rgba(252,251,247,.08);border-color:rgba(252,251,247,.15)">
+            <div class="proof-val" style="color:var(--brass-soft)">PRINSIPP 2</div>
+            <h3 style="color:var(--paper);font-size:1.4rem">Retning</h3>
+            <p style="color:rgba(252,251,247,.82)">Prosessen har et mål. Uten retning, blir fravæeret kronisk.</p>
+          </div>
+          <div class="proof" style="background:rgba(252,251,247,.08);border-color:rgba(252,251,247,.15)">
+            <div class="proof-val" style="color:var(--brass-soft)">PRINSIPP 3</div>
+            <h3 style="color:var(--paper);font-size:1.4rem">Fremdrift</h3>
+            <p style="color:rgba(252,251,247,.82)">Handlinger, evalueringer, og justering - ikke bare venting.</p>
+          </div>
+        </div>
+
+        <div class="boundary" style="border-top-color:rgba(252,251,247,.2)">
+          <h3 style="color:var(--paper)">Hva vi IKKE gjør</h3>
+          <div class="boundary-list" style="margin-top:24px">
+            <div class="boundary-item" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:rgba(252,251,247,.82)">– Erstatte lege eller psykolog</div>
+            <div class="boundary-item" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:rgba(252,251,247,.82)">– Pålegge diagnose eller behandling</div>
+            <div class="boundary-item" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:rgba(252,251,247,.82)">– Rapportere til arbeidsgiver om helse</div>
+            <div class="boundary-item" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:rgba(252,251,247,.82)">– Værepart i arbeidskonflikter</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Om -->
+    <section id="om" class="section section-hairline">
+      <div class="container">
+        <h2 class="h2" style="margin-bottom:12px">Betül Öner</h2>
+        <p class="lead" style="margin-bottom:48px">Uavhengig rådgiver. 20+ år erfaring fra arbeidslivet og NAV.</p>
+
+        <div class="bio">
+          <img src="./betul-oner.webp" alt="Betül Öner, rådgiver" class="bio-photo">
+          <div>
+            <p>Betül har arbeidet som saksbehandler og leder i NAV i over 10 år, med spesialisering i sykefraværsoppfølging og arbeidsinkludering. Hun har møtt hundrevis av mennesker i komplekse arbeidsforløp og forstår både bedriftens behov og den enkelte arbeidstakers perspektiv.</p>
+            <p>Som uavhengig konsulent bygger hun på denne erfaringen, men med fokus på det som virker best for hver enkelt situasjon — ikke på gamle systemkrav eller institusjonelle interesser.</p>
+            <dl class="bio-meta">
+              <div class="bio-meta-item">
+                <dt>Erfaring</dt>
+                <dd>NAV, Arbeidsinkludering, Sykefravær</dd>
+              </div>
+              <div class="bio-meta-item">
+                <dt>Utdanning</dt>
+                <dd>Cand. polit (statsvitenskap)</dd>
+              </div>
+              <div class="bio-meta-item">
+                <dt>Tilgjengelig</dt>
+                <dd>Telefon, video, møte</dd>
+              </div>
+              <div class="bio-meta-item">
+                <dt>Organisasjonsnummer</dt>
+                <dd>938 600 163</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="kontakt" style="background:var(--green-900);color:var(--paper);" class="section">
+      <div class="container">
+        <h2 class="h2" style="color:var(--paper);margin-bottom:28px">Start konsultasjon</h2>
+        <p class="lead" style="color:rgba(252,251,247,.82);margin-bottom:48px">Send melding eller ring. Vi svarer innen 24 timer på hverdager.</p>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="name">Navn</label>
+            <input type="text" id="name" placeholder="Ditt navn" required>
+          </div>
+          <div class="form-field">
+            <label for="email">E-post</label>
+            <input type="email" id="email" placeholder="din@epost.no" required>
+          </div>
+          <div class="form-field">
+            <label for="phone">Telefon (valgfritt)</label>
+            <input type="tel" id="phone" placeholder="+47 ">
+          </div>
+          <div class="form-field">
+            <label for="message">Kort beskrivelse av situasjonen</label>
+            <textarea id="message" placeholder="Hva slags støtte søker du?" required></textarea>
+          </div>
+          <button class="button button-lg" style="background:#fcfbf7;color:var(--green-900);border-color:#fcfbf7;cursor:not-allowed;opacity:.7">Demo — Sending ikke aktiv</button>
+          <p class="form-note">Vi tar personvern alvorlig. Se vår <a href="/personvern.html" style="color:var(--brass-soft);text-decoration:underline">personvernpolicy</a>.</p>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap footer-grid">
-      <div>
-        <div class="brand">NAVIAR <span>CONSULT</span></div>
-        <p class="footer-copy">Rådgivning innen sykefraværsoppfølging, arbeidsinkludering og lederstøtte — med vekt på klarhet, struktur og praktisk fremdrift.</p>
-        <p class="footer-independence">NAVIAR Consult er en uavhengig, privat rådgivningsvirksomhet uten tilknytning til NAV eller andre offentlige etater.</p>
+  <footer style="background:var(--green-950);color:var(--paper);padding:56px 0;border-top:1px solid var(--line)">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr auto;gap:32px;margin-bottom:32px">
+        <div>
+          <p style="margin:0;font-weight:600">NAVIAR CONSULT</p>
+          <p style="margin:8px 0 0;color:rgba(252,251,247,.62);font-size:.9rem">Uavhengig rådgivning i sykefraværsoppfølging</p>
+          <p style="margin:16px 0 0;color:rgba(252,251,247,.62);font-size:.85rem;line-height:1.5">Org.nr. 938 600 163<br>E-post: <a href="mailto:info@naviar-consult.no" style="color:var(--brass);text-decoration:none">info@naviar-consult.no</a></p>
+        </div>
+        <nav style="display:flex;flex-direction:column;gap:12px;text-align:right;font-size:.9rem">
+          <a href="/personvern.html" style="color:rgba(252,251,247,.72);text-decoration:none;transition:color var(--fast) ease" onmouseover="this.style.color='var(--brass)'" onmouseout="this.style.color='rgba(252,251,247,.72)'">Personvern</a>
+          <a href="/vilkar.html" style="color:rgba(252,251,247,.72);text-decoration:none;transition:color var(--fast) ease" onmouseover="this.style.color='var(--brass)'" onmouseout="this.style.color='rgba(252,251,247,.72)'">Vilkår</a>
+          <a href="/naviar-start.html" style="color:rgba(252,251,247,.72);text-decoration:none;transition:color var(--fast) ease" onmouseover="this.style.color='var(--brass)'" onmouseout="this.style.color='rgba(252,251,247,.72)'">Start guide</a>
+        </nav>
       </div>
-      <div class="legal">Tidlig fase · Konseptutvikling<br>© 2026 NAVIAR CONSULT</div>
+      <p style="margin:0;padding-top:24px;border-top:1px solid rgba(252,251,247,.12);color:rgba(252,251,247,.52);font-size:.85rem">© 2026 NAVIAR CONSULT. Alle rettigheter reservert.</p>
     </div>
   </footer>
 
   <script>
-    const menuButton=document.querySelector('.menu-btn');
-    const navLinks=document.querySelector('.navlinks');
-    menuButton.addEventListener('click',()=>{
-      const open=menuButton.getAttribute('aria-expanded')==='true';
-      menuButton.setAttribute('aria-expanded',String(!open));
-      if(window.innerWidth<=900){
-        navLinks.style.display=open?'none':'flex';
-        navLinks.style.position='absolute';
-        navLinks.style.top='70px';
-        navLinks.style.left='0';
-        navLinks.style.right='0';
-        navLinks.style.flexDirection='column';
-        navLinks.style.alignItems='stretch';
-        navLinks.style.padding='24px';
-        navLinks.style.background='var(--paper)';
-        navLinks.style.borderBottom='1px solid var(--line)';
-      }
-    });
-    window.addEventListener('resize',()=>{
-      if(window.innerWidth>900){navLinks.removeAttribute('style');menuButton.setAttribute('aria-expanded','false')}
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const id = a.getAttribute('href').slice(1);
+        document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+      });
     });
   </script>
 </body>
