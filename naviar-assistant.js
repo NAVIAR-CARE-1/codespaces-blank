@@ -104,27 +104,15 @@
     var chips = el('div', 'nv-chat-chips');
     chips.setAttribute('aria-label', d.chips_label || '');
 
-    var form = el('form', 'nv-chat-form');
-    var input = el('input', 'nv-chat-input');
-    input.type = 'text'; input.maxLength = 200; input.autocomplete = 'off'; input.setAttribute('aria-label', d.placeholder || '');
-    var send = el('button', 'nv-chat-send', d.send || 'Send'); send.type = 'submit';
-    form.appendChild(input); form.appendChild(send);
-    var note = el('p', 'nv-chat-note', d.privacy || '');
-
-    panel.appendChild(head); panel.appendChild(log); panel.appendChild(chips); panel.appendChild(form); panel.appendChild(note);
+    // chips only: the site has no form elements (personvern.s2 — "har ingen skjemaer")
+    panel.appendChild(head); panel.appendChild(log); panel.appendChild(chips);
     document.body.appendChild(toggle); document.body.appendChild(panel);
 
-    els = { toggle: toggle, panel: panel, log: log, chips: chips, form: form, input: input, send: send, note: note, close: close, t1: t1, t2: t2, label: toggle.querySelector('.nv-chat-toggle-label') };
+    els = { toggle: toggle, panel: panel, log: log, chips: chips, close: close, t1: t1, t2: t2, label: toggle.querySelector('.nv-chat-toggle-label') };
 
     toggle.addEventListener('click', function () { open ? closePanel() : openPanel(); });
     close.addEventListener('click', closePanel);
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && open) closePanel(); });
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var q = input.value.trim(); if (!q) return;
-      input.value = '';
-      ask(q);
-    });
     chips.addEventListener('click', function (e) {
       var b = e.target.closest('button[data-topic]'); if (!b) return;
       var d2 = dict(); var t = d2 && d2.topics && d2.topics[b.getAttribute('data-topic')];
@@ -193,10 +181,6 @@
     els.label.textContent = d.open || '';
     els.toggle.setAttribute('aria-label', d.open || 'Chat');
     els.close.setAttribute('aria-label', d.close || 'Close');
-    els.input.placeholder = d.placeholder || '';
-    els.input.setAttribute('aria-label', d.placeholder || '');
-    els.send.textContent = d.send || 'Send';
-    els.note.textContent = d.privacy || '';
     els.panel.setAttribute('aria-label', d.title || 'NAVIAR');
     renderChips();
     // reset conversation in the new language (intro only)
@@ -211,7 +195,7 @@
     els.panel.hidden = false;
     els.toggle.setAttribute('aria-expanded', 'true');
     document.documentElement.classList.add('nv-chat-open');
-    setTimeout(function () { els.input.focus(); }, 50);
+    setTimeout(function () { var c = els.chips.querySelector('button'); (c || els.close).focus(); }, 50);
   }
   function closePanel() {
     open = false;

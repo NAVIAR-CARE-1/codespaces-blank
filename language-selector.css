@@ -28,7 +28,7 @@
   cursor: pointer;
   border-bottom: 2px solid transparent;
   border-radius: var(--radius, 2px);
-  transition: color .18s ease, border-color .18s ease, background-color .18s ease;
+  transition: color var(--fast,160ms) ease, border-color var(--fast,160ms) ease, background-color var(--fast,160ms) ease;
 }
 .languages .lang-btn:hover { color: var(--ink, #0b2c26); background: var(--warm, #f2efe7); }
 .languages .lang-btn.active,
@@ -55,7 +55,7 @@
 /* Visitors with EN/TR stored: hide translatable text until the JSON is
    applied (≤1.8 s safety timeout is set inline in <head>). */
 html.i18n-pending [data-i18n] { visibility: hidden; }
-html:not(.i18n-pending) [data-i18n] { transition: opacity .18s ease; }
+html:not(.i18n-pending) [data-i18n] { transition: opacity var(--medium,280ms) ease; }
 
 /* ------------------------------------------------------- mobile menu */
 .menu-toggle {
@@ -78,7 +78,7 @@ html:not(.i18n-pending) [data-i18n] { transition: opacity .18s ease; }
   height: 2px;
   width: 100%;
   background: var(--ink, #0b2c26);
-  transition: transform .2s ease, opacity .2s ease;
+  transition: transform var(--fast,160ms) ease, opacity var(--fast,160ms) ease;
 }
 .menu-toggle:focus-visible { outline: 2px solid var(--brass-text, #866229); outline-offset: 2px; }
 .menu-toggle[aria-expanded="true"] .menu-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
