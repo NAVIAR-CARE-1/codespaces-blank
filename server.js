@@ -10,6 +10,7 @@ const utils = require('./utils');
 const notifications = require('./notifications');
 const billingRoutes = require('./billing-routes');
 const documentRoutes = require('./documents-routes');
+const usageRoutes = require('./usage-routes');
 
 const app = express();
 
@@ -51,6 +52,9 @@ app.use('/api', billingRoutes);
 
 // Mount document routes
 app.use('/api', documentRoutes);
+
+// Mount usage monitoring routes
+app.use('/api', usageRoutes);
 
 // Health check
 app.get('/api/health', async (req, res) => {
