@@ -1,20 +1,51 @@
 {
-  "name": "codespaces-blank",
-  "version": "1.0.0",
-  "description": "",
-  "main": "language-switcher.js",
+  "name": "naviar-consult",
+  "version": "0.1.0",
+  "description": "NAVIAR CONSULT — World-class sick leave follow-up advisory platform for Norway",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "db:init": "psql $DATABASE_URL < schema.sql",
+    "db:reset": "psql $DATABASE_URL -c 'DROP SCHEMA public CASCADE; CREATE SCHEMA public;' && npm run db:init",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "audit": "npm audit"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NAVIAR-CARE-1/codespaces-blank.git"
-  },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "sickness",
+    "absence",
+    "sick-leave",
+    "employee",
+    "management",
+    "advisory",
+    "norway"
+  ],
+  "author": "NAVIAR Team",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/NAVIAR-CARE-1/codespaces-blank/issues"
+  "dependencies": {
+    "express": "^4.18.2",
+    "pg": "^8.10.0",
+    "jsonwebtoken": "^9.1.0",
+    "dotenv": "^16.3.1",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.1.5",
+    "uuid": "^9.0.1",
+    "joi": "^17.11.0",
+    "axios": "^1.6.2"
   },
-  "homepage": "https://github.com/NAVIAR-CARE-1/codespaces-blank#readme"
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3",
+    "eslint": "^8.54.0",
+    "prettier": "^3.1.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
 }
