@@ -12,6 +12,7 @@ module.exports = {
   // Server
   port: process.env.PORT || 3000,
   host: process.env.HOST || 'localhost',
+  appUrl: process.env.APP_URL || 'http://localhost:3000',
 
   // Database
   database: {

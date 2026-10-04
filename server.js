@@ -7,6 +7,7 @@ const config = require('./config');
 const db = require('./db');
 const auth = require('./auth');
 const utils = require('./utils');
+const notifications = require('./notifications');
 
 const app = express();
 
@@ -257,6 +258,20 @@ app.post('/api/orgs/:id/incidents', auth.authenticate, auth.requireOrgAccess, as
       status: 'reported',
       message: 'Incident reported successfully'
     });
+
+    // Send notification asynchronously (non-blocking)
+    setImmediate(async () => {
+      try {
+        const org = await db.queryOne('SELECT * FROM organizations WHERE id = $1', [id]);
+        const employee = await db.queryOne('SELECT * FROM employees WHERE id = $1', [employeeId]);
+        if (org && employee) {
+          const incident = { start_date: startDate, severity, reason };
+          await notifications.notifyIncidentReported(incident, org, employee);
+        }
+      } catch (err) {
+        console.error('[NOTIFICATIONS] Failed to send incident notification:', err);
+      }
+    });
   } catch (error) {
     console.error('[INCIDENTS] Create error:', error);
     res.status(500).json({ error: 'Failed to create incident' });
@@ -445,6 +460,23 @@ app.post('/api/client/consultations', auth.authenticate, async (req, res) => {
       id: consultationId,
       status: 'scheduled',
       message: 'Consultation booked successfully'
+    });
+
+    // Send confirmation notification asynchronously
+    setImmediate(async () => {
+      try {
+        const advisor = await db.queryOne('SELECT * FROM advisors WHERE id = $1', [advisorId]);
+        if (advisor) {
+          const consultation = { scheduled_date: scheduledDate, duration_minutes: durationMinutes, notes: topic };
+          await notifications.notifyConsultationScheduled(
+            consultation,
+            { email: req.user.email, name: req.user.name },
+            advisor
+          );
+        }
+      } catch (err) {
+        console.error('[NOTIFICATIONS] Failed to send consultation notification:', err);
+      }
     });
   } catch (error) {
     console.error('[CONSULTATIONS] Booking error:', error);
