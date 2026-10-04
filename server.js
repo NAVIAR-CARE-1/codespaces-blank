@@ -13,6 +13,7 @@ const documentRoutes = require('./documents-routes');
 const usageRoutes = require('./usage-routes');
 const analyticsRoutes = require('./analytics-routes');
 const calendlyRoutes = require('./calendly-routes');
+const wherbyRoutes = require('./whereby-routes');
 
 const app = express();
 
@@ -63,6 +64,9 @@ app.use('/api', analyticsRoutes);
 
 // Mount calendly routes
 app.use('/api', calendlyRoutes);
+
+// Mount whereby routes
+app.use('/api', wherbyRoutes);
 
 // Health check
 app.get('/api/health', async (req, res) => {
