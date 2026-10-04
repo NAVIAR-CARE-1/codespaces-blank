@@ -11,6 +11,7 @@ const notifications = require('./notifications');
 const billingRoutes = require('./billing-routes');
 const documentRoutes = require('./documents-routes');
 const usageRoutes = require('./usage-routes');
+const analyticsRoutes = require('./analytics-routes');
 
 const app = express();
 
@@ -55,6 +56,9 @@ app.use('/api', documentRoutes);
 
 // Mount usage monitoring routes
 app.use('/api', usageRoutes);
+
+// Mount analytics routes
+app.use('/api', analyticsRoutes);
 
 // Health check
 app.get('/api/health', async (req, res) => {
