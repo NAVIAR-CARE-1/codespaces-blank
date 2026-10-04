@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NAVIAR — Organization Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="naviar.css">
+  <style>
+    :root {
+      --sidebar-width: 280px;
+      --header-height: 64px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+      background: var(--paper);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .dashboard-layout {
+      display: grid;
+      grid-template-columns: var(--sidebar-width) 1fr;
+      grid-template-rows: var(--header-height) 1fr;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .dashboard-header {
+      grid-column: 1 / -1;
+      background: white;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      padding: 0 var(--gutter);
+      gap: clamp(1rem, 2vw, 2rem);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .org-logo {
+      font-family: 'Sora', system-ui;
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--green-900);
+      text-decoration: none;
+    }
+
+    .header-spacer {
+      flex: 1;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .notification-bell {
+      width: 24px;
+      height: 24px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      color: var(--text-secondary);
+      font-size: 20px;
+      position: relative;
+    }
+
+    .notification-badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      width: 18px;
+      height: 18px;
+      background: var(--green-600);
+      color: white;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .user-menu {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .user-menu:hover {
+      background: var(--bg-secondary);
+    }
+
+    .user-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--green-600);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .user-info {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .user-info {
+        display: block;
+      }
+      .user-name {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text);
+      }
+      .user-role {
+        font-size: 12px;
+        color: var(--text-secondary);
+      }
+    }
+
+    /* Sidebar */
+    .dashboard-sidebar {
+      background: var(--bg-secondary);
+      border-right: 1px solid var(--border);
+      padding: var(--gutter);
+      overflow-y: auto;
+    }
+
+    .sidebar-section {
+      margin-bottom: 2rem;
+    }
+
+    .sidebar-title {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+      padding: 0 0.5rem;
+    }
+
+    .sidebar-nav {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .sidebar-nav-item {
+      margin: 0;
+    }
+
+    .sidebar-nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem;
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 14px;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+      font-family: inherit;
+    }
+
+    .sidebar-nav-link:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .sidebar-nav-link.active {
+      background: var(--green-600);
+      color: white;
+    }
+
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    /* Main Content */
+    .dashboard-content {
+      padding: var(--section) var(--gutter);
+      overflow-y: auto;
+    }
+
+    .content-header {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: var(--section);
+    }
+
+    @media (min-width: 768px) {
+      .content-header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .page-title {
+      font-family: 'Sora', system-ui;
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 700;
+      color: var(--green-900);
+      margin: 0;
+    }
+
+    .page-subtitle {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    .content-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: var(--green-600);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--green-700);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-secondary);
+    }
+
+    /* Metrics Grid */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--gutter);
+      margin-bottom: var(--section);
+    }
+
+    .metric-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: var(--gutter);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .metric-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      letter-spacing: 0.5px;
+    }
+
+    .metric-value {
+      font-family: 'Sora', system-ui;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--green-900);
+    }
+
+    .metric-change {
+      font-size: 12px;
+      color: var(--green-600);
+    }
+
+    /* Incidents Table */
+    .section-title {
+      font-family: 'Sora', system-ui;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text);
+      margin: var(--section) 0 var(--gutter) 0;
+    }
+
+    .table-wrapper {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: var(--section);
+    }
+
+    .table-toolbar {
+      display: flex;
+      gap: 1rem;
+      padding: var(--gutter);
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .search-input {
+      flex: 1;
+      min-width: 200px;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--text);
+      background: var(--paper);
+    }
+
+    .search-input::placeholder {
+      color: var(--text-secondary);
+    }
+
+    .filter-select {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--text);
+      background: white;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    thead {
+      background: var(--bg-secondary);
+    }
+
+    th {
+      padding: 1rem var(--gutter);
+      text-align: left;
+      font-weight: 600;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 1rem var(--gutter);
+      border-bottom: 1px solid var(--border);
+    }
+
+    tbody tr:hover {
+      background: var(--paper);
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 0.375rem 0.75rem;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+
+    .status-reported {
+      background: rgba(59, 130, 246, 0.1);
+      color: #1e40af;
+    }
+
+    .status-reviewed {
+      background: rgba(168, 85, 247, 0.1);
+      color: #6b21a8;
+    }
+
+    .status-in-progress {
+      background: rgba(234, 179, 8, 0.1);
+      color: #854d0e;
+    }
+
+    .status-closed {
+      background: rgba(34, 197, 94, 0.1);
+      color: #15803d;
+    }
+
+    .severity-low {
+      color: #059669;
+    }
+
+    .severity-medium {
+      color: #d97706;
+    }
+
+    .severity-high {
+      color: #dc2626;
+    }
+
+    .table-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .action-btn {
+      padding: 0.4rem 0.75rem;
+      border: 1px solid var(--border);
+      background: white;
+      border-radius: 4px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .action-btn:hover {
+      background: var(--bg-secondary);
+      border-color: var(--green-600);
+      color: var(--green-600);
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: var(--gutter);
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 600px;
+      max-height: 90vh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-header {
+      padding: var(--gutter);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      font-family: 'Sora', system-ui;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--text-secondary);
+    }
+
+    .modal-body {
+      padding: var(--gutter);
+      flex: 1;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--text);
+      background: white;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      outline: none;
+      border-color: var(--green-600);
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .modal-footer {
+      padding: var(--gutter);
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 3rem var(--gutter);
+    }
+
+    .empty-state-icon {
+      font-size: 48px;
+      margin-bottom: 1rem;
+    }
+
+    .empty-state-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .empty-state-text {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .dashboard-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .dashboard-sidebar {
+        position: fixed;
+        left: -280px;
+        top: var(--header-height);
+        width: var(--sidebar-width);
+        height: calc(100vh - var(--header-height));
+        z-index: 99;
+        transition: left 0.3s;
+        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .dashboard-sidebar.open {
+        left: 0;
+      }
+
+      .metrics-grid {
+        grid-template-columns: 1fr;
+      }
+
+      table {
+        font-size: 12px;
+      }
+
+      th, td {
+        padding: 0.75rem 0.5rem;
+      }
+
+      .table-actions {
+        flex-direction: column;
+      }
+    }
+
+    .lang-switcher {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    button.lang-btn.active {
+      background-color: var(--green-600);
+      color: white;
+      border-color: var(--green-600);
+    }
+
+    button.lang-btn:hover:not(.active) {
+      border-color: var(--green-600);
+      color: var(--green-600);
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- Header -->
+    <header class="dashboard-header">
+      <a href="/" class="org-logo">NAVIAR</a>
+      <div class="header-spacer"></div>
+      <div class="header-actions">
+        <div class="lang-switcher">
+          <button data-lang="no" class="lang-btn" aria-label="Switch to Norwegian" style="padding:6px 10px;border:1px solid rgba(15,35,30,.2);background:transparent;border-radius:4px;cursor:pointer;font-size:0.85rem;font-weight:500;color:var(--text);transition:all 0.2s;">NO</button>
+          <button data-lang="en" class="lang-btn" aria-label="Switch to English" style="padding:6px 10px;border:1px solid rgba(15,35,30,.2);background:transparent;border-radius:4px;cursor:pointer;font-size:0.85rem;font-weight:500;color:var(--text);transition:all 0.2s;">EN</button>
+          <button data-lang="tr" class="lang-btn" aria-label="Switch to Turkish" style="padding:6px 10px;border:1px solid rgba(15,35,30,.2);background:transparent;border-radius:4px;cursor:pointer;font-size:0.85rem;font-weight:500;color:var(--text);transition:all 0.2s;">TR</button>
+        </div>
+        <button class="notification-bell" aria-label="Notifications">
+          🔔
+          <span class="notification-badge">3</span>
+        </button>
+        <div class="user-menu">
+          <div class="user-avatar">BÖ</div>
+          <div class="user-info">
+            <div class="user-name">Betül Öner</div>
+            <div class="user-role">Admin</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">Dashboard</h3>
+        <ul class="sidebar-nav">
+          <li class="sidebar-nav-item">
+            <button class="sidebar-nav-link active" data-page="overview">
+              <span class="nav-icon">📊</span>
+              <span>Overview</span>
+            </button>
+          </li>
+          <li class="sidebar-nav-item">
+            <button class="sidebar-nav-link" data-page="incidents">
+              <span class="nav-icon">📋</span>
+              <span>Incidents</span>
+            </button>
+          </li>
+          <li class="sidebar-nav-item">
+            <button class="sidebar-nav-link" data-page="advisors">
+              <span class="nav-icon">👥</span>
+              <span>Advisors</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">Organization</h3>
+        <ul class="sidebar-nav">
+          <li class="sidebar-nav-item">
+            <button class="sidebar-nav-link" data-page="employees">
+              <span class="nav-icon">👤</span>
+              <span>Employees</span>
+            </button>
+          </li>
+          <li class="sidebar-nav-item">
+            <button class="sidebar-nav-link" data-page="settings">
+              <span class="nav-icon">⚙️</span>
+              <span>Settings</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-content">
+      <!-- Overview Page -->
+      <section id="overview-page" class="page-content">
+        <div class="content-header">
+          <div>
+            <h1 class="page-title">Overview</h1>
+            <p class="page-subtitle">Sick leave management and compliance dashboard</p>
+          </div>
+          <div class="content-actions">
+            <button class="btn btn-primary" id="report-incident-btn">
+              <span>➕</span>
+              <span>Report Incident</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-label">Active Cases</div>
+            <div class="metric-value">12</div>
+            <div class="metric-change">↑ 2 this week</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Avg Return to Work</div>
+            <div class="metric-value">32 days</div>
+            <div class="metric-change">↓ 5 days vs avg</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Compliance Status</div>
+            <div class="metric-value">100%</div>
+            <div class="metric-change">✓ All deadlines met</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Advisors Assigned</div>
+            <div class="metric-value">3</div>
+            <div class="metric-change">2 active cases each</div>
+          </div>
+        </div>
+
+        <h2 class="section-title">Recent Incidents</h2>
+        <div class="table-wrapper">
+          <div class="table-toolbar">
+            <input type="text" class="search-input" placeholder="Search by employee name or ID...">
+            <select class="filter-select">
+              <option value="">All Statuses</option>
+              <option value="reported">Reported</option>
+              <option value="reviewed">Reviewed</option>
+              <option value="in-progress">In Progress</option>
+              <option value="closed">Closed</option>
+            </select>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Employee</th>
+                <th>Start Date</th>
+                <th>Status</th>
+                <th>Severity</th>
+                <th>Advisor</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Anna Johansen</td>
+                <td>2026-09-15</td>
+                <td><span class="status-badge status-in-progress">In Progress</span></td>
+                <td><span class="severity-medium">Medium</span></td>
+                <td>Betül Öner</td>
+                <td>
+                  <div class="table-actions">
+                    <button class="action-btn" onclick="openIncidentModal('INC001')">View</button>
+                    <button class="action-btn" onclick="openScheduleFollowup('INC001')">Schedule</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Per Hansen</td>
+                <td>2026-09-22</td>
+                <td><span class="status-badge status-reported">Reported</span></td>
+                <td><span class="severity-high">High</span></td>
+                <td>—</td>
+                <td>
+                  <div class="table-actions">
+                    <button class="action-btn" onclick="openIncidentModal('INC002')">View</button>
+                    <button class="action-btn" onclick="openAssignAdvisor('INC002')">Assign</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Kari Nilsen</td>
+                <td>2026-08-20</td>
+                <td><span class="status-badge status-closed">Closed</span></td>
+                <td><span class="severity-low">Low</span></td>
+                <td>Betül Öner</td>
+                <td>
+                  <div class="table-actions">
+                    <button class="action-btn" onclick="openIncidentModal('INC003')">View</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Erik Larsen</td>
+                <td>2026-09-28</td>
+                <td><span class="status-badge status-reviewed">Reviewed</span></td>
+                <td><span class="severity-medium">Medium</span></td>
+                <td>—</td>
+                <td>
+                  <div class="table-actions">
+                    <button class="action-btn" onclick="openIncidentModal('INC004')">View</button>
+                    <button class="action-btn" onclick="openAssignAdvisor('INC004')">Assign</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Incidents Page (Hidden) -->
+      <section id="incidents-page" class="page-content" style="display:none;">
+        <div class="content-header">
+          <div>
+            <h1 class="page-title">Incidents</h1>
+            <p class="page-subtitle">Manage and track all sick leave reports</p>
+          </div>
+          <div class="content-actions">
+            <button class="btn btn-primary" id="new-incident-btn">
+              <span>➕</span>
+              <span>New Incident</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <div class="table-toolbar">
+            <input type="text" class="search-input" placeholder="Search incidents...">
+            <select class="filter-select">
+              <option value="">All Statuses</option>
+              <option value="reported">Reported</option>
+              <option value="reviewed">Reviewed</option>
+              <option value="in-progress">In Progress</option>
+              <option value="closed">Closed</option>
+            </select>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Employee</th>
+                <th>Duration</th>
+                <th>Status</th>
+                <th>Next Action</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>INC-2026-001</td>
+                <td>Anna Johansen</td>
+                <td>19 days</td>
+                <td><span class="status-badge status-in-progress">In Progress</span></td>
+                <td>Follow-up call</td>
+                <td>
+                  <div class="table-actions">
+                    <button class="action-btn">Edit</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>INC-2026-002</td>
+                <td>Per Hansen</td>
+                <td>6 days</td>
+                <td><span class="status-badge status-reported">Reported</span></td>
+                <td>Assign advisor</td>
+                <td>
+                  <div class="table-actions">
+                    <button class="action-btn">Edit</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Advisors Page (Hidden) -->
+      <section id="advisors-page" class="page-content" style="display:none;">
+        <div class="content-header">
+          <div>
+            <h1 class="page-title">Advisors</h1>
+            <p class="page-subtitle">Team and capacity management</p>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Active Cases</th>
+                <th>Capacity</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Betül Öner</td>
+                <td>betul@naviar.no</td>
+                <td>3</td>
+                <td>3 / 15</td>
+                <td><span class="status-badge status-in-progress">Active</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Employees Page (Hidden) -->
+      <section id="employees-page" class="page-content" style="display:none;">
+        <div class="content-header">
+          <div>
+            <h1 class="page-title">Employees</h1>
+            <p class="page-subtitle">Your organization's employee roster</p>
+          </div>
+          <div class="content-actions">
+            <button class="btn btn-secondary">Import CSV</button>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <div class="table-toolbar">
+            <input type="text" class="search-input" placeholder="Search employees...">
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Department</th>
+                <th>Active Cases</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Anna Johansen</td>
+                <td>anna.johansen@company.no</td>
+                <td>Operations</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>Per Hansen</td>
+                <td>per.hansen@company.no</td>
+                <td>Engineering</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>Kari Nilsen</td>
+                <td>kari.nilsen@company.no</td>
+                <td>Sales</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Erik Larsen</td>
+                <td>erik.larsen@company.no</td>
+                <td>Product</td>
+                <td>1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Settings Page (Hidden) -->
+      <section id="settings-page" class="page-content" style="display:none;">
+        <div>
+          <h1 class="page-title">Settings</h1>
+          <p class="page-subtitle">Organization configuration and preferences</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Report Incident Modal -->
+  <div class="modal" id="report-incident-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Report New Incident</h2>
+        <button class="modal-close" onclick="closeModal('report-incident-modal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="incident-form">
+          <div class="form-group">
+            <label class="form-label">Employee</label>
+            <select class="form-select" required>
+              <option value="">Select employee...</option>
+              <option value="anna">Anna Johansen</option>
+              <option value="per">Per Hansen</option>
+              <option value="kari">Kari Nilsen</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Start Date</label>
+            <input type="date" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Severity</label>
+            <select class="form-select" required>
+              <option value="">Select severity...</option>
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Reason / Notes</label>
+            <textarea class="form-textarea" placeholder="Brief description of the incident..."></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('report-incident-modal')">Cancel</button>
+        <button class="btn btn-primary" onclick="submitIncidentForm()">Report Incident</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Assign Advisor Modal -->
+  <div class="modal" id="assign-advisor-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Assign Advisor</h2>
+        <button class="modal-close" onclick="closeModal('assign-advisor-modal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="assign-form">
+          <div class="form-group">
+            <label class="form-label">Select Advisor</label>
+            <select class="form-select" required>
+              <option value="">Choose an advisor...</option>
+              <option value="betul">Betül Öner (3/15 cases)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Notes for Advisor</label>
+            <textarea class="form-textarea" placeholder="Any special instructions..."></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('assign-advisor-modal')">Cancel</button>
+        <button class="btn btn-primary" onclick="submitAssignForm()">Assign Advisor</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Schedule Followup Modal -->
+  <div class="modal" id="schedule-followup-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Schedule Follow-up</h2>
+        <button class="modal-close" onclick="closeModal('schedule-followup-modal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="followup-form">
+          <div class="form-group">
+            <label class="form-label">Follow-up Date</label>
+            <input type="date" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Action Description</label>
+            <textarea class="form-textarea" placeholder="What should happen during this follow-up..."></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('schedule-followup-modal')">Cancel</button>
+        <button class="btn btn-primary" onclick="submitFollowupForm()">Schedule</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Navigation
+    document.querySelectorAll('[data-page]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const page = e.target.closest('[data-page]').dataset.page;
+        navigateTo(page);
+      });
+    });
+
+    function navigateTo(page) {
+      // Hide all pages
+      document.querySelectorAll('.page-content').forEach(p => p.style.display = 'none');
+
+      // Show selected page
+      const pageEl = document.getElementById(`${page}-page`);
+      if (pageEl) pageEl.style.display = 'block';
+
+      // Update nav buttons
+      document.querySelectorAll('[data-page]').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.page === page) {
+          btn.classList.add('active');
+        }
+      });
+    }
+
+    // Modal functions
+    function openModal(modalId) {
+      document.getElementById(modalId).classList.add('open');
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.remove('open');
+    }
+
+    function openIncidentModal(incidentId) {
+      console.log('Opening incident:', incidentId);
+      alert(`Viewing incident ${incidentId}`);
+    }
+
+    function openAssignAdvisor(incidentId) {
+      document.getElementById('assign-advisor-modal').dataset.incidentId = incidentId;
+      openModal('assign-advisor-modal');
+    }
+
+    function openScheduleFollowup(incidentId) {
+      document.getElementById('schedule-followup-modal').dataset.incidentId = incidentId;
+      openModal('schedule-followup-modal');
+    }
+
+    function submitIncidentForm() {
+      const form = document.getElementById('incident-form');
+      if (form.checkValidity()) {
+        console.log('Submitting incident form');
+        closeModal('report-incident-modal');
+        alert('Incident reported successfully');
+      }
+    }
+
+    function submitAssignForm() {
+      const form = document.getElementById('assign-form');
+      if (form.checkValidity()) {
+        console.log('Submitting assign form');
+        closeModal('assign-advisor-modal');
+        alert('Advisor assigned successfully');
+      }
+    }
+
+    function submitFollowupForm() {
+      const form = document.getElementById('followup-form');
+      if (form.checkValidity()) {
+        console.log('Submitting followup form');
+        closeModal('schedule-followup-modal');
+        alert('Follow-up scheduled successfully');
+      }
+    }
+
+    // Button event listeners
+    document.getElementById('report-incident-btn')?.addEventListener('click', () => {
+      openModal('report-incident-modal');
+    });
+
+    document.getElementById('new-incident-btn')?.addEventListener('click', () => {
+      openModal('report-incident-modal');
+    });
+
+    // Close modal when clicking outside
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal(modal.id);
+        }
+      });
+    });
+  </script>
+
+  <script src="./language-switcher.js"></script>
+</body>
+</html>

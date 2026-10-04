@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="nb">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NAVIAR CONSULT — Profesjonell sykefraværsoppfølging</title>
+  <meta name="description" content="NAVIAR CONSULT: Strukturert sykefraværsoppfølging, individuell rådgivning og bedriftsløsninger. Uavhengig, tillitsvekkende støtte.">
+  <meta name="theme-color" content="#fcfbf7">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="NAVIAR CONSULT — Profesjonell rådgivning ved sykefravær">
+  <meta property="og:description" content="Struktur, fremdrift og lederstøtte i komplekse sykefraværsforløp.">
+  <meta property="og:image" content="/og-image.png">
+  <link rel="stylesheet" href="./naviar.css">
+  <style>
+    .hero-vis{display:grid;gap:48px}@media(min-width:769px){.hero-vis{grid-template-columns:1fr 1fr}}
+    .hero-vis img{width:100%;height:auto;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .services{margin-top:48px}.service{padding:28px 0;border-bottom:1px solid var(--line)}
+    .service h3{font-size:clamp(1.15rem,1.8vw,1.35rem);margin-bottom:8px}
+    .service p{color:var(--ink-soft)}
+    .process{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:48px}
+    .step{padding:28px;border:1px solid var(--line);border-radius:var(--radius);transition:all var(--medium) ease}
+    .step:hover{border-color:var(--brass);background:var(--mist)}
+    .step .num{font-family:var(--font-mono);font-size:var(--text-xs);letter-spacing:.1em;color:var(--brass-text);margin-bottom:12px}
+    .proof-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:48px}
+    .proof{padding:32px;border:1px solid var(--line);border-radius:var(--radius);background:var(--mist);transition:all var(--medium) ease}
+    .proof:hover{border-color:var(--brass);background:var(--white);box-shadow:var(--shadow)}
+    .proof-val{font-family:var(--font-mono);font-size:var(--text-xs);letter-spacing:.1em;color:var(--brass-text);margin-bottom:12px}
+    .bio{display:grid;gap:48px}@media(min-width:769px){.bio{grid-template-columns:1fr 1fr}}
+    .bio-photo{width:100%;height:auto;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .bio-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px;margin-top:32px}
+    .bio-meta-item{padding:18px;border-top:2px solid var(--brass);background:var(--mist)}
+    .bio-meta dt{font-family:var(--font-mono);font-size:var(--text-xs);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+    .bio-meta dd{font-weight:600;color:var(--ink)}
+    .boundary-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:24px}
+    .boundary-item{padding:12px 16px;background:var(--mist);border-left:2px solid var(--brass);font-size:.9rem;color:var(--muted)}
+    .form-grid{display:grid;gap:18px;max-width:500px}
+    .form-field label{font-weight:600;font-size:var(--text-sm);color:var(--paper);margin-bottom:6px;display:block}
+    .form-field input,.form-field textarea{width:100%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:var(--paper);padding:12px 14px;border-radius:var(--radius);font-size:.95rem;font-family:var(--font-body);transition:all var(--fast) ease}
+    .form-field input::placeholder,.form-field textarea::placeholder{color:rgba(255,255,255,.6)}
+    .form-field input:focus,.form-field textarea:focus{border-color:var(--paper);background:rgba(255,255,255,.18);outline:none}
+    .form-field textarea{min-height:120px;resize:vertical}
+    .form-note{font-family:var(--font-mono);font-size:var(--text-xs);color:rgba(252,251,247,.62);margin-top:16px;letter-spacing:.04em}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Hopp til hovedinnhold</a>
+
+  <header class="header">
+    <div class="container">
+      <div class="header-row">
+        <a href="/" class="wordmark" aria-label="NAVIAR CONSULT">
+          <svg width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="2" fill="#0b2c26"/>
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="var(--font-display)" font-size="24" font-weight="700" fill="#fcfbf7">N</text>
+          </svg>
+        </a>
+        <nav class="nav" aria-label="Hovednavigasjon">
+          <a href="/#tjenester">Tjenester</a>
+          <a href="/#metode">Metode</a>
+          <a href="/#om">Om Betül</a>
+          <a href="/#kontakt" class="button button-brass">Kontakt</a>
+          <div class="lang-selector" style="display:flex;gap:8px;align-items:center;margin-left:auto;padding:0 12px;">
+            <button data-lang="no" class="lang-btn" aria-label="Switch to Norwegian" style="padding:6px 10px;border:1px solid rgba(15,35,30,.2);background:transparent;border-radius:4px;cursor:pointer;font-size:0.85rem;font-weight:500;color:var(--text);transition:all 0.2s;">NO</button>
+            <button data-lang="en" class="lang-btn" aria-label="Switch to English" style="padding:6px 10px;border:1px solid rgba(15,35,30,.2);background:transparent;border-radius:4px;cursor:pointer;font-size:0.85rem;font-weight:500;color:var(--text);transition:all 0.2s;">EN</button>
+            <button data-lang="tr" class="lang-btn" aria-label="Switch to Turkish" style="padding:6px 10px;border:1px solid rgba(15,35,30,.2);background:transparent;border-radius:4px;cursor:pointer;font-size:0.85rem;font-weight:500;color:var(--text);transition:all 0.2s;">TR</button>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <style>
+    button.lang-btn.active {
+      background-color: var(--green-600);
+      color: white;
+      border-color: var(--green-600);
+    }
+    button.lang-btn:hover:not(.active) {
+      border-color: var(--green-600);
+      color: var(--green-600);
+    }
+  </style>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero section-hairline">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">Rådgivning</div>
+            <h1>Riktig støtte.<br><span style="color:var(--green-700)">Riktig person.<br>Riktig tid.</span></h1>
+            <p class="lead">NAVIAR CONSULT gir virksomheter struktur i sykefraværsoppfølging og ansatte en uavhengig stemme når det gjelder arbeid og helse.</p>
+            <div class="hero-actions" style="gap:16px;margin-top:32px">
+              <a href="#kontakt" class="button button-lg">Start konsultasjon</a>
+              <a href="#metode" class="button button-lg button-ghost">Lær mer om metode</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tjenester -->
+    <section id="tjenester" class="section section-hairline">
+      <div class="container">
+        <h2 class="h2">Vier tjenestekategorier</h2>
+        <p class="lead">Fra forebygging til return-to-work</p>
+        <div class="services">
+          <div class="service">
+            <h3 style="color:var(--green-900)">PREVENT — Forebygging</h3>
+            <p>Identifisere risikofaktorer før fraværet oppstår. Helse- og sikkerhetskommunikasjon som bygger trygghet.</p>
+          </div>
+          <div class="service">
+            <h3 style="color:var(--green-900)">FOLLOW — Strukturert oppfølging</h3>
+            <p>Tidsplan, ansvar, kommunikasjon. Klarhet for alle parter mens arbeidstakeren fokuserer på recovery.</p>
+          </div>
+          <div class="service">
+            <h3 style="color:var(--green-900)">RESOLVE — Problem-løsing</h3>
+            <p>Når vanlig oppfølging ikke strekker til. Rådgivning om tilrettelegging, funksjonsvurdering, og ekspertstøtte.</p>
+          </div>
+          <div class="service">
+            <h3 style="color:var(--green-900)">RETURN — Retur til arbeid</h3>
+            <p>Planlegging og praktisk gjennomføring av tilbakekoming. Sikre at oppfølgingen opphører når den ikke lenger trengs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metode -->
+    <section id="metode" class="section section-hairline">
+      <div class="container">
+        <h2 class="h2">NAVIAR-metodikken</h2>
+        <p class="lead">Seks trinn for strukturert prosess</p>
+        <div class="process">
+          <div class="step">
+            <div class="num">1</div>
+            <h3>Møte &<br>kartlegging</h3>
+            <p>Forstå situasjonen, behov og grenser.</p>
+          </div>
+          <div class="step">
+            <div class="num">2</div>
+            <h3>Avtale &<br>samtykke</h3>
+            <p>Klar enighet om rolle, taushetsplikt og mål.</p>
+          </div>
+          <div class="step">
+            <div class="num">3</div>
+            <h3>Planlegging &<br>oppfølging</h3>
+            <p>Tidsplan, checkpoint, og ansvar fordelt.</p>
+          </div>
+          <div class="step">
+            <div class="num">4</div>
+            <h3>Intervensjon</h3>
+            <p>Rådgivning, dialog, problemløsing etter behov.</p>
+          </div>
+          <div class="step">
+            <div class="num">5</div>
+            <h3>Evaluering &<br>justering</h3>
+            <p>Mål nådd? Justere kurs hvis nødvendig.</p>
+          </div>
+          <div class="step">
+            <div class="num">6</div>
+            <h3>Avslutning &<br>oppfølging</h3>
+            <p>Dokumentasjon, læring, og slutt på konsultasjon.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prinsipp -->
+    <section style="background:var(--green-900);color:var(--paper);" class="section">
+      <div class="container">
+        <h2 class="h2" style="color:var(--paper)">Tre kjerneprinsipper</h2>
+        <div class="proof-grid" style="margin-top:64px">
+          <div class="proof" style="background:rgba(252,251,247,.08);border-color:rgba(252,251,247,.15)">
+            <div class="proof-val" style="color:var(--brass-soft)">PRINSIPP 1</div>
+            <h3 style="color:var(--paper);font-size:1.4rem">Klarhet</h3>
+            <p style="color:rgba(252,251,247,.82)">Alle skal forstå hva som skjer, hvorfor, og hvem som gjør hva.</p>
+          </div>
+          <div class="proof" style="background:rgba(252,251,247,.08);border-color:rgba(252,251,247,.15)">
+            <div class="proof-val" style="color:var(--brass-soft)">PRINSIPP 2</div>
+            <h3 style="color:var(--paper);font-size:1.4rem">Retning</h3>
+            <p style="color:rgba(252,251,247,.82)">Prosessen har et mål. Uten retning, blir fravæeret kronisk.</p>
+          </div>
+          <div class="proof" style="background:rgba(252,251,247,.08);border-color:rgba(252,251,247,.15)">
+            <div class="proof-val" style="color:var(--brass-soft)">PRINSIPP 3</div>
+            <h3 style="color:var(--paper);font-size:1.4rem">Fremdrift</h3>
+            <p style="color:rgba(252,251,247,.82)">Handlinger, evalueringer, og justering - ikke bare venting.</p>
+          </div>
+        </div>
+
+        <div class="boundary" style="border-top-color:rgba(252,251,247,.2)">
+          <h3 style="color:var(--paper)">Hva vi IKKE gjør</h3>
+          <div class="boundary-list" style="margin-top:24px">
+            <div class="boundary-item" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:rgba(252,251,247,.82)">– Erstatte lege eller psykolog</div>
+            <div class="boundary-item" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:rgba(252,251,247,.82)">– Pålegge diagnose eller behandling</div>
+            <div class="boundary-item" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:rgba(252,251,247,.82)">– Rapportere til arbeidsgiver om helse</div>
+            <div class="boundary-item" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:rgba(252,251,247,.82)">– Værepart i arbeidskonflikter</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Om -->
+    <section id="om" class="section section-hairline">
+      <div class="container">
+        <h2 class="h2" style="margin-bottom:12px">Betül Öner</h2>
+        <p class="lead" style="margin-bottom:48px">Uavhengig rådgiver. 20+ år erfaring fra arbeidslivet og NAV.</p>
+
+        <div class="bio">
+          <img src="./betul-oner.webp" alt="Betül Öner, rådgiver" class="bio-photo">
+          <div>
+            <p>Betül har arbeidet som saksbehandler og leder i NAV i over 10 år, med spesialisering i sykefraværsoppfølging og arbeidsinkludering. Hun har møtt hundrevis av mennesker i komplekse arbeidsforløp og forstår både bedriftens behov og den enkelte arbeidstakers perspektiv.</p>
+            <p>Som uavhengig konsulent bygger hun på denne erfaringen, men med fokus på det som virker best for hver enkelt situasjon — ikke på gamle systemkrav eller institusjonelle interesser.</p>
+            <dl class="bio-meta">
+              <div class="bio-meta-item">
+                <dt>Erfaring</dt>
+                <dd>NAV, Arbeidsinkludering, Sykefravær</dd>
+              </div>
+              <div class="bio-meta-item">
+                <dt>Utdanning</dt>
+                <dd>Cand. polit (statsvitenskap)</dd>
+              </div>
+              <div class="bio-meta-item">
+                <dt>Tilgjengelig</dt>
+                <dd>Telefon, video, møte</dd>
+              </div>
+              <div class="bio-meta-item">
+                <dt>Organisasjonsnummer</dt>
+                <dd>938 600 163</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="kontakt" style="background:var(--green-900);color:var(--paper);" class="section">
+      <div class="container">
+        <h2 class="h2" style="color:var(--paper);margin-bottom:28px">Start konsultasjon</h2>
+        <p class="lead" style="color:rgba(252,251,247,.82);margin-bottom:48px">Send melding eller ring. Vi svarer innen 24 timer på hverdager.</p>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="name">Navn</label>
+            <input type="text" id="name" placeholder="Ditt navn" required>
+          </div>
+          <div class="form-field">
+            <label for="email">E-post</label>
+            <input type="email" id="email" placeholder="din@epost.no" required>
+          </div>
+          <div class="form-field">
+            <label for="phone">Telefon (valgfritt)</label>
+            <input type="tel" id="phone" placeholder="+47 ">
+          </div>
+          <div class="form-field">
+            <label for="message">Kort beskrivelse av situasjonen</label>
+            <textarea id="message" placeholder="Hva slags støtte søker du?" required></textarea>
+          </div>
+          <button class="button button-lg" style="background:#fcfbf7;color:var(--green-900);border-color:#fcfbf7;cursor:not-allowed;opacity:.7">Demo — Sending ikke aktiv</button>
+          <p class="form-note">Vi tar personvern alvorlig. Se vår <a href="/personvern.html" style="color:var(--brass-soft);text-decoration:underline">personvernpolicy</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background:var(--green-950);color:var(--paper);padding:56px 0;border-top:1px solid var(--line)">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr auto;gap:32px;margin-bottom:32px">
+        <div>
+          <p style="margin:0;font-weight:600">NAVIAR CONSULT</p>
+          <p style="margin:8px 0 0;color:rgba(252,251,247,.62);font-size:.9rem">Uavhengig rådgivning i sykefraværsoppfølging</p>
+          <p style="margin:16px 0 0;color:rgba(252,251,247,.62);font-size:.85rem;line-height:1.5">Org.nr. 938 600 163<br>E-post: <a href="mailto:info@naviar-consult.no" style="color:var(--brass);text-decoration:none">info@naviar-consult.no</a></p>
+        </div>
+        <nav style="display:flex;flex-direction:column;gap:12px;text-align:right;font-size:.9rem">
+          <a href="/personvern.html" style="color:rgba(252,251,247,.72);text-decoration:none;transition:color var(--fast) ease" onmouseover="this.style.color='var(--brass)'" onmouseout="this.style.color='rgba(252,251,247,.72)'">Personvern</a>
+          <a href="/vilkar.html" style="color:rgba(252,251,247,.72);text-decoration:none;transition:color var(--fast) ease" onmouseover="this.style.color='var(--brass)'" onmouseout="this.style.color='rgba(252,251,247,.72)'">Vilkår</a>
+          <a href="/naviar-start.html" style="color:rgba(252,251,247,.72);text-decoration:none;transition:color var(--fast) ease" onmouseover="this.style.color='var(--brass)'" onmouseout="this.style.color='rgba(252,251,247,.72)'">Start guide</a>
+        </nav>
+      </div>
+      <p style="margin:0;padding-top:24px;border-top:1px solid rgba(252,251,247,.12);color:rgba(252,251,247,.52);font-size:.85rem">© 2026 NAVIAR CONSULT. Alle rettigheter reservert.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const id = a.getAttribute('href').slice(1);
+        document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+      });
+    });
+  </script>
+  <script src="./language-switcher.js"></script>
+</body>
+</html>

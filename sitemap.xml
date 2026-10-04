@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://naviar-consult-three.vercel.app/</loc>
+    <xhtml:link rel="alternate" hreflang="nb-NO" href="https://naviar-consult-three.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://naviar-consult-three.vercel.app/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://naviar-consult-three.vercel.app/?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://naviar-consult-three.vercel.app/"/>
+  </url>
+  <url><loc>https://naviar-consult-three.vercel.app/naviar-start</loc>
+    <xhtml:link rel="alternate" hreflang="nb-NO" href="https://naviar-consult-three.vercel.app/naviar-start"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://naviar-consult-three.vercel.app/naviar-start?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://naviar-consult-three.vercel.app/naviar-start?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://naviar-consult-three.vercel.app/naviar-start"/>
+  </url>
+  <url><loc>https://naviar-consult-three.vercel.app/personvern</loc>
+    <xhtml:link rel="alternate" hreflang="nb-NO" href="https://naviar-consult-three.vercel.app/personvern"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://naviar-consult-three.vercel.app/personvern?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://naviar-consult-three.vercel.app/personvern?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://naviar-consult-three.vercel.app/personvern"/>
+  </url>
+  <url><loc>https://naviar-consult-three.vercel.app/vilkar</loc>
+    <xhtml:link rel="alternate" hreflang="nb-NO" href="https://naviar-consult-three.vercel.app/vilkar"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://naviar-consult-three.vercel.app/vilkar?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://naviar-consult-three.vercel.app/vilkar?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://naviar-consult-three.vercel.app/vilkar"/>
+  </url>
+</urlset>

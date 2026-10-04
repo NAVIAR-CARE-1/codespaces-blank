@@ -1,0 +1,136 @@
+/* ==========================================================================
+   NAVIAR Consult — language selector, mobile navigation, i18n transitions
+   Loaded after naviar.css (WEB-28); uses its custom properties.
+   ========================================================================== */
+
+/* --------------------------------------------------- language buttons */
+.languages {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+.languages .lang-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--muted, #5f6e68);
+  padding: 6px 7px;
+  min-width: 34px;
+  min-height: 34px;
+  line-height: 1;
+  font: inherit;
+  font-weight: 800;
+  letter-spacing: .08em;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  border-radius: var(--radius, 2px);
+  transition: color var(--fast,160ms) ease, border-color var(--fast,160ms) ease, background-color var(--fast,160ms) ease;
+}
+.languages .lang-btn:hover { color: var(--ink, #0b2c26); background: var(--warm, #f2efe7); }
+.languages .lang-btn.active,
+.languages .lang-btn[aria-pressed="true"] {
+  color: var(--ink, #0b2c26);
+  border-bottom-color: var(--brass, #b88a44);
+  cursor: default;
+}
+.languages .lang-btn:focus-visible {
+  outline: 2px solid var(--brass-text, #866229);
+  outline-offset: 2px;
+}
+/* keep visible on phones — the WEB-27 base hides .languages under 720px */
+@media (max-width: 720px) {
+  .languages { display: flex !important; }
+  .languages .lang-btn { min-width: 40px; min-height: 40px; padding: 8px 6px; font-size: .72rem; }
+}
+/* 320 px: NO·EN·TR + menu toggle must fit without horizontal overflow */
+@media (max-width: 360px) {
+  .languages .lang-btn { min-width: 34px; padding: 8px 4px; }
+}
+
+/* ------------------------------------------------ pre-paint transition */
+/* Visitors with EN/TR stored: hide translatable text until the JSON is
+   applied (≤1.8 s safety timeout is set inline in <head>). */
+html.i18n-pending [data-i18n] { visibility: hidden; }
+html:not(.i18n-pending) [data-i18n] { transition: opacity var(--medium,280ms) ease; }
+
+/* ------------------------------------------------------- mobile menu */
+.menu-toggle {
+  display: none;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid var(--line, #d4d8d2);
+  background: var(--paper, #fbfaf6);
+  border-radius: var(--radius, 2px);
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+.menu-toggle .menu-bar {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--ink, #0b2c26);
+  transition: transform var(--fast,160ms) ease, opacity var(--fast,160ms) ease;
+}
+.menu-toggle:focus-visible { outline: 2px solid var(--brass-text, #866229); outline-offset: 2px; }
+.menu-toggle[aria-expanded="true"] .menu-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] .menu-bar:nth-child(2) { opacity: 0; }
+.menu-toggle[aria-expanded="true"] .menu-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 1200px) {
+  .nav { display: none; }
+  .menu-toggle { display: flex; }
+  .header { position: sticky; }
+  /* The base sheet sets .nav{display:none} here; we turn it into a panel. */
+  html.nav-open .nav {
+    display: flex !important;
+    position: absolute;
+    left: 0; right: 0;
+    top: 100%;
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 4vw 16px;
+    background: rgba(251, 250, 246, .98);
+    border-bottom: 1px solid var(--line, #d4d8d2);
+    box-shadow: 0 24px 60px rgba(3, 28, 24, .12);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    z-index: 70;
+  }
+  html.nav-open .nav a {
+    padding: 14px 4px;
+    border-bottom: 1px solid var(--line, #d4d8d2);
+    font-size: 1rem;
+  }
+  html.nav-open .nav a:last-child { border-bottom: 0; }
+  html.nav-open { overflow: hidden; }
+}
+
+/* ------------------------------------------------ reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .languages .lang-btn, .menu-toggle .menu-bar, [data-i18n] { transition: none !important; }
+}
+
+/* ------------------------------------------------ print */
+@media print {
+  .languages, .menu-toggle, .review, .skip { display: none !important; }
+}
+
+/* ------------------------------------------------ header fit (EN/TR labels are longer) */
+.nav a { white-space: nowrap; }
+@media (max-width: 1320px) { .nav { gap: 16px; } .nav a { font-size: .8rem; } }
+@media (min-width: 1201px) and (max-width: 1320px) {
+  .header-row { gap: 18px; }
+  .header-actions .button { padding: 11px 14px; font-size: .84rem; }
+}
+@media (max-width: 1200px) {
+  html.nav-open .nav { background: var(--paper, #fbfaf6); }
+}

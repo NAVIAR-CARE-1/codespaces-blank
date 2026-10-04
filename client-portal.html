@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NAVIAR CONSULT — Client Portal</title>
+  <link rel="stylesheet" href="naviar.css">
+  <style>
+    :root {
+      --client-accent: #0891b2;
+      --client-light: #ecf0f1;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --info: #3b82f6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      background-color: var(--paper);
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    .client-header {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 2rem);
+    }
+
+    .client-header-content {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: clamp(1rem, 3vw, 2rem);
+    }
+
+    .client-logo {
+      font-size: clamp(1.125rem, 3vw, 1.5rem);
+      font-weight: 700;
+      color: var(--green-900);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .client-logo svg {
+      width: clamp(1.5rem, 4vw, 2rem);
+      height: clamp(1.5rem, 4vw, 2rem);
+    }
+
+    .client-user-menu {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .client-user-info {
+      text-align: right;
+    }
+
+    .client-user-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .client-user-status {
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+
+    .client-logout-btn {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.875rem;
+      color: #6b7280;
+      transition: all 0.2s;
+    }
+
+    .client-logout-btn:hover {
+      border-color: var(--green-600);
+      color: var(--green-600);
+    }
+
+    .client-container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: clamp(1rem, 3vw, 2rem);
+    }
+
+    .client-welcome {
+      background: linear-gradient(135deg, var(--green-900) 0%, var(--green-600) 100%);
+      color: white;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      border-radius: 8px;
+      margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    .client-welcome h1 {
+      margin: 0 0 0.5rem 0;
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+    }
+
+    .client-welcome p {
+      margin: 0;
+      font-size: clamp(0.95rem, 2vw, 1.125rem);
+      opacity: 0.95;
+    }
+
+    .client-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: clamp(1rem, 3vw, 2rem);
+      margin-bottom: clamp(2rem, 5vw, 3rem);
+    }
+
+    .client-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: clamp(1.25rem, 3vw, 1.75rem);
+      transition: all 0.3s;
+    }
+
+    .client-card:hover {
+      border-color: var(--green-600);
+      box-shadow: 0 4px 12px rgba(34, 197, 94, 0.1);
+    }
+
+    .client-card h2 {
+      margin: 0 0 0.75rem 0;
+      font-size: clamp(1.125rem, 2vw, 1.375rem);
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      color: var(--green-900);
+    }
+
+    .client-card p {
+      margin: 0 0 1rem 0;
+      font-size: 0.95rem;
+      color: #6b7280;
+    }
+
+    .client-stat {
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--green-600);
+      margin-bottom: 0.5rem;
+    }
+
+    .client-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: clamp(1.5rem, 4vw, 2rem);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .client-tab {
+      background: none;
+      border: none;
+      padding: clamp(0.75rem, 2vw, 1rem) clamp(1rem, 2vw, 1.5rem);
+      cursor: pointer;
+      font-size: clamp(0.9rem, 1vw, 1rem);
+      color: #6b7280;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .client-tab:hover {
+      color: var(--green-600);
+    }
+
+    .client-tab.active {
+      color: var(--green-900);
+      border-color: var(--green-600);
+    }
+
+    .client-tab-content {
+      display: none;
+    }
+
+    .client-tab-content.active {
+      display: block;
+    }
+
+    .client-consultations-list {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(1rem, 3vw, 1.5rem);
+    }
+
+    .client-consultation {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: clamp(1rem, 3vw, 1.5rem);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    @media (max-width: 640px) {
+      .client-consultation {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .client-consultation-info h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .client-consultation-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-bottom: 0.75rem;
+    }
+
+    .client-consultation-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      width: fit-content;
+      margin-bottom: 0.75rem;
+    }
+
+    .client-consultation-badge.scheduled {
+      background-color: #dbeafe;
+      color: #1e40af;
+    }
+
+    .client-consultation-badge.completed {
+      background-color: #d1fae5;
+      color: #065f46;
+    }
+
+    .client-consultation-badge.cancelled {
+      background-color: #fee2e2;
+      color: #7f1d1d;
+    }
+
+    .client-consultation-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .client-btn {
+      padding: clamp(0.625rem, 2vw, 0.75rem) clamp(1rem, 2vw, 1.25rem);
+      border-radius: 4px;
+      font-size: clamp(0.875rem, 1vw, 0.95rem);
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+      font-weight: 500;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .client-btn-primary {
+      background: var(--green-600);
+      color: white;
+    }
+
+    .client-btn-primary:hover {
+      background: var(--green-700);
+    }
+
+    .client-btn-secondary {
+      background: white;
+      color: var(--green-600);
+      border: 1px solid var(--green-600);
+    }
+
+    .client-btn-secondary:hover {
+      background: #f0fdf4;
+    }
+
+    .client-btn-small {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+    }
+
+    .client-progress {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: clamp(1.25rem, 3vw, 2rem);
+      margin-bottom: clamp(1rem, 3vw, 1.5rem);
+    }
+
+    .client-progress-bar {
+      background: #e5e7eb;
+      height: 8px;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .client-progress-fill {
+      background: var(--green-600);
+      height: 100%;
+      transition: width 0.3s;
+    }
+
+    .client-progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-bottom: 0.75rem;
+    }
+
+    .client-timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .client-timeline-item {
+      position: relative;
+      padding-bottom: 1.5rem;
+    }
+
+    .client-timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.5rem;
+      top: 0.25rem;
+      width: 12px;
+      height: 12px;
+      background: var(--green-600);
+      border-radius: 50%;
+      border: 2px solid white;
+      box-shadow: 0 0 0 1px var(--green-600);
+    }
+
+    .client-timeline-item.pending::before {
+      background: #e5e7eb;
+      box-shadow: 0 0 0 1px #d1d5db;
+    }
+
+    .client-timeline-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: -1.46rem;
+      top: 1.25rem;
+      width: 2px;
+      height: calc(100% - 0.5rem);
+      background: #e5e7eb;
+    }
+
+    .client-timeline-item h4 {
+      margin: 0 0 0.25rem 0;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .client-timeline-item p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    .client-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .client-modal.active {
+      display: flex;
+    }
+
+    .client-modal-content {
+      background: white;
+      border-radius: 8px;
+      max-width: 90vw;
+      width: 500px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: clamp(1.5rem, 4vw, 2rem);
+    }
+
+    .client-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .client-modal-header h2 {
+      margin: 0;
+      font-size: clamp(1.25rem, 3vw, 1.5rem);
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      color: var(--green-900);
+    }
+
+    .client-modal-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #6b7280;
+      transition: color 0.2s;
+    }
+
+    .client-modal-close:hover {
+      color: var(--text);
+    }
+
+    .client-form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .client-form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .client-form-input,
+    .client-form-select,
+    .client-form-textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+
+    .client-form-input:focus,
+    .client-form-select:focus,
+    .client-form-textarea:focus {
+      outline: none;
+      border-color: var(--green-600);
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+    }
+
+    .client-form-textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .client-modal-footer {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+      margin-top: 2rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+    }
+
+    .client-loading {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      color: #6b7280;
+    }
+
+    .client-error {
+      background-color: #fee2e2;
+      color: #991b1b;
+      padding: 1rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      display: none;
+    }
+
+    .client-success {
+      background-color: #d1fae5;
+      color: #065f46;
+      padding: 1rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      display: none;
+    }
+
+    .client-empty-state {
+      text-align: center;
+      padding: clamp(2rem, 5vw, 3rem);
+      color: #6b7280;
+    }
+
+    .client-empty-state-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      opacity: 0.5;
+    }
+
+    .client-empty-state h3 {
+      margin: 0 0 0.5rem 0;
+      color: var(--text);
+      font-size: 1.125rem;
+    }
+
+    .client-empty-state p {
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .client-header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .client-user-menu {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .client-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .client-modal-content {
+        width: 95%;
+      }
+
+      .client-tabs {
+        gap: 0;
+      }
+
+      .client-tab {
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
+      }
+    }
+
+    .client-booking-step {
+      margin-bottom: 1.5rem;
+    }
+
+    .client-advisor-card {
+      background: #f9fafb;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .client-advisor-card:hover {
+      border-color: var(--green-600);
+      background: white;
+    }
+
+    .client-advisor-card.selected {
+      border-color: var(--green-600);
+      background: #f0fdf4;
+    }
+
+    .client-advisor-name {
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .client-advisor-credentials {
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin-bottom: 0.5rem;
+    }
+
+    .client-advisor-availability {
+      font-size: 0.8rem;
+      color: var(--green-600);
+    }
+
+    .client-time-slots {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: 0.5rem;
+    }
+
+    .client-time-slot {
+      padding: 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      text-align: center;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .client-time-slot:hover {
+      border-color: var(--green-600);
+    }
+
+    .client-time-slot.selected {
+      background: var(--green-600);
+      color: white;
+      border-color: var(--green-600);
+    }
+
+    .client-time-slot.unavailable {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="client-header">
+    <div class="client-header-content">
+      <a href="#" class="client-logo">
+        <svg viewBox="0 0 32 32" fill="currentColor">
+          <path d="M16 2C8.27 2 2 8.27 2 16s6.27 14 14 14 14-6.27 14-14S23.73 2 16 2zm0 2c6.63 0 12 5.37 12 12s-5.37 12-12 12-12-5.37-12-12 5.37-12 12-12zm3 6h-6v8h2v-6h4v6h2V10zm-8 10h8v2h-8z"/>
+        </svg>
+        NAVIAR CONSULT
+      </a>
+      <div class="client-user-menu">
+        <div class="client-user-info">
+          <div class="client-user-name" id="userNameDisplay">Loading...</div>
+          <div class="client-user-status">Individual Client</div>
+        </div>
+        <button class="client-logout-btn" onclick="handleLogout()">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="client-container">
+    <!-- Welcome Section -->
+    <div class="client-welcome">
+      <h1>Welcome back</h1>
+      <p>Your health journey, supported by professional advisors</p>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="client-grid">
+      <div class="client-card">
+        <h2>Upcoming Consultation</h2>
+        <div class="client-stat" id="nextConsultationDate">—</div>
+        <p id="nextConsultationStatus">No scheduled consultations</p>
+      </div>
+      <div class="client-card">
+        <h2>Return-to-Work Progress</h2>
+        <div class="client-progress">
+          <div class="client-progress-bar">
+            <div class="client-progress-fill" id="progressFill" style="width: 35%;"></div>
+          </div>
+          <div class="client-progress-label">
+            <span>Estimated timeline</span>
+            <span id="progressPercent">35%</span>
+          </div>
+        </div>
+      </div>
+      <div class="client-card">
+        <h2>Completed Consultations</h2>
+        <div class="client-stat" id="completedCount">0</div>
+        <p id="completedStatus">All sessions tracked</p>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="client-tabs">
+      <button class="client-tab active" onclick="switchTab('consultations')">My Consultations</button>
+      <button class="client-tab" onclick="switchTab('progress')">My Progress</button>
+      <button class="client-tab" onclick="switchTab('resources')">Resources & Guidelines</button>
+      <button class="client-tab" onclick="switchTab('settings')">Account Settings</button>
+    </div>
+
+    <!-- Tab Contents -->
+
+    <!-- Consultations Tab -->
+    <div id="consultations" class="client-tab-content active">
+      <div class="client-success" id="successMessage"></div>
+      <div class="client-error" id="errorMessage"></div>
+
+      <div style="margin-bottom: 1.5rem;">
+        <button class="client-btn client-btn-primary" onclick="openBookingModal()">
+          Book New Consultation
+        </button>
+      </div>
+
+      <div class="client-consultations-list" id="consultationsList">
+        <div class="client-empty-state">
+          <div class="client-empty-state-icon">📅</div>
+          <h3>No consultations yet</h3>
+          <p>Book your first consultation with a professional advisor</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress Tab -->
+    <div id="progress" class="client-tab-content">
+      <div class="client-progress">
+        <div class="client-progress-label">
+          <span>Estimated Time to Return to Work</span>
+          <span>35% complete</span>
+        </div>
+        <div class="client-progress-bar">
+          <div class="client-progress-fill" style="width: 35%;"></div>
+        </div>
+        <p style="color: #6b7280; font-size: 0.9rem; margin: 0;">Based on your current trajectory, expected return to work: 2026-11-15</p>
+      </div>
+
+      <div style="margin-top: 2rem;">
+        <h3 style="font-family: 'Sora', sans-serif; margin: 0 0 1rem 0; font-size: 1.25rem;">Activity Timeline</h3>
+        <div class="client-timeline" id="timelineContainer">
+          <div class="client-timeline-item">
+            <h4>Initial Assessment</h4>
+            <p>Completed October 4, 2026</p>
+          </div>
+          <div class="client-timeline-item pending">
+            <h4>Check-in Consultation</h4>
+            <p>Scheduled for October 18, 2026</p>
+          </div>
+          <div class="client-timeline-item pending">
+            <h4>Return-to-Work Planning</h4>
+            <p>Expected mid-November 2026</p>
+          </div>
+          <div class="client-timeline-item pending">
+            <h4>Final Follow-up</h4>
+            <p>Post-return check-in</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resources Tab -->
+    <div id="resources" class="client-tab-content">
+      <div class="client-grid">
+        <div class="client-card">
+          <h2>📚 Return-to-Work Guidelines</h2>
+          <p>Evidence-based strategies for successful gradual return to work, including phased schedules and workplace accommodations.</p>
+          <button class="client-btn client-btn-secondary client-btn-small" onclick="alert('Resource document opened')">View PDF</button>
+        </div>
+        <div class="client-card">
+          <h2>💪 Wellness Resources</h2>
+          <p>Access to physical rehabilitation exercises, mental health resources, and lifestyle recommendations recommended by advisors.</p>
+          <button class="client-btn client-btn-secondary client-btn-small" onclick="alert('Resources opened')">Explore</button>
+        </div>
+        <div class="client-card">
+          <h2>🏢 Workplace Rights</h2>
+          <p>Information about your rights under Norwegian labor law (IA agreement) and employer obligations during sick leave and return.</p>
+          <button class="client-btn client-btn-secondary client-btn-small" onclick="alert('Rights guide opened')">Learn More</button>
+        </div>
+        <div class="client-card">
+          <h2>🤝 Support Network</h2>
+          <p>Connect with peer support groups and community resources for individuals managing similar health challenges.</p>
+          <button class="client-btn client-btn-secondary client-btn-small" onclick="alert('Support network opened')">Join Community</button>
+        </div>
+        <div class="client-card">
+          <h2>📞 Emergency Support</h2>
+          <p>Crisis support hotlines and emergency contacts available 24/7 if you need immediate assistance.</p>
+          <button class="client-btn client-btn-secondary client-btn-small" onclick="alert('Emergency contacts displayed')">View Contacts</button>
+        </div>
+        <div class="client-card">
+          <h2>❓ Frequently Asked Questions</h2>
+          <p>Common questions about consultations, return-to-work timelines, and managing your health journey.</p>
+          <button class="client-btn client-btn-secondary client-btn-small" onclick="alert('FAQ opened')">Read FAQ</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Settings Tab -->
+    <div id="settings" class="client-tab-content">
+      <div class="client-card" style="max-width: 600px;">
+        <h2>Account Information</h2>
+
+        <div class="client-form-group">
+          <label class="client-form-label">Full Name</label>
+          <input type="text" class="client-form-input" id="settingsName" placeholder="Your name">
+        </div>
+
+        <div class="client-form-group">
+          <label class="client-form-label">Email Address</label>
+          <input type="email" class="client-form-input" id="settingsEmail" placeholder="your@email.com" disabled>
+        </div>
+
+        <div class="client-form-group">
+          <label class="client-form-label">Phone Number</label>
+          <input type="tel" class="client-form-input" id="settingsPhone" placeholder="+47 XX XX XX XX">
+        </div>
+
+        <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+          <h3 style="font-family: 'Sora', sans-serif; margin: 0 0 1rem 0; font-size: 1.125rem;">Privacy Settings</h3>
+
+          <div style="margin-bottom: 1rem;">
+            <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer;">
+              <input type="checkbox" id="privacyConsent" checked>
+              <span>Allow sharing of anonymized health data for research purposes</span>
+            </label>
+          </div>
+
+          <div style="margin-bottom: 1rem;">
+            <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer;">
+              <input type="checkbox" id="notificationsConsent" checked>
+              <span>Send me email reminders for upcoming consultations</span>
+            </label>
+          </div>
+
+          <div style="margin-bottom: 1.5rem;">
+            <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer;">
+              <input type="checkbox" id="communicationConsent" checked>
+              <span>Allow advisors to contact me via email or phone</span>
+            </label>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+          <button class="client-btn client-btn-primary" onclick="saveSettings()">Save Changes</button>
+          <button class="client-btn client-btn-secondary" onclick="resetSettings()">Cancel</button>
+        </div>
+      </div>
+
+      <div class="client-card" style="max-width: 600px; margin-top: 2rem; background: #fee2e2; border-color: #fecaca;">
+        <h2 style="color: #991b1b;">Danger Zone</h2>
+        <p style="color: #7f1d1d;">Irreversible actions below. Proceed with caution.</p>
+        <button class="client-btn" style="background: #dc2626; color: white; margin-top: 1rem;" onclick="handleDeleteAccount()">
+          Delete Account
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking Modal -->
+  <div class="client-modal" id="bookingModal">
+    <div class="client-modal-content">
+      <div class="client-modal-header">
+        <h2>Book a Consultation</h2>
+        <button class="client-modal-close" onclick="closeBookingModal()">×</button>
+      </div>
+
+      <div class="client-error" id="bookingError"></div>
+
+      <div class="client-booking-step">
+        <label class="client-form-label">Select an Advisor</label>
+        <div id="advisorList">
+          <div class="client-advisor-card" onclick="selectAdvisor(this, '1')">
+            <div class="client-advisor-name">Dr. Anne Solberg</div>
+            <div class="client-advisor-credentials">Occupational Health Specialist</div>
+            <div class="client-advisor-availability">✓ Available Mon-Fri, 9am-5pm</div>
+          </div>
+          <div class="client-advisor-card" onclick="selectAdvisor(this, '2')">
+            <div class="client-advisor-name">Lars Andersen</div>
+            <div class="client-advisor-credentials">Clinical Counselor</div>
+            <div class="client-advisor-availability">✓ Available Mon, Wed, Thu, 10am-4pm</div>
+          </div>
+          <div class="client-advisor-card" onclick="selectAdvisor(this, '3')">
+            <div class="client-advisor-name">Karin Jørgensen</div>
+            <div class="client-advisor-credentials">Return-to-Work Specialist</div>
+            <div class="client-advisor-availability">✓ Available Tue-Fri, 8am-3pm</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="client-booking-step">
+        <label class="client-form-label">Select Date</label>
+        <input type="date" class="client-form-input" id="consultationDate">
+      </div>
+
+      <div class="client-booking-step">
+        <label class="client-form-label">Select Time</label>
+        <div class="client-time-slots" id="timeSlots">
+          <div class="client-time-slot" onclick="selectTime(this, '09:00')">09:00</div>
+          <div class="client-time-slot" onclick="selectTime(this, '10:00')">10:00</div>
+          <div class="client-time-slot" onclick="selectTime(this, '11:00')">11:00</div>
+          <div class="client-time-slot unavailable">12:00</div>
+          <div class="client-time-slot" onclick="selectTime(this, '14:00')">14:00</div>
+          <div class="client-time-slot" onclick="selectTime(this, '15:00')">15:00</div>
+          <div class="client-time-slot" onclick="selectTime(this, '16:00')">16:00</div>
+        </div>
+      </div>
+
+      <div class="client-booking-step">
+        <label class="client-form-label">Consultation Topic</label>
+        <textarea class="client-form-textarea" id="consultationTopic" placeholder="Describe what you'd like to discuss (optional)"></textarea>
+      </div>
+
+      <div class="client-modal-footer">
+        <button class="client-btn client-btn-secondary" onclick="closeBookingModal()">Cancel</button>
+        <button class="client-btn client-btn-primary" onclick="submitBooking()">Confirm Booking</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentUser = null;
+    let selectedAdvisor = null;
+    let selectedDate = null;
+    let selectedTime = null;
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      loadUserProfile();
+      loadConsultations();
+      setupEventListeners();
+    });
+
+    function loadUserProfile() {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        window.location.href = '/';
+        return;
+      }
+
+      fetch('/api/client/profile', {
+        headers: { 'Authorization': `Bearer ${token}` }
+      })
+        .then(r => r.json())
+        .then(data => {
+          currentUser = data;
+          document.getElementById('userNameDisplay').textContent = data.name || 'Client';
+          document.getElementById('settingsName').value = data.name || '';
+          document.getElementById('settingsEmail').value = data.email || '';
+          document.getElementById('settingsPhone').value = data.phone || '';
+        })
+        .catch(err => console.error('Error loading profile:', err));
+    }
+
+    function loadConsultations() {
+      const token = localStorage.getItem('token');
+      fetch('/api/client/consultations', {
+        headers: { 'Authorization': `Bearer ${token}` }
+      })
+        .then(r => r.json())
+        .then(data => {
+          if (data.data && data.data.length > 0) {
+            renderConsultations(data.data);
+          }
+        })
+        .catch(err => console.error('Error loading consultations:', err));
+    }
+
+    function renderConsultations(consultations) {
+      const list = document.getElementById('consultationsList');
+      if (consultations.length === 0) {
+        list.innerHTML = `
+          <div class="client-empty-state">
+            <div class="client-empty-state-icon">📅</div>
+            <h3>No consultations yet</h3>
+            <p>Book your first consultation with a professional advisor</p>
+          </div>
+        `;
+        return;
+      }
+
+      list.innerHTML = consultations.map(c => `
+        <div class="client-consultation">
+          <div class="client-consultation-info">
+            <h3>${c.advisor_name || 'Advisor'}</h3>
+            <div class="client-consultation-badge ${c.status}">${c.status}</div>
+            <div class="client-consultation-details">
+              <div>📅 ${formatDate(c.scheduled_date)}</div>
+              <div>⏱ ${c.duration_minutes} minutes</div>
+              <div>📝 ${c.notes || 'No description'}</div>
+            </div>
+          </div>
+          <div class="client-consultation-actions">
+            ${c.status === 'scheduled' ? `
+              <button class="client-btn client-btn-primary client-btn-small" onclick="alert('Join consultation')">Join Call</button>
+              <button class="client-btn client-btn-secondary client-btn-small" onclick="alert('Reschedule')">Reschedule</button>
+            ` : ''}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function switchTab(tabName) {
+      document.querySelectorAll('.client-tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.client-tab').forEach(el => el.classList.remove('active'));
+      document.getElementById(tabName).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    function openBookingModal() {
+      document.getElementById('bookingModal').classList.add('active');
+    }
+
+    function closeBookingModal() {
+      document.getElementById('bookingModal').classList.remove('active');
+      selectedAdvisor = null;
+      selectedDate = null;
+      selectedTime = null;
+    }
+
+    function selectAdvisor(element, advisorId) {
+      document.querySelectorAll('.client-advisor-card').forEach(el => el.classList.remove('selected'));
+      element.classList.add('selected');
+      selectedAdvisor = advisorId;
+    }
+
+    function selectTime(element, time) {
+      document.querySelectorAll('.client-time-slot').forEach(el => el.classList.remove('selected'));
+      element.classList.add('selected');
+      selectedTime = time;
+    }
+
+    function submitBooking() {
+      const token = localStorage.getItem('token');
+      const date = document.getElementById('consultationDate').value;
+
+      if (!selectedAdvisor || !date || !selectedTime) {
+        const error = document.getElementById('bookingError');
+        error.textContent = 'Please select an advisor, date, and time';
+        error.style.display = 'block';
+        return;
+      }
+
+      const booking = {
+        advisorId: selectedAdvisor,
+        scheduledDate: new Date(`${date}T${selectedTime}:00`).toISOString(),
+        durationMinutes: 60,
+        topic: document.getElementById('consultationTopic').value || 'General consultation'
+      };
+
+      fetch('/api/client/consultations', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(booking)
+      })
+        .then(r => r.json())
+        .then(data => {
+          const success = document.getElementById('successMessage');
+          success.textContent = 'Consultation booked successfully!';
+          success.style.display = 'block';
+          closeBookingModal();
+          loadConsultations();
+          setTimeout(() => success.style.display = 'none', 3000);
+        })
+        .catch(err => {
+          const error = document.getElementById('bookingError');
+          error.textContent = 'Failed to book consultation. Please try again.';
+          error.style.display = 'block';
+        });
+    }
+
+    function saveSettings() {
+      const token = localStorage.getItem('token');
+      const settings = {
+        name: document.getElementById('settingsName').value,
+        phone: document.getElementById('settingsPhone').value
+      };
+
+      fetch('/api/client/profile', {
+        method: 'PATCH',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(settings)
+      })
+        .then(r => r.json())
+        .then(data => {
+          alert('Settings saved successfully');
+          loadUserProfile();
+        })
+        .catch(err => alert('Error saving settings'));
+    }
+
+    function resetSettings() {
+      loadUserProfile();
+    }
+
+    function handleDeleteAccount() {
+      if (confirm('Are you sure? This action cannot be undone.')) {
+        const token = localStorage.getItem('token');
+        fetch('/api/client/profile', {
+          method: 'DELETE',
+          headers: { 'Authorization': `Bearer ${token}` }
+        })
+          .then(() => {
+            localStorage.clear();
+            window.location.href = '/';
+          })
+          .catch(err => alert('Error deleting account'));
+      }
+    }
+
+    function handleLogout() {
+      localStorage.clear();
+      window.location.href = '/';
+    }
+
+    function formatDate(dateStr) {
+      const date = new Date(dateStr);
+      return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+    }
+
+    function setupEventListeners() {
+      const dateInput = document.getElementById('consultationDate');
+      if (dateInput) {
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        dateInput.min = tomorrow.toISOString().split('T')[0];
+      }
+    }
+  </script>
+</body>
+</html>
