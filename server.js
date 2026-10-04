@@ -8,6 +8,7 @@ const db = require('./db');
 const auth = require('./auth');
 const utils = require('./utils');
 const notifications = require('./notifications');
+const billingRoutes = require('./billing-routes');
 
 const app = express();
 
@@ -43,6 +44,9 @@ app.use((req, res, next) => {
   });
   next();
 });
+
+// Mount billing routes
+app.use('/api', billingRoutes);
 
 // Health check
 app.get('/api/health', async (req, res) => {
