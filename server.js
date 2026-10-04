@@ -12,6 +12,7 @@ const billingRoutes = require('./billing-routes');
 const documentRoutes = require('./documents-routes');
 const usageRoutes = require('./usage-routes');
 const analyticsRoutes = require('./analytics-routes');
+const calendlyRoutes = require('./calendly-routes');
 
 const app = express();
 
@@ -59,6 +60,9 @@ app.use('/api', usageRoutes);
 
 // Mount analytics routes
 app.use('/api', analyticsRoutes);
+
+// Mount calendly routes
+app.use('/api', calendlyRoutes);
 
 // Health check
 app.get('/api/health', async (req, res) => {
