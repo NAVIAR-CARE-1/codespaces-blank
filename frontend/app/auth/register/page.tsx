@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useAuth } from '@/hooks/useAuth';
@@ -39,7 +39,7 @@ export default function RegisterPage() {
     }
 
     try {
-      const result = await register(formData.email, formData.password, formData.name, formData.type);
+      const result = await register(formData.email, formData.password, formData.name, formData.type) as any;
       if (!result.payload?.user) {
         setFormError(error || 'Registration failed');
       } else {

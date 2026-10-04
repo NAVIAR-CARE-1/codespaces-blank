@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useAuth } from '@/hooks/useAuth';
@@ -28,7 +28,7 @@ export default function LoginPage() {
     }
 
     try {
-      const result = await login(formData.email, formData.password);
+      const result = await login(formData.email, formData.password) as any;
       if (!result.payload?.user) {
         setFormError(error || 'Login failed');
       } else {
@@ -84,7 +84,7 @@ export default function LoginPage() {
         </form>
 
         <p className="text-center text-sm text-gray-600">
-          Don't have an account?{' '}
+          Don&apos;t have an account?{' '}
           <Link href="/auth/register" className="font-semibold text-blue-600 hover:text-blue-500">
             Register here
           </Link>
