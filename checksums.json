@@ -1,0 +1,19 @@
+{
+  "404.html": "ad8fa5bed970cd5d8063b3995ed090c7c620e9275beff4e76e62aff95eba3536",
+  "apple-touch-icon.png": "f403a5cec89218ab1981e63ffc419180df2166299e38965ccc61e6ab885d3fd8",
+  "favicon-32.png": "f03f6b27fb28ea491af2b4899557ae3e6eb1906b9d0faad4a7c7f860f3dae2b6",
+  "favicon.svg": "39698fabd5517d436887a9a06ed84c8faac7917e6f2a899d4154aa2bdefd92df",
+  "fonts/OFL-Fraunces.txt": "cd3384cafac6f2bddc3955273958a2e029f97027c8037ac539ef5744a77b579e",
+  "fonts/OFL-IBMPlexMono.txt": "23b0a9d0c6d3f140a0b77e483c5cfa6bba574325ef5cb189ed9f2fec4884533f",
+  "fonts/OFL-InterTight.txt": "1e1c8b3dc6dfcbd5498a33f17fcc68ff2d39c599f6e8195fbf14601261dbef6a",
+  "fonts/fraunces-latin-opsz-italic.woff2": "066710ce7ed235a339d3d6cdcc8b55c0bea5632232662d83aacea25852108271",
+  "fonts/fraunces-latin-opsz-normal.woff2": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783",
+  "fonts/ibm-plex-mono-latin-400-normal.woff2": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7",
+  "fonts/ibm-plex-mono-latin-500-normal.woff2": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22",
+  "fonts/inter-tight-latin-400-normal.woff2": "6f32da94d4f26e98cb6ccd97034d306aa38945322c816f54a93c7d15dc0905b8",
+  "fonts/inter-tight-latin-500-normal.woff2": "6c0019f88d5bc179f2c972998ed8c14e779254566da9081c5e29f364a0a0aeb6",
+  "index.html": "00b871cc2245542132e05a32d4c48659bf615f44a7ca229d0d5f63013b57a744",
+  "og.png": "5e5fafbf0a7f1f1d130a8268bc9422c74ef345a891203d11e7907de527a2acb3",
+  "robots.txt": "b2fd0965cb1c048252198c34bf3b307deff54ac734e30c52d2d4b958517f7baf",
+  "vercel.json": "d59537679b39a9a8d49bab42d028ff064812d368eb028e6e9ee1c61f05a167ab"
+}

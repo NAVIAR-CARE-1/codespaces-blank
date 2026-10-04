@@ -1,0 +1,1521 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BETA ART MAIN</title>
+<meta name="description" content="BETA ART: photography, creators and cultural discovery in one shared record. Explore, Business, Privat, Gallery &amp; Events, The Record and Join.">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#fbfaf7">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#171513">
+<script>(function(){try{var t=localStorage.getItem("ba-theme");if(t==="dark"||t==="light"){document.documentElement.setAttribute("data-theme",t);var m=document.querySelector('meta[name="color-scheme"]');if(m)m.content=t;}}catch(e){}})();</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"BETA ART","inLanguage":["en","nb"],"publisher":{"@type":"Organization","name":"Beta Art ENK"}}</script>
+<link rel="preload" href="fonts/fraunces-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-tight-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BETA ART">
+<meta property="og:title" content="BETA ART">
+<meta property="og:description" content="Photography, creators and cultural discovery, with clear context, status and routes to action.">
+<meta property="og:image" content="og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The BETA ART wordmark beside the aperture mark, with the line Source. Context. Rights. Retrievability.">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/fraunces-latin-opsz-normal.woff2) format("woff2")}
+@font-face{font-family:"Fraunces";font-style:italic;font-weight:100 900;font-display:swap;src:url(fonts/fraunces-latin-opsz-italic.woff2) format("woff2")}
+@font-face{font-family:"Inter Tight";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/inter-tight-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter Tight";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/inter-tight-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-mono-latin-500-normal.woff2) format("woff2")}
+/* Layout: museum-archive editorial grid. Hairline modular cells, oversized Fraunces display,
+   archival red used only as a signal; inverse ink bands carry the evidence ledger, Business, Verify
+   and the footer. Tokens follow the BETA ART Lovable master (paper / ink / oxide red). */
+:root{
+  --paper:#fbfaf7; --card:#fffdf9; --tint:#f3f0e9; --ink:#0f0f0f; --muted:#6f6b65; --rule:#e4e0d8;
+  --accent:#8b1a1a; --on-accent:#fbfaf7;
+  --inv-bg:#0f0f0f; --inv-fg:#f3efe8; --inv-muted:#b3ada4; --inv-dim:#8d877d; --inv-rule:#312e2a; --inv-accent:#e2a9a3; --inv-hover:#1a1917;
+  --ok:#35573c; --warn:#8a5a12; --scrim:rgba(15,15,15,.55); --grain:.05;
+  --f-display:"Fraunces","Iowan Old Style",Georgia,"Times New Roman",serif;
+  --f-body:"Inter Tight","Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --max:92rem; --gutter:clamp(16px,4vw,40px);
+  /* type floor: nothing on the page is set below 11px (design round 5) */
+  --t-micro:.6875rem; --t-mono:.75rem;
+  color-scheme:light dark; accent-color:var(--accent);
+}
+:root[data-theme="light"]{color-scheme:light}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#171513; --card:#1e1c19; --tint:#24221f; --ink:#f1ede6; --muted:#a9a399; --rule:#35312c;
+    --accent:#e39a91; --on-accent:#1a0d0b;
+    --inv-bg:#0c0b0a; --inv-fg:#f1ede6; --inv-muted:#aaa49b; --inv-dim:#8a847a; --inv-rule:#2d2a26; --inv-accent:#e7aca5; --inv-hover:#151412;
+    --ok:#94ba99; --warn:#dcaa5f; --scrim:rgba(0,0,0,.65); --grain:.035; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#171513; --card:#1e1c19; --tint:#24221f; --ink:#f1ede6; --muted:#a9a399; --rule:#35312c;
+  --accent:#e39a91; --on-accent:#1a0d0b;
+  --inv-bg:#0c0b0a; --inv-fg:#f1ede6; --inv-muted:#aaa49b; --inv-dim:#8a847a; --inv-rule:#2d2a26; --inv-accent:#e7aca5; --inv-hover:#151412;
+  --ok:#94ba99; --warn:#dcaa5f; --scrim:rgba(0,0,0,.65); --grain:.035; color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:1rem;line-height:1.6;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:var(--grain);
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+::selection{background:var(--accent);color:var(--on-accent)}
+a{color:inherit}
+img,svg{max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.inv :focus-visible{outline-color:var(--inv-accent)}
+section[id],div[id]{scroll-margin-top:7.5rem}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+.skip{position:absolute;left:12px;top:-80px;z-index:200;background:var(--ink);color:var(--paper);padding:.7rem 1rem;
+  font-family:var(--f-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none}
+.skip:focus{top:12px}
+
+/* type */
+.label{margin:0;font-family:var(--f-mono);font-size:var(--t-mono);line-height:1.5;letter-spacing:.02em;color:var(--muted)}
+.label.acc{color:var(--accent)}
+.display{margin:0;font-family:var(--f-display);font-weight:400;font-optical-sizing:auto;letter-spacing:-.04em;line-height:.9;text-wrap:balance;overflow-wrap:break-word;hyphens:auto}
+.display em{font-style:italic;font-weight:300;color:var(--accent)}
+.h2{font-size:clamp(2.7rem,6.4vw,6rem);max-width:12ch}
+.h3{font-size:clamp(1.7rem,2.8vw,2.6rem);line-height:.98;letter-spacing:-.035em;max-width:18ch}
+.quote{margin:0;font-family:var(--f-display);font-size:clamp(1.35rem,2.2vw,1.95rem);line-height:1.18;letter-spacing:-.02em;color:var(--accent);max-width:30ch;text-wrap:balance}
+.body{margin:0;max-width:60ch;font-size:1.04rem;line-height:1.75;color:color-mix(in srgb,var(--ink) 82%,var(--paper))}
+.small{margin:0;font-size:.9rem;line-height:1.6;color:var(--muted);max-width:62ch}
+.note{margin:0;max-width:68ch;border-left:3px solid var(--accent);padding:.1rem 0 .1rem 1rem;font-size:.92rem;line-height:1.65;color:color-mix(in srgb,var(--ink) 82%,var(--paper))}
+.inv .note{border-left-color:var(--inv-accent);color:var(--inv-muted)}
+
+/* buttons & chips */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:48px;padding:0 1.35rem;border:1px solid var(--ink);
+  background:transparent;color:var(--ink);font-family:var(--f-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;
+  cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s}
+.btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
+.btn.solid{background:var(--ink);color:var(--paper)}
+.btn.solid:hover{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.inv .btn{border-color:var(--inv-fg);color:var(--inv-fg)}
+.inv .btn:hover{border-color:var(--inv-accent);color:var(--inv-accent)}
+.inv .btn.solid{background:var(--inv-fg);color:var(--inv-bg)}
+.inv .btn.solid:hover{background:var(--inv-accent);border-color:var(--inv-accent);color:var(--inv-bg)}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem}
+.chip{display:inline-flex;align-items:center;gap:.45rem;width:fit-content;border:1px solid var(--rule);padding:.32rem .55rem;
+  font-family:var(--f-mono);font-size:var(--t-micro);line-height:1.3;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--paper)}
+.chip::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--warn)}
+.chip.ok::before{background:var(--ok)}
+.chip.stop::before{background:var(--accent)}
+.inv .chip{border-color:var(--inv-rule);color:var(--inv-muted);background:transparent}
+
+/* status bar + header */
+.statusbar{background:var(--tint);border-bottom:1px solid var(--rule)}
+.statusbar .wrap{display:flex;justify-content:space-between;gap:1rem;padding-block:.55rem;font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.statusbar strong{font-weight:500;color:var(--accent)}
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;border-bottom:1px solid var(--rule);
+  background:var(--paper)}
+.hdr-row{display:flex;align-items:center;gap:1.5rem;min-height:68px}
+.brand{display:inline-flex;align-items:center;gap:.75rem;color:var(--ink);text-decoration:none;font-family:var(--f-mono);font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;white-space:nowrap}
+.brand svg{width:30px;height:30px;flex:none}
+.nav{margin-left:auto;display:flex;align-items:center;gap:1.35rem}
+.nav a,.mnav a{font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;border-bottom:1px solid transparent;padding-block:.35rem;white-space:nowrap;transition:color .2s,border-color .2s}
+.nav a:hover,.mnav a:hover,.nav a[aria-current="location"],.mnav a[aria-current="location"]{color:var(--ink);border-bottom-color:var(--accent)}
+.controls{display:flex;align-items:center;gap:.5rem;margin-left:.5rem}
+.seg{display:inline-flex;border:1px solid var(--rule)}
+.seg button{border:0;background:transparent;padding:.5rem .65rem;min-height:36px;font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.12em;color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.iconbtn{display:inline-grid;place-items:center;width:38px;height:38px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}
+.iconbtn svg{width:16px;height:16px}
+.iconbtn:hover{border-color:var(--accent);color:var(--accent)}
+.mnav{display:none;gap:1.35rem;overflow-x:auto;border-top:1px solid var(--rule);padding-inline:var(--gutter);scrollbar-width:none}
+.mnav::-webkit-scrollbar{display:none}
+.mnav a{display:inline-flex;align-items:center;min-height:44px}
+/* fade at an edge that has more items behind it; the links stay fully readable once scrolled into view */
+.mnav.more-r{-webkit-mask-image:linear-gradient(to right,black calc(100% - 3rem),transparent);mask-image:linear-gradient(to right,black calc(100% - 3rem),transparent)}
+.mnav.more-l{-webkit-mask-image:linear-gradient(to left,black calc(100% - 3rem),transparent);mask-image:linear-gradient(to left,black calc(100% - 3rem),transparent)}
+.mnav.more-l.more-r{-webkit-mask-image:linear-gradient(to right,transparent,black 3rem,black calc(100% - 3rem),transparent);mask-image:linear-gradient(to right,transparent,black 3rem,black calc(100% - 3rem),transparent)}
+
+/* hero */
+.hero{border-bottom:1px solid var(--rule)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);gap:1.75rem clamp(2.5rem,6vw,6rem);align-items:end;padding-block:clamp(2.4rem,4.6vw,4.25rem) clamp(1.4rem,2.5vw,2rem)}
+.hero-copy{min-width:0}
+.h1{margin-top:1.3rem;font-size:clamp(2.9rem,7.6vw,7.6rem);font-weight:380;line-height:.84;letter-spacing:-.05em;max-width:10ch}
+.h1 em{display:block;padding-left:clamp(0rem,5vw,5rem)}
+.lede{margin:1.6rem 0 0;max-width:52ch;font-size:clamp(1.05rem,1.55vw,1.28rem);line-height:1.6;color:color-mix(in srgb,var(--ink) 80%,var(--paper))}
+.hero .actions{margin-top:1.8rem}
+.rec{position:relative;isolation:isolate;min-width:0;border:1px solid var(--rule);background:var(--card);padding:1.35rem}
+
+
+.rec-head{display:flex;justify-content:space-between;gap:1rem;border-bottom:1px solid var(--rule);padding-bottom:.8rem;font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.rec-mark{position:relative;display:block;padding:clamp(1.4rem,3vw,2.4rem) 0 1.4rem;color:var(--ink)}
+.rec-mark::before{content:"";position:absolute;z-index:-1;left:50%;top:0;bottom:0;border-left:1px solid var(--rule)}
+.rec-mark::after{content:"";position:absolute;z-index:-1;top:calc(50% + (clamp(1.4rem,3vw,2.4rem) - 1.4rem) / 2);left:-1.35rem;right:-1.35rem;border-top:1px solid var(--rule)}
+.rec-mark svg{position:relative;display:block;width:min(48%,11.5rem);height:auto;margin-inline:auto}
+.rec dl{margin:0;border-top:1px solid var(--rule)}
+.rec dl div{display:grid;grid-template-columns:1fr 1fr;gap:1rem;border-bottom:1px solid var(--rule);padding-block:.5rem;font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.08em;text-transform:uppercase}
+.rec dt{color:var(--muted)}
+.rec dd{margin:0;text-align:right}
+.rec p{margin:1rem 0 0;max-width:36ch;font-size:.76rem;line-height:1.5;color:var(--muted)}
+.spin{transform-box:view-box;transform-origin:50% 50%}
+.blades{transform-box:view-box;transform-origin:50% 50%;animation:open 1.6s cubic-bezier(.22,1,.36,1) both}
+.dot{transform-box:view-box;transform-origin:50% 50%;animation:dot 1.6s cubic-bezier(.22,1,.36,1) both}
+.blades{transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.rec:hover .blades,.brand:hover .blades,.brand:focus-visible .blades{animation:none;transform:rotate(18deg)}
+.brand:hover svg,.brand:focus-visible svg{color:var(--accent)}
+.foot .brand:hover svg,.foot .brand:focus-visible svg{color:var(--inv-accent)}
+.brand svg{transition:color .25s}
+@keyframes open{from{transform:rotate(-72deg) scale(.86)}to{transform:none}}
+@keyframes dot{0%{transform:scale(.35)}60%{transform:scale(1.25)}100%{transform:scale(1)}}
+.hero-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;border-top:1px solid var(--rule);padding-top:1rem;font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+
+/* orientation: scroll progress, back to top, status legend */
+.hdr{position:sticky}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;pointer-events:none}
+.totop{position:fixed;z-index:70;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));display:grid;place-items:center;width:46px;height:46px;
+  border:1px solid var(--ink);background:var(--paper);color:var(--ink);text-decoration:none;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s}
+.totop svg{width:18px;height:18px}
+.totop.show{opacity:1;visibility:visible;transform:none}
+.totop:hover{background:var(--ink);color:var(--paper)}
+.hero-foot nav{display:flex;flex-wrap:wrap;gap:0 1.4rem}
+.hero-foot nav a{display:inline-flex;align-items:center;gap:.4rem;min-height:44px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule)}
+.hero-foot nav a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.hero-foot nav span{color:var(--accent)}
+.legend{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .6rem;margin-top:1.1rem}
+.legend .label{margin-right:.4rem}
+
+/* routes */
+.routes-sec{background:var(--card);border-bottom:1px solid var(--rule)}
+.routes-sec .wrap{padding-block:clamp(2rem,3.6vw,3rem) clamp(2.5rem,4.5vw,3.75rem)}
+.routes-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:1.25rem}
+.routes-head h2{font-size:clamp(1.9rem,3.4vw,3rem);max-width:20ch;line-height:1}
+.routes{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin-top:1.6rem;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.route{position:relative;display:flex;flex-direction:column;gap:.55rem;min-width:0;min-height:10.5rem;padding:1.4rem 1.4rem 2.6rem;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  color:var(--ink);text-decoration:none;overflow:hidden;transition:background .25s,color .25s}
+.route::before{content:"";position:absolute;inset:0 auto auto 0;width:100%;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.route:hover,.route:focus-visible{background:var(--ink);color:var(--paper)}
+.route:hover::before,.route:focus-visible::before{transform:scaleX(1)}
+.route .rn{font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.route .rw{margin-top:auto;overflow-wrap:break-word;hyphens:auto;font-family:var(--f-display);font-size:clamp(1.45rem,2.1vw,1.95rem);line-height:1.05;letter-spacing:-.03em;text-wrap:balance}
+.route .ra{position:absolute;right:1rem;bottom:.65rem;font-size:1.35rem;color:var(--accent)}
+
+/* sections */
+.sec{padding-block:clamp(3.25rem,6.5vw,6rem);border-bottom:1px solid var(--rule)}
+.sec.tint{background:var(--tint)}
+.inv{background:var(--inv-bg);color:var(--inv-fg);border-bottom-color:var(--inv-rule)}
+.inv .label{color:var(--inv-dim)}
+.inv .label.acc,.inv .quote,.inv .display em{color:var(--inv-accent)}
+.inv .body{color:var(--inv-muted)}
+.inv .small{color:var(--inv-dim)}
+.intro{display:grid;grid-template-columns:minmax(260px,.75fr) minmax(0,1.25fr);gap:clamp(2rem,6vw,6rem);align-items:start}
+.intro > *{min-width:0}
+.intro .h2{margin-top:1rem}
+.stack{display:flex;flex-direction:column;gap:1.25rem;min-width:0}
+.mt-l{margin-top:clamp(2rem,3.6vw,3rem)}
+.mt-m{margin-top:1.75rem}
+.cells{display:grid;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.cells > *{min-width:0;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:1.5rem}
+.inv .cells,.inv .cells > *{border-color:var(--inv-rule)}
+.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.c5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.cell-t{margin:0;overflow-wrap:break-word;hyphens:auto;font-family:var(--f-display);font-size:clamp(1.4rem,2vw,1.85rem);font-weight:400;line-height:1.02;letter-spacing:-.03em}
+.cell-p{margin:.7rem 0 0;font-size:.9rem;line-height:1.6;color:var(--muted)}
+.inv .cell-p{color:var(--inv-muted)}
+.num{display:block;margin-bottom:1.8rem;font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.13em;color:var(--accent)}
+.inv .num{color:var(--inv-accent)}
+
+/* principles */
+.principle{display:flex;flex-direction:column}
+.principle .label{color:var(--accent)}
+.principle .cell-t{margin-top:clamp(1.6rem,3vw,2.6rem);font-size:clamp(1.8rem,2.6vw,2.4rem)}
+
+/* ledger */
+.ledger{list-style:none;margin:clamp(2rem,3.6vw,3rem) 0 0;padding:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-top:1px solid var(--inv-rule);border-left:1px solid var(--inv-rule)}
+.ledger li{position:relative;min-width:0;min-height:8.5rem;padding:1.25rem;border-right:1px solid var(--inv-rule);border-bottom:1px solid var(--inv-rule);transition:background .2s}
+.ledger li > span{font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.13em;color:var(--inv-accent)}
+.ledger h3{margin:2rem 0 0;font-family:var(--f-display);font-size:clamp(1.35rem,1.8vw,1.8rem);font-weight:400;line-height:1;letter-spacing:-.03em;max-width:11ch}
+.ledger li:not(:last-child)::after{content:"→";position:absolute;right:-.5rem;top:1.05rem;z-index:2;padding:0 .15rem;background:var(--inv-bg);color:var(--inv-dim);font-size:.75rem}
+
+/* pillar head */
+.pillar{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr)}
+.pcard{position:relative;display:flex;flex-direction:column;min-width:0;min-height:18rem;overflow:hidden;border:1px solid var(--rule);padding:clamp(1.6rem,3.5vw,3.2rem)}
+.pcard .display{position:relative;z-index:1;margin-top:0;font-size:clamp(3.6rem,7.6vw,7rem);line-height:.84;letter-spacing:-.055em;max-width:7ch}
+.pcard .chip{position:relative;z-index:1;margin-top:auto}
+.pcard::after{content:attr(data-no);position:absolute;right:-.02em;bottom:-.2em;pointer-events:none;font-family:var(--f-display);font-weight:300;font-size:clamp(9rem,18vw,18rem);line-height:1;letter-spacing:-.09em;color:var(--tint)}
+.pbody{min-width:0;display:flex;flex-direction:column;gap:1.4rem;border:1px solid var(--rule);border-left:0;padding:clamp(1.6rem,4vw,4rem)}
+.pbody .h3{font-size:clamp(2.4rem,4.6vw,4.4rem);line-height:.9;letter-spacing:-.045em;max-width:12ch}
+.pbody .h3 em{display:inline}
+.inv .pcard,.inv .pbody{border-color:var(--inv-rule)}
+.inv .pcard::after{color:var(--inv-hover)}
+.sec.tint .pcard::after{color:color-mix(in srgb,var(--ink) 5%,var(--tint))}
+
+/* callout */
+.callout{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(1.5rem,4vw,4rem);align-items:start;background:var(--tint);border-left:6px solid var(--accent);padding:clamp(1.5rem,4vw,3rem)}
+.callout > *{min-width:0}
+.sec.tint .callout{background:var(--card)}
+
+/* catalogue */
+.cat-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:1rem 2rem}
+.plates{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(.75rem,1.4vw,1.15rem)}
+.pl{appearance:none;display:flex;flex-direction:column;gap:.65rem;min-width:0;border:0;padding:0;background:none;text-align:left;cursor:pointer}
+.pl-frame{position:relative;display:block;width:100%;max-width:100%;aspect-ratio:4/5;overflow:hidden;border:1px solid var(--rule);
+  background:repeating-linear-gradient(var(--ang,135deg),transparent 0 9px,color-mix(in srgb,var(--ink) 8%,transparent) 9px 10px) 0 0/auto,var(--tint);
+  transition:border-color .25s,background-position .9s cubic-bezier(.22,1,.36,1)}
+.pl:hover .pl-frame,.pl:focus-visible .pl-frame{border-color:var(--accent);background-position:28px 0,0 0}
+.pl-crop{position:absolute;inset:9px;opacity:.55;background:
+  linear-gradient(var(--ink),var(--ink)) left top/12px 1px no-repeat,linear-gradient(var(--ink),var(--ink)) left top/1px 12px no-repeat,
+  linear-gradient(var(--ink),var(--ink)) right top/12px 1px no-repeat,linear-gradient(var(--ink),var(--ink)) right top/1px 12px no-repeat,
+  linear-gradient(var(--ink),var(--ink)) left bottom/12px 1px no-repeat,linear-gradient(var(--ink),var(--ink)) left bottom/1px 12px no-repeat,
+  linear-gradient(var(--ink),var(--ink)) right bottom/12px 1px no-repeat,linear-gradient(var(--ink),var(--ink)) right bottom/1px 12px no-repeat}
+.pl-no{position:absolute;left:14px;bottom:8px;font-family:var(--f-display);font-weight:300;font-size:clamp(2rem,3.4vw,3rem);line-height:1;letter-spacing:-.05em;color:var(--ink)}
+.pl-cap{display:flex;flex-direction:column;gap:.35rem;min-width:0}
+.pl-title{font-family:var(--f-display);font-size:1.12rem;line-height:1.1;letter-spacing:-.02em;color:var(--ink);overflow-wrap:anywhere}
+.pl-id{font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.12em;color:var(--muted)}
+
+/* series list */
+.series{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.series li{display:grid;grid-template-columns:4rem minmax(0,1fr);gap:1rem;align-items:baseline;padding-block:1rem;border-bottom:1px solid var(--rule)}
+.series .rn{font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.12em;color:var(--accent)}
+.series strong{font-family:var(--f-display);font-size:clamp(1.3rem,2vw,1.7rem);font-weight:400;letter-spacing:-.025em;line-height:1.1}
+
+/* tiers */
+.tier{display:flex;flex-direction:column;gap:.6rem;min-height:10.5rem}
+.tier .price{margin-top:auto;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.flow{display:flex;flex-wrap:wrap;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.flow span{flex:1 1 9rem;display:flex;align-items:center;min-height:4.5rem;padding:0 1.2rem;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.12em;text-transform:uppercase}
+.flow span:last-child{background:var(--ink);color:var(--paper)}
+.inv .flow,.inv .flow span{border-color:var(--inv-rule)}
+.inv .flow span:last-child{background:var(--inv-fg);color:var(--inv-bg)}
+
+/* business */
+.price-grid .pv{display:block;margin-block:.9rem .4rem;font-family:var(--f-display);font-size:clamp(2.2rem,3.6vw,3.2rem);font-weight:300;line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.price-grid .pm{font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.1em;text-transform:uppercase;color:var(--inv-dim)}
+.area.first{background:var(--inv-hover)}
+.area .chip{margin-bottom:1.6rem}
+
+/* verify */
+.verify{display:grid;grid-template-columns:minmax(300px,.85fr) minmax(0,1.15fr);border:1px solid var(--rule)}
+.vpanel{position:relative;display:flex;flex-direction:column;gap:1.4rem;min-width:0;padding:clamp(1.8rem,4vw,4rem)}
+.vpanel .tagline{margin:0;border-top:1px solid var(--inv-rule);padding-top:1.2rem;font-family:var(--f-display);font-size:clamp(1.4rem,2.2vw,1.9rem);line-height:1.15;max-width:24ch}
+.vpanel .foot{margin-top:auto;border-top:1px solid var(--inv-rule);padding-top:1rem;font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.12em;text-transform:uppercase;color:var(--inv-dim)}
+.vmain{min-width:0;background:var(--paper)}
+.lookup{display:flex;flex-direction:column;gap:1rem;padding:clamp(1.5rem,3.5vw,3rem);border-bottom:1px solid var(--rule)}
+.lk-row{display:flex;flex-wrap:wrap;gap:.6rem}
+.field{flex:1 1 12rem;min-width:0;min-height:48px;border:1px solid var(--ink);background:var(--card);padding:0 1rem;font-family:var(--f-mono);font-size:.95rem;letter-spacing:.08em;text-transform:uppercase}
+.lk-out{border:1px solid var(--rule);background:var(--card)}
+.lk-out .lk-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.5rem 1rem;padding:1.1rem 1.2rem;border-bottom:1px solid var(--rule)}
+.lk-out .lk-id{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.12em;color:var(--accent)}
+.lk-out .lk-t{font-family:var(--f-display);font-size:1.6rem;line-height:1.05;letter-spacing:-.03em}
+.kv{margin:0}
+.kv div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1rem;padding:.65rem 1.2rem;border-bottom:1px solid var(--rule);font-size:.88rem}
+.kv dt{overflow-wrap:anywhere;font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);align-self:center}
+.kv dd{margin:0;text-align:right;color:var(--ink)}
+.kv dd.pend{color:var(--warn)}
+.lk-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.8rem;padding:1rem 1.2rem}
+.lk-foot p{margin:0;max-width:46ch;font-size:.82rem;color:var(--muted)}
+.lk-miss{margin:0;padding:1.2rem;font-size:.92rem;color:var(--ink)}
+.proof details{border-bottom:1px solid var(--rule)}
+.proof details:last-child{border-bottom:0}
+.proof summary{display:grid;grid-template-columns:8.5rem minmax(0,1fr) 1.5rem;gap:.35rem 1.2rem;align-items:start;cursor:pointer;list-style:none;padding:1.5rem clamp(1.2rem,3.5vw,3rem)}
+.proof summary::-webkit-details-marker{display:none}
+.proof summary::after{content:"+";grid-column:3;grid-row:1;justify-self:end;font-family:var(--f-mono);font-size:1.3rem;line-height:1;color:var(--accent)}
+.proof details[open] summary::after{content:"−"}
+.proof summary:hover{background:var(--tint)}
+.pf-l{grid-column:1;grid-row:1 / span 2;font-family:var(--f-mono);font-size:var(--t-micro);line-height:1.5;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);padding-top:.3rem}
+.pf-t{grid-column:2;font-family:var(--f-display);font-size:clamp(1.3rem,1.9vw,1.7rem);line-height:1.05;letter-spacing:-.025em}
+.proof .pf-b{margin:0;padding:0 clamp(1.2rem,3.5vw,3rem) 1.6rem calc(8.5rem + clamp(1.2rem,3.5vw,3rem) + 1.2rem)}
+.proof .pf-b p{margin:0;max-width:60ch;border-left:3px solid var(--accent);padding-left:1rem;font-size:.9rem;line-height:1.7}
+
+/* simulator */
+.sim{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(1.5rem,3vw,2.5rem);align-items:start}
+.sim-rows{display:flex;flex-direction:column;border-top:1px solid var(--rule);min-width:0}
+.sim fieldset{display:grid;grid-template-columns:9rem minmax(0,1fr);gap:1rem;align-items:center;margin:0;border:0;border-bottom:1px solid var(--rule);padding:1rem 0;min-width:0}
+.sim legend{float:left;padding:0;font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.opts{display:flex;flex-wrap:wrap;gap:.35rem;min-width:0}
+.opts label{position:relative}
+.opts input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.opts span{display:inline-flex;align-items:center;min-height:40px;padding:0 .85rem;border:1px solid var(--rule);background:var(--card);font-size:.86rem;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.opts input:checked + span{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.opts input:focus-visible + span{outline:2px solid var(--accent);outline-offset:2px}
+.sim-out{position:sticky;top:8rem;min-width:0;border:1px solid var(--ink);background:var(--card)}
+.sim-out h3{margin:0;padding:1rem 1.2rem;border-bottom:1px solid var(--rule);font-family:var(--f-mono);font-size:var(--t-micro);font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.sim-line{display:grid;grid-template-columns:6.5rem minmax(0,1fr);gap:1rem;padding:1rem 1.2rem;border-bottom:1px solid var(--rule)}
+.sim-line b{font-family:var(--f-mono);font-size:var(--t-micro);font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-top:.2rem}
+.sim-line span{font-family:var(--f-display);font-size:1.2rem;line-height:1.2;letter-spacing:-.015em}
+.sim-warn{margin:0;padding:1rem 1.2rem;font-size:.9rem;line-height:1.55;border-left:4px solid var(--accent);background:var(--tint)}
+.sim-warn.calm{border-left-color:var(--ok)}
+
+/* studio */
+.tabs{display:flex;flex-wrap:wrap;gap:.25rem;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding-block:.45rem}
+.tab{flex:none;border:0;background:transparent;padding:.8rem 1rem;min-height:44px;font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);cursor:pointer}
+.tab[aria-selected="true"],.tab:hover{background:var(--ink);color:var(--paper)}
+.panel{padding-top:0}
+.tabs + .panel,.tabs ~ .panel{margin-top:2rem}
+.pcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.pc{display:flex;flex-direction:column;gap:.8rem;min-width:0;border:1px solid var(--rule);background:var(--card);padding:1.4rem}
+.pc h3{margin:0;font-family:var(--f-display);font-size:1.6rem;font-weight:400;letter-spacing:-.03em;line-height:1.05}
+.pc p{margin:0;font-size:.9rem;color:var(--muted)}
+.tbl-wrap{overflow-x:auto;border-top:1px solid var(--rule)}
+table{border-collapse:collapse;width:100%;min-width:620px}
+th,td{text-align:left;padding:.95rem .9rem .95rem 0;border-bottom:1px solid var(--rule);font-size:.92rem;vertical-align:middle}
+th{font-family:var(--f-mono);font-size:var(--t-micro);font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+caption{caption-side:top;text-align:left;padding-bottom:.8rem;font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.mini{min-height:36px;border:1px solid var(--ink);background:transparent;padding:0 .75rem;font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;color:var(--ink)}
+.mini:hover{background:var(--ink);color:var(--paper)}
+pre.out{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font-family:var(--f-mono);font-size:.78rem;line-height:1.7;color:var(--ink)}
+.outbox{display:flex;flex-direction:column;gap:1rem;min-width:0;border:1px solid var(--rule);background:var(--card);padding:1.2rem}
+.outbox .row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.6rem}
+.drop{display:flex;flex-direction:column;align-items:center;gap:.6rem;border:1px dashed var(--accent);background:var(--card);padding:clamp(1.8rem,5vw,3rem) 1.2rem;text-align:center;transition:background .2s}
+.drop.over{background:var(--tint)}
+.drop strong{font-family:var(--f-display);font-size:1.6rem;font-weight:400;letter-spacing:-.02em}
+.drop p{margin:0;max-width:52ch;font-size:.88rem;color:var(--muted)}
+.files{list-style:none;margin:1.5rem 0 0;padding:0;border-top:1px solid var(--rule)}
+.files li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.3rem 1rem;padding:.9rem 0;border-bottom:1px solid var(--rule)}
+.files strong{font-weight:500;overflow-wrap:anywhere}
+.files small{grid-column:1/-1;font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.06em;color:var(--muted);overflow-wrap:anywhere}
+.files .sz{font-family:var(--f-mono);font-size:.7rem;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* contact */
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,3rem);align-items:start}
+.form{display:flex;flex-direction:column;gap:1.1rem;min-width:0}
+.form label{display:flex;flex-direction:column;gap:.45rem;font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.form select,.form textarea{width:100%;border:1px solid var(--rule);background:var(--card);padding:.8rem .9rem;font-family:var(--f-body);font-size:.98rem;letter-spacing:0;text-transform:none;color:var(--ink)}
+.form select{min-height:48px}
+.form textarea{min-height:5.2rem;resize:vertical;line-height:1.5}
+.form select:focus,.form textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.form input[type="text"]{width:100%;min-width:0;min-height:48px;border:1px solid var(--rule);background:var(--card);padding:.7rem .9rem;font-family:var(--f-body);font-size:.98rem;letter-spacing:0;text-transform:none;color:var(--ink)}
+.form input[type="text"]:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+/* retrieval brief: a light working sheet inside the inverse Business band */
+.brief{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);border:1px solid var(--rule);background:var(--card);color:var(--ink)}
+.inv .brief{border-color:var(--inv-rule)}
+.gc-g{display:flex;flex-direction:column;gap:.35rem;min-width:0;margin:0;border:0;border-top:1px solid var(--rule);padding:.9rem 0 0}
+.gc-g legend{float:left;width:100%;margin-bottom:.5rem;padding:0;font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.form .ck{display:grid;grid-template-columns:24px minmax(0,1fr);align-items:start;gap:.75rem;min-height:44px;padding:.35rem 0;font-family:var(--f-body);font-size:.95rem;line-height:1.45;letter-spacing:0;text-transform:none;color:var(--ink);cursor:pointer}
+.ck input{width:20px;height:20px;margin:.1rem 0 0;accent-color:var(--accent);cursor:pointer}
+.ck input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.brief > *{min-width:0;padding:clamp(1.3rem,3vw,2.4rem)}
+.brief .br-out{display:flex;flex-direction:column;gap:1rem;border-left:1px solid var(--rule);background:var(--tint)}
+.brq{display:flex;flex-direction:column;gap:.6rem;min-width:0;margin:0;border:0;padding:0}
+.brq legend{margin-bottom:.7rem;padding:0;font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.form .brq label{display:grid;grid-template-columns:2.4rem minmax(0,1fr);align-items:center;gap:.6rem}
+.brn{font-family:var(--f-mono);font-size:var(--t-mono);letter-spacing:.06em;color:var(--accent)}
+.br-ex{display:flex;flex-direction:column;gap:.5rem}
+.ex{display:flex;align-items:center;width:100%;min-height:44px;border:1px dashed var(--rule);background:transparent;padding:.55rem .8rem;text-align:left;font-family:var(--f-body);font-size:.92rem;line-height:1.4;color:var(--ink);cursor:pointer}
+.ex:hover,.ex:focus-visible{border-color:var(--accent);color:var(--accent)}
+.br-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;margin-top:auto}
+.inv .brief .label{color:var(--muted)}
+.inv .brief .small{color:var(--muted)}
+.inv .brief .btn{border-color:var(--ink);color:var(--ink)}
+.inv .brief .btn.solid{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.inv .brief .btn.solid:hover{border-color:var(--accent);background:var(--accent);color:var(--on-accent)}
+
+/* dialog */
+dialog.pp{width:min(40rem,calc(100% - 32px));max-height:calc(100% - 32px);margin:auto;padding:0;border:1px solid var(--rule);background:var(--paper);color:var(--ink)}
+dialog.pp::backdrop{background:var(--scrim)}
+.pp-head{display:flex;justify-content:space-between;align-items:start;gap:1rem;padding:1.3rem 1.3rem 1rem;border-bottom:1px solid var(--rule)}
+.pp-head h2{margin:.4rem 0 0;font-family:var(--f-display);font-size:clamp(1.8rem,5vw,2.4rem);font-weight:400;line-height:1;letter-spacing:-.035em}
+.pp-banner{margin:0;padding:.8rem 1.3rem;background:var(--tint);border-bottom:1px solid var(--rule);font-size:.86rem;color:var(--accent)}
+.pp .kv div{padding-inline:1.3rem}
+.pp-foot{margin:0;padding:1rem 1.3rem 1.3rem;font-size:.84rem;color:var(--muted)}
+dialog.pp{overflow:auto;overscroll-behavior:contain}
+.pp-how{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.4rem 1rem;margin:0;padding:1.2rem 1.3rem .4rem;font-family:var(--f-display);font-size:1.3rem;font-weight:400;letter-spacing:-.02em;line-height:1.15}
+.pp-count{font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-variant-numeric:tabular-nums}
+.gates{list-style:none;margin:0;padding:0 1.3rem;display:flex;flex-direction:column;gap:.9rem}
+.gate{border:1px solid var(--rule);background:var(--card)}
+.gate-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.5rem;padding:.8rem 1rem;border-bottom:1px solid var(--rule)}
+.gate-d{margin:0;padding:.7rem 1rem;font-size:.86rem;line-height:1.55;color:color-mix(in srgb,var(--ink) 82%,var(--paper));border-bottom:1px solid var(--rule)}
+.pp .gate .kv div{padding-inline:1rem}
+.pp .gate .kv div:last-child{border-bottom:0}
+.pp-other{padding:1.2rem 1.3rem .5rem}
+
+/* footer */
+.foot{background:var(--inv-bg);color:var(--inv-fg);padding-block:4rem 2.5rem}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,1fr));gap:2.5rem}
+.foot-grid > *{min-width:0}
+.foot .brand{color:var(--inv-fg)}
+.foot p{margin:1.2rem 0 0;max-width:50ch;font-size:.88rem;line-height:1.6;color:var(--inv-muted)}
+.foot h2{margin:0 0 .6rem;font-family:var(--f-mono);font-size:var(--t-micro);font-weight:400;letter-spacing:.13em;text-transform:uppercase;color:var(--inv-dim)}
+.foot a.fl{display:block;padding-block:.3rem;font-size:.9rem;color:var(--inv-muted);text-decoration:none}
+.foot a.fl:hover{color:var(--inv-fg)}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:3rem;border-top:1px solid var(--inv-rule);padding-top:1.2rem;font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.1em;text-transform:uppercase;color:var(--inv-dim)}
+
+/* responsive */
+@media (max-width:1240px){
+  .nav{display:none}
+  .controls{margin-left:auto}
+  .mnav{display:flex}
+  .plates{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media (max-width:1100px){
+  .routes,.c4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .route:last-child{grid-column:1/-1}
+  .c5{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .ledger{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ledger li:last-child{grid-column:1/-1}
+  .ledger li::after{display:none}
+  .pillar,.verify,.sim,.contact,.callout{grid-template-columns:minmax(0,1fr)}
+  .pbody{border-left:1px solid var(--rule);border-top:0}
+  .inv .pbody{border-color:var(--inv-rule)}
+  .pcard{min-height:13rem}
+  .sim-out{position:static}
+  .foot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .foot-grid > :first-child{grid-column:1/-1}
+}
+@media (max-width:860px){
+  .brief{grid-template-columns:minmax(0,1fr)}
+  .brief .br-out{border-left:0;border-top:1px solid var(--rule)}
+  .hero-grid,.intro{grid-template-columns:minmax(0,1fr)}
+  .c3,.pcards{grid-template-columns:minmax(0,1fr)}
+  .c5{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .c5 > :last-child{grid-column:1/-1}
+  .plates{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .series li{grid-template-columns:3rem minmax(0,1fr)}
+  .proof summary{grid-template-columns:minmax(0,1fr) 1.5rem}
+  .pf-l,.pf-t{grid-column:1;grid-row:auto}
+  .proof summary::after{grid-column:2;grid-row:1 / span 3}
+  .proof .pf-b{padding-left:clamp(1.2rem,3.5vw,3rem)}
+}
+@media (max-width:600px){
+  .statusbar .wrap > span:last-child{display:none}
+  .brand span{letter-spacing:.18em}
+  .routes,.c2,.c4,.c5,.foot-grid{grid-template-columns:minmax(0,1fr)}
+  .c5 > :last-child,.foot-grid > :first-child{grid-column:auto}
+  .ledger{grid-template-columns:minmax(0,1fr)}
+  .ledger li{min-height:0}
+  .ledger h3{margin-top:1.1rem}
+  .route{min-height:0;gap:1.1rem}
+  .route .rw{margin-top:0}
+  .plates{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sim fieldset{grid-template-columns:minmax(0,1fr);gap:.6rem}
+  .sim legend{float:none}
+  .kv div{grid-template-columns:minmax(0,1fr)}
+  .kv dd{text-align:left}
+  .num{margin-bottom:1.1rem}
+  .principle .cell-t{margin-top:1.1rem}
+  .pcard{min-height:11rem}
+  .tier{min-height:0}
+  .tier .price{margin-top:.6rem}
+  .pcard .display{font-size:clamp(2.6rem,12.5vw,3.6rem)}
+}
+/* modern-web-guidance round (29.09.2026) */
+search{display:block}
+#main:focus:not(:focus-visible){outline:none}
+/* text-wrap:pretty costs layout time; the copy is short now, so only the hero line uses it (measured 29.09.2026) */
+.lede{text-wrap:pretty}
+/* scroll-driven animations: decorative, progressive enhancement, no script fallback */
+@media (prefers-reduced-motion:no-preference){
+  @supports (animation-timeline:scroll()){
+    @keyframes ba-progress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+    @keyframes ba-turn{from{transform:rotate(0deg)}to{transform:rotate(1080deg)}}
+    .progress{animation:ba-progress auto linear both;animation-timeline:scroll(root)}
+    .spin{animation:ba-turn auto linear both;animation-timeline:scroll(root)}
+  }
+}
+/* checkboxes where accent-color is missing: same brand colour, native control kept */
+@supports not (accent-color:red){
+  .ck input{appearance:none;display:grid;place-content:center;width:20px;height:20px;border:1.5px solid var(--ink);background:var(--card)}
+  .ck input:checked{background:var(--accent);border-color:var(--accent)}
+  .ck input:checked::before{content:"";width:10px;height:5px;border:solid var(--on-accent);border-width:0 0 2px 2px;transform:translateY(-1px) rotate(-45deg)}
+}
+/* forced colours: selected states must not depend on a background fill */
+@media (forced-colors:active){
+  .tab[aria-selected="true"],.seg button[aria-pressed="true"],.opts input:checked + span,.iconbtn[aria-pressed="true"]{outline:2px solid CanvasText;outline-offset:-4px}
+  .nav a[aria-current],.mnav a[aria-current]{text-decoration:underline;text-underline-offset:.35em}
+  .progress{display:none}
+}
+/* more contrast when the visitor asks for it */
+@media (prefers-contrast:more){
+  :root{--muted:#4d4a45; --rule:#9c968c}
+  :root[data-theme="dark"]{--muted:#d2ccc2; --rule:#6e6860}
+}
+@media (prefers-contrast:more) and (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--muted:#d2ccc2; --rule:#6e6860}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .spin{transform:none}
+}
+
+/* print: the page, a passport or a brief comes out as a clean paper record (design round 7) */
+@media print{
+  :root,:root[data-theme],:root:not([data-theme="light"]){
+    --paper:#fff; --card:#fff; --tint:#fff; --ink:#000; --muted:#444; --rule:#bbb;
+    --accent:#8b1a1a; --on-accent:#fff;
+    --inv-bg:#fff; --inv-fg:#000; --inv-muted:#333; --inv-dim:#555; --inv-rule:#bbb; --inv-accent:#8b1a1a; --inv-hover:#f2f2f2;
+    --ok:#35573c; --warn:#8a5a12; --grain:0; color-scheme:light;
+  }
+  @page{margin:16mm 14mm}
+  html{scroll-behavior:auto}
+  body{font-size:10.5pt;line-height:1.5}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  body::before,.skip,.statusbar,.hdr,.totop,.progress,.hero-foot nav,.actions,.br-actions,.br-ex,.lk-row,
+  .row .mini,#pickFiles,#drop,.tabs,.proof summary::after{display:none!important}
+  .sec{padding-block:10mm;border-bottom:1px solid var(--rule)}
+  .pcard::after{display:none}
+  .display{break-after:avoid}
+  article,.pcard,.pbody,.route,.gate,.brief,.outbox,pre.out,.kv div,details,.cells > *{break-inside:avoid}
+  .brief{grid-template-columns:minmax(0,1fr)}
+  .brief .br-out{border-left:0;border-top:1px solid var(--rule)}
+  pre.out{border:1px solid var(--rule);padding:4mm;font-size:9pt}
+  details > *{display:block}
+  details:not([open]) > .pf-b{display:block}
+  [hidden][role="tabpanel"]{display:block!important}
+  a{color:inherit;text-decoration:none}
+  /* a passport that is open prints on its own */
+  body:has(dialog.pp[open]) > *:not(dialog){display:none!important}
+  dialog.pp[open]{position:absolute;inset:0 0 auto 0;width:auto;max-width:none;max-height:none;margin:0;border:0;overflow:visible}
+  dialog.pp::backdrop{display:none}
+  #ppClose{display:none}
+}
+
+/* round 11: ideas carried over from beta-art.com (subject filter, passport actions and prev/next) */
+.vh{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;border:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.pfilter{flex-wrap:wrap}
+.pfilter button{min-height:44px;padding-inline:.9rem;text-transform:uppercase}
+.pfilter .n{margin-left:.35rem;font-variant-numeric:tabular-nums;opacity:.75}
+.pl[hidden]{display:none}
+.pp-act,.pp-nav{display:flex;flex-wrap:wrap;gap:.5rem;padding:0 1.3rem 1rem}
+.pp-act .mini{display:inline-flex;align-items:center;text-decoration:none}
+.pp-nav{justify-content:space-between;padding-top:1rem;padding-bottom:1.3rem;border-top:1px solid var(--rule)}
+.pp-nav .mini{min-height:44px;text-transform:none;letter-spacing:.02em;max-width:100%}
+.pp-nav .mini[hidden]{display:none}
+.pp-nav-t{font-family:var(--f-body)}
+@media print{.pp-act,.pp-nav,.pfilter{display:none!important}}
+
+/* round 12: licence scope, use filter, licence questions, plate link (from beta-art.com) */
+.tier[hidden]{display:none}
+.tier-d{border-top:1px solid var(--rule)}
+.tier-d summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.tier-d p{margin:.35rem 0 .6rem;font-size:.86rem;line-height:1.5}
+.tier-d .tl{display:block;font-family:var(--f-mono);font-size:var(--t-micro);letter-spacing:.08em;color:var(--muted)}
+.faq{max-width:48rem;border-top:1px solid var(--ink)}
+.faq h4{margin:1rem 0 .4rem}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{cursor:pointer;min-height:44px;padding:.75rem 0;display:flex;align-items:center;font-size:.98rem}
+.faq details p{margin:0 0 1rem;max-width:62ch;font-size:.9rem;line-height:1.6;color:var(--muted)}
+.pp-url{margin:0 1.3rem 1rem;padding:.6rem .75rem;background:var(--tint);font-family:var(--f-mono);font-size:var(--t-micro);overflow-wrap:anywhere;user-select:all}
+@media print{.tier-d{display:block}.tier-d > *{display:block}}
+.tier-d summary,.faq summary{list-style:none;gap:1rem}
+.tier-d summary::-webkit-details-marker,.faq summary::-webkit-details-marker{display:none}
+.tier-d summary::after,.faq summary::after{content:"+";margin-left:auto;font-family:var(--f-mono);font-size:1.1rem;line-height:1;color:var(--accent)}
+.tier-d[open] > summary::after,.faq details[open] > summary::after{content:"−"}
+.faq summary:hover,.tier-d summary:hover{color:var(--ink)}
+
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main"><span data-i18n="k1">Skip to content</span></a>
+<aside class="statusbar" aria-label="Page status" data-i18n-aria="k2"><div class="wrap"><span><span data-i18n="k3"><strong>Early version</strong>, sample records only</span></span></div></aside>
+<header class="hdr"><div class="wrap hdr-row"><a class="brand" href="#top" aria-label="BETA ART, back to top" data-i18n-aria="k4"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="46"/><g class="spin"><g class="blades"><path d="M50 30 75.81 11.92M67.32 40 84.99 47.86M67.32 60 76.66 84.02M50 70 24.19 88.08M32.68 60 15.01 52.14M32.68 40 23.34 15.98"/><path d="M50 30 32.68 40 32.68 60 50 70 67.32 60 67.32 40Z"/></g></g></g><circle class="dot" cx="50" cy="50" r="6" fill="var(--accent)"/></svg><span>BETA ART</span></a><nav class="nav" aria-label="Primary" data-i18n-aria="k5"><a href="#explore"><span data-i18n="k6">Explore</span></a><a href="#business"><span data-i18n="k7">Business</span></a><a href="#privat"><span data-i18n="k8">Privat</span></a><a href="#gallery-events"><span data-i18n="k9">Gallery &amp; Events</span></a><a href="#record"><span data-i18n="k10">The Record</span></a><a href="#join"><span data-i18n="k11">Join</span></a></nav><div class="controls"><div class="seg" role="group" aria-label="Language" data-i18n-aria="k12"><button type="button" data-lang-btn="en" aria-pressed="true" lang="en">EN</button><button type="button" data-lang-btn="no" aria-pressed="false" lang="nb">NB</button></div><button type="button" class="iconbtn" id="themeBtn" aria-pressed="false" aria-label="Dark theme" data-i18n-aria="k13"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17" /><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg></button></div></div><nav class="mnav" aria-label="Sections" data-i18n-aria="k14"><a href="#explore"><span data-i18n="k15">Explore</span></a><a href="#business"><span data-i18n="k16">Business</span></a><a href="#privat"><span data-i18n="k17">Privat</span></a><a href="#gallery-events"><span data-i18n="k18">Gallery &amp; Events</span></a><a href="#record"><span data-i18n="k19">The Record</span></a><a href="#join"><span data-i18n="k20">Join</span></a></nav><span class="progress" id="progress" aria-hidden="true"></span></header>
+<main id="main" tabindex="-1">
+<section id="top" class="hero"><div class="wrap hero-grid"><div class="hero-copy"><h1 class="display h1" data-i18n="k21">See the work. <em>Understand the record. Know what comes next.</em></h1><p class="lede" data-i18n="k22">Photography, creators and cultural discovery, with clearer context, status and paths to action.</p><div class="actions"><a class="btn solid" href="#routes"><span data-i18n="k23">Explore BETA ART</span></a><a class="btn" href="#record"><span data-i18n="k24">Open The Record</span></a></div></div><aside class="rec" aria-label="BETA ART master record" data-i18n-aria="k25"><div class="rec-head"><span>BA / MAIN / MASTER</span><span>2026</span></div><span class="rec-mark"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="46"/><g class="spin"><g class="blades"><path d="M50 30 75.81 11.92M67.32 40 84.99 47.86M67.32 60 76.66 84.02M50 70 24.19 88.08M32.68 60 15.01 52.14M32.68 40 23.34 15.98"/><path d="M50 30 32.68 40 32.68 60 50 70 67.32 60 67.32 40Z"/></g></g></g><circle class="dot" cx="50" cy="50" r="5.4" fill="var(--accent)"/></svg></span><dl><div><dt><span data-i18n="k26">State</span></dt><dd><span data-i18n="k27">Early version</span></dd></div><div><dt><span data-i18n="k28">Main areas</span></dt><dd>06</dd></div><div><dt><span data-i18n="k29">Publication</span></dt><dd><span data-i18n="k30">Authorized 04.10.2026</span></dd></div><div><dt><span data-i18n="k31">Edition</span></dt><dd>Master, 04.10.2026</dd></div></dl></aside><div class="hero-foot"><nav aria-label="Jump to an area" data-i18n-aria="k32"><a href="#explore"><span>01</span> <span data-i18n="k33">Explore</span></a><a href="#business"><span>02</span> <span data-i18n="k34">Business</span></a><a href="#privat"><span>03</span> <span data-i18n="k35">Privat</span></a><a href="#gallery-events"><span>04</span> <span data-i18n="k36">Gallery &amp; Events</span></a><a href="#record"><span>05</span> <span data-i18n="k37">The Record</span></a><a href="#join"><span>06</span> <span data-i18n="k38">Join</span></a></nav></div></div></section>
+<section id="routes" class="routes-sec"><div class="wrap"><div class="routes-head"><div><h2 class="display" data-i18n="k39">What are you here to do?</h2></div></div><nav class="routes" aria-label="Five starting routes" data-i18n-aria="k40">
+<a class="route" href="#explore"><span class="rn" data-i18n="k41">01 Explore</span><span class="rw" data-i18n="k42">Discover photography, artworks and creator records.</span><span class="ra" aria-hidden="true">↘</span></a>
+<a class="route" href="#business"><span class="rn" data-i18n="k43">02 Document a project</span><span class="rw" data-i18n="k44">Keep project documentation findable for years.</span><span class="ra" aria-hidden="true">↘</span></a>
+<a class="route" href="#privat"><span class="rn" data-i18n="k45">03 Share your work</span><span class="rw" data-i18n="k46">Show your work for sale or licensing.</span><span class="ra" aria-hidden="true">↘</span></a>
+<a class="route" href="#gallery-events"><span class="rn" data-i18n="k47">04 Find culture</span><span class="rw" data-i18n="k48">Discover galleries, museums, exhibitions and events.</span><span class="ra" aria-hidden="true">↘</span></a>
+<a class="route" href="#record"><span class="rn" data-i18n="k49">05 Use or license</span><span class="rw" data-i18n="k50">Check availability, rights and the request path.</span><span class="ra" aria-hidden="true">↘</span></a>
+</nav><div class="legend"><span class="label" data-i18n="k51">Status</span><span class="chip" data-i18n="k52">Pending or not yet evidenced</span><span class="chip ok" data-i18n="k53">Decided or designed</span><span class="chip stop" data-i18n="k54">Not built or blocked</span></div></div></section>
+<section id="protect" class="sec"><div class="wrap"><div class="intro"><div><h2 class="display h2" data-i18n="k55">See. Understand. <em>Status. Act.</em></h2></div></div><div class="cells c4 mt-l">
+<article class="principle"><p class="label">01</p><h3 class="cell-t" data-i18n="k56">See</h3><p class="cell-p" data-i18n="k57">Find the work and its maker.</p></article>
+<article class="principle"><p class="label">02</p><h3 class="cell-t" data-i18n="k58">Understand</h3><p class="cell-p" data-i18n="k59">Read origin, context and rights.</p></article>
+<article class="principle"><p class="label">03</p><h3 class="cell-t" data-i18n="k60">Status</h3><p class="cell-p" data-i18n="k61">Recorded, pending, restricted or available.</p></article>
+<article class="principle"><p class="label">04</p><h3 class="cell-t" data-i18n="k62">Act</h3><p class="cell-p" data-i18n="k63">License, enquire or join.</p></article>
+</div></div></section>
+<section id="ledger" class="sec inv"><div class="wrap"><div class="intro"><div><h2 class="display h2" data-i18n="k64">The record has a <em>chain of custody.</em></h2></div></div><ol class="ledger mt-l" aria-label="Evidence ledger, seven steps" data-i18n-aria="k65">
+<li><span>01</span><h3 data-i18n="k66">Source / original</h3></li>
+<li><span>02</span><h3 data-i18n="k67">Metadata</h3></li>
+<li><span>03</span><h3 data-i18n="k68">Verification or exception</h3></li>
+<li><span>04</span><h3 data-i18n="k69">Rights</h3></li>
+<li><span>05</span><h3 data-i18n="k70">Retrieval</h3></li>
+<li><span>06</span><h3 data-i18n="k71">Retention</h3></li>
+<li><span>07</span><h3 data-i18n="k72">Export / exit</h3></li>
+</ol></div></section>
+<section id="explore" class="sec"><div class="wrap">
+<div class="pillar"><div class="pcard" data-no="01"><h2 class="display" data-i18n="k73">Explore.</h2><span class="chip " data-i18n="k74">Public discovery open, licensing not yet</span></div><div class="pbody"><h3 class="display h3" data-i18n="k75">Made by a human. <em>Verified at the source.</em></h3><p class="quote" data-i18n="k76">Photography and creator records, with origin and rights in view.</p></div></div>
+<div class="callout mt-l"><h3 class="display h3" data-i18n="k77">Discovery before transaction.</h3><p class="body" data-i18n="k78">Visible is not available, licensed or verified. Each state stays separate.</p></div>
+<div id="catalogue" class="mt-l"><div class="cat-head"><div><h3 class="display h3" data-i18n="k79">The frames are empty <em>on purpose.</em></h3></div><p class="small" data-i18n="k80">Select a plate to read its record.</p></div><div class="seg pfilter mt-m" role="group" aria-label="Filter by subject" data-i18n-aria="k81"><button type="button" data-filter="all" aria-pressed="true"><span data-i18n="k82">All</span> <span class="n">12</span></button><button type="button" data-filter="land" aria-pressed="false"><span data-i18n="k83">Landscape</span> <span class="n">7</span></button><button type="button" data-filter="city" aria-pressed="false"><span data-i18n="k84">City</span> <span class="n">3</span></button><button type="button" data-filter="portrait" aria-pressed="false"><span data-i18n="k85">Portrait</span> <span class="n">2</span></button></div><div class="plates mt-m" id="plates"><button type="button" class="pl" data-id="BA-001" data-sub="land" aria-haspopup="dialog" style="--ang:28deg"><span class="pl-frame" aria-hidden="true"><span class="pl-crop"></span><span class="pl-no">001</span></span><span class="pl-cap"><span class="pl-id">BA-001</span><span class="pl-title" lang="en">First Light</span></span></button><button type="button" class="pl" data-id="BA-002" data-sub="land" aria-haspopup="dialog" style="--ang:51deg"><span class="pl-frame" aria-hidden="true"><span class="pl-crop"></span><span class="pl-no">002</span></span><span class="pl-cap"><span class="pl-id">BA-002</span><span class="pl-title" lang="en">Into the Pines</span></span></button><button type="button" class="pl" data-id="BA-003" data-sub="land" aria-haspopup="dialog" style="--ang:74deg"><span class="pl-frame" aria-hidden="true"><span class="pl-crop"></span><span class="pl-no">003</span></span><span class="pl-cap"><span class="pl-id">BA-003</span><span class="pl-title" lang="en">Sea of Fog</span></span></button><button type="button" class="pl" data-id="BA-004" data-sub="land" aria-haspopup="dialog" style="--ang:97deg"><span class="pl-frame" aria-hidden="true"><span class="pl-crop"></span><span class="pl-no">004</span></span><span class="pl-cap"><span class="pl-id">BA-004</span><span class="pl-title" lang="en">Still Water</span></span></button><button type="button" class="pl" data-id="BA-005" data-sub="city" aria-haspopup="dialog" style="--ang:120deg"><span class="pl-frame" aria-hidden="true"><span class="pl-crop"></span><span class="pl-no">005</span></span><span class="pl-cap"><span class="pl-id">BA-005</span><span class="pl-title" lang="en">PALM</span></span></button><button type="button" class="pl" data-id="BA-006" data-sub="city" aria-haspopup="dialog" style="--ang:143deg"><span class="pl-frame" aria-hidden="true"><span class="pl-crop"></span><span class="pl-no">006</span></span><span class="pl-cap"><span class="pl-id">BA-006</span><span class="pl-title" lang="en">Blue Hour Grid</span></span></button><button type="button" class="pl" data-id="BA-007" data-sub="city" aria-haspopup="dialog" style="--ang:166deg"><span class="pl-frame" aria-hidden="true"><span class="pl-crop"></span><span class="pl-no">007</span></span><span class="pl-cap"><span class="pl-id">BA-007</span><span class="pl-title" lang="en">Night Crossing</span></span></button><button type="button" class="pl" data-id="BA-008" data-sub="land" aria-haspopup="dialog" style="--ang:189deg"><span class="pl-frame" aria-hidden="true"><span class="pl-crop"></span><span class="pl-no">008</span></span><span class="pl-cap"><span class="pl-id">BA-008</span><span class="pl-title" lang="en">Golden Hour</span></span></button><button type="button" class="pl" data-id="BA-009" data-sub="portrait" aria-haspopup="dialog" style="--ang:212deg"><span class="pl-frame" aria-hidden="true"><span class="pl-crop"></span><span class="pl-no">009</span></span><span class="pl-cap"><span class="pl-id">BA-009</span><span class="pl-title" lang="en">Portrait in Amber</span></span></button><button type="button" class="pl" data-id="BA-010" data-sub="portrait" aria-haspopup="dialog" style="--ang:235deg"><span class="pl-frame" aria-hidden="true"><span class="pl-crop"></span><span class="pl-no">010</span></span><span class="pl-cap"><span class="pl-id">BA-010</span><span class="pl-title" lang="en">The Maker</span></span></button><button type="button" class="pl" data-id="BA-011" data-sub="land" aria-haspopup="dialog" style="--ang:258deg"><span class="pl-frame" aria-hidden="true"><span class="pl-crop"></span><span class="pl-no">011</span></span><span class="pl-cap"><span class="pl-id">BA-011</span><span class="pl-title" lang="en">Slow Morning</span></span></button><button type="button" class="pl" data-id="BA-012" data-sub="land" aria-haspopup="dialog" style="--ang:281deg"><span class="pl-frame" aria-hidden="true"><span class="pl-crop"></span><span class="pl-no">012</span></span><span class="pl-cap"><span class="pl-id">BA-012</span><span class="pl-title" lang="en">Low Tide</span></span></button></div></div>
+<div class="intro mt-l"><div><h3 class="display h3" data-i18n="k86">Seven ways to <em>read a place.</em></h3><p class="small mt-m" data-i18n="k87">No plate is assigned to a series yet.</p></div><ol class="series">
+<li><span class="rn">I</span><strong lang="en">Work</strong></li>
+<li><span class="rn">II</span><strong lang="en">Craft</strong></li>
+<li><span class="rn">III</span><strong lang="en">Land and Light</strong></li>
+<li><span class="rn">IV</span><strong lang="en">The Table</strong></li>
+<li><span class="rn">V</span><strong lang="en">Rooms</strong></li>
+<li><span class="rn">VI</span><strong lang="en">The Unseen</strong></li>
+<li><span class="rn">VII</span><strong lang="en">Weather</strong></li>
+</ol></div>
+<div id="licensing" class="mt-l"><h3 class="display h3" data-i18n="k88">How a licence <em>is made.</em></h3><div class="cells c3 mt-m">
+<article><span class="num">01</span><h4 class="cell-t" data-i18n="k89">Select the plate</h4></article>
+<article><span class="num">02</span><h4 class="cell-t" data-i18n="k90">Describe the use</h4></article>
+<article><span class="num">03</span><h4 class="cell-t" data-i18n="k91">Receive the agreement</h4></article>
+</div><div class="seg pfilter mt-m" role="group" aria-label="Filter by use" data-i18n-aria="k92"><button type="button" data-use="all" aria-pressed="true"><span data-i18n="k93">All</span></button><button type="button" data-use="personal" aria-pressed="false"><span data-i18n="k94">Personal use</span></button><button type="button" data-use="business" aria-pressed="false"><span data-i18n="k95">Business use</span></button></div><div class="cells c4 mt-m" id="tiers">
+<article class="tier" data-use="personal"><h4 class="cell-t" data-i18n="k96">Personal</h4><details class="tier-d"><summary><span data-i18n="k97">Scope</span></summary><p><span class="tl" data-i18n="k98">Covers</span><span data-i18n="k99">Private projects, gifts, personal sites.</span></p><p><span class="tl" data-i18n="k100">Excludes</span><span data-i18n="k101">Any use for a business.</span></p></details><span class="price" data-i18n="k102">From kr 190, indicative</span></article>
+<article class="tier" data-use="business"><h4 class="cell-t" data-i18n="k103">Commercial</h4><details class="tier-d"><summary><span data-i18n="k104">Scope</span></summary><p><span class="tl" data-i18n="k105">Covers</span><span data-i18n="k106">Company web, social media, marketing, editorial.</span></p><p><span class="tl" data-i18n="k107">Excludes</span><span data-i18n="k108">Resale products and sublicensing.</span></p></details><span class="price" data-i18n="k109">Quoted per use</span></article>
+<article class="tier" data-use="business"><h4 class="cell-t" data-i18n="k110">Extended</h4><details class="tier-d"><summary><span data-i18n="k111">Scope</span></summary><p><span class="tl" data-i18n="k112">Covers</span><span data-i18n="k113">Unlimited print, resale, one named client.</span></p><p><span class="tl" data-i18n="k114">Excludes</span><span data-i18n="k115">Several clients or stock libraries.</span></p></details><span class="price" data-i18n="k116">Quoted per use</span></article>
+<article class="tier" data-use="business"><h4 class="cell-t" data-i18n="k117">Custom &amp; Exclusive</h4><details class="tier-d"><summary><span data-i18n="k118">Scope</span></summary><p><span class="tl" data-i18n="k119">Covers</span><span data-i18n="k120">Exclusivity, custom terms, commissioned work.</span></p><p><span class="tl" data-i18n="k121">Excludes</span><span data-i18n="k122">Anything outside the written agreement.</span></p></details><span class="price" data-i18n="k123">By agreement</span></article>
+</div><p class="note mt-m" data-i18n="k124">No plate can be licensed yet.</p><div class="faq mt-l"><h4 class="cell-t" data-i18n="k125">Licence questions</h4>
+<details><summary><span data-i18n="k126">Can I crop or edit the photograph?</span></summary><p data-i18n="k127">Yes, for layout and colour, without changing the work.</p></details>
+<details><summary><span data-i18n="k128">Can it be used to train AI?</span></summary><p data-i18n="k129">No. Every licence excludes AI training, logos and trademarks, and removing metadata.</p></details>
+<details><summary><span data-i18n="k130">Is a licence exclusive?</span></summary><p data-i18n="k131">No, unless exclusivity is agreed in writing.</p></details>
+<details><summary><span data-i18n="k132">Can I pass the licence to a client?</span></summary><p data-i18n="k133">Only with Extended, to one named client.</p></details>
+<details><summary><span data-i18n="k134">Can I withdraw from a purchase?</span></summary><p data-i18n="k135">Consumers have 14 days, unless they choose immediate delivery and waive it.</p></details>
+</div></div>
+<div id="assignments" class="mt-l"><h3 class="display h3" data-i18n="k136">If it is missing, <em>request a shoot.</em></h3><div class="flow mt-m"><span data-i18n="k137">Search</span><span data-i18n="k138">Verify</span><span data-i18n="k139">License</span><span data-i18n="k140">If missing</span><span data-i18n="k141">Request a Shoot</span></div></div>
+</div></section>
+<section id="business" class="sec inv"><div class="wrap">
+<div class="pillar"><div class="pcard" data-no="02"><h2 class="display" data-i18n="k144">Business.</h2><span class="chip " data-i18n="k145">Pilot phase: Norway first, construction first</span></div><div class="pbody"><h3 class="display h3" data-i18n="k146">The project ends. <em>The documentation shouldn't.</em></h3><p class="quote" data-i18n="k147">Retrieval, not storage: a tested handover.</p><div class="actions"><a class="btn solid" href="#join" data-route="business"><span data-i18n="k142">Qualify a pilot</span></a><a class="btn" href="#business-price"><span data-i18n="k143">See the price hypothesis</span></a></div></div></div>
+<div class="mt-l"><p class="label acc" data-i18n="k148">The exchange</p><div class="cells c4 mt-m">
+<article><h4 class="cell-t" data-i18n="k149">Customer gives</h4><p class="cell-p" data-i18n="k150">One project, access, 3–5 questions.</p></article>
+<article><h4 class="cell-t" data-i18n="k151">Beta Art does</h4><p class="cell-p" data-i18n="k152">Intake, metadata, exceptions, retrieval tests.</p></article>
+<article><h4 class="cell-t" data-i18n="k153">Customer receives</h4><p class="cell-p" data-i18n="k154">Archive, manifest, export, exit package.</p></article>
+<article><h4 class="cell-t" data-i18n="k155">Boundary</h4><p class="cell-p" data-i18n="k156">Does not replace FDV or project systems.</p></article>
+</div></div>
+<div class="mt-l"><p class="label acc" data-i18n="k157">Pilot rhythm</p><div class="cells c4 mt-m">
+<article><span class="num">01</span><h4 class="cell-t" data-i18n="k158">Frame</h4></article>
+<article><span class="num">02</span><h4 class="cell-t" data-i18n="k159">Map</h4></article>
+<article><span class="num">03</span><h4 class="cell-t" data-i18n="k160">Test</h4></article>
+<article><span class="num">04</span><h4 class="cell-t" data-i18n="k161">Exit</h4></article>
+</div></div>
+<div id="business-brief" class="mt-l"><div class="intro"><div><h3 class="display h3" data-i18n="k162">Write the questions <em>before the files.</em></h3></div><p class="body" data-i18n="k163">Write 3–5 questions someone must answer years from now. Nothing is sent.</p></div><div class="brief mt-m"><form class="form" id="briefForm" novalidate><label for="brProject"><span data-i18n="k164">Project and period</span><input type="text" id="brProject" name="project" placeholder="e.g. finished school extension, 2021–2024" data-i18n-ph="k165"></label><fieldset class="brq"><legend><span data-i18n="k166">Questions someone must answer later</span></legend>
+<label for="brQ1"><span class="brn">Q1</span><input type="text" id="brQ1" name="q1" maxlength="200"></label>
+<label for="brQ2"><span class="brn">Q2</span><input type="text" id="brQ2" name="q2" maxlength="200"></label>
+<label for="brQ3"><span class="brn">Q3</span><input type="text" id="brQ3" name="q3" maxlength="200"></label>
+<label for="brQ4"><span class="brn">Q4</span><input type="text" id="brQ4" name="q4" maxlength="200"></label>
+<label for="brQ5"><span class="brn">Q5</span><input type="text" id="brQ5" name="q5" maxlength="200"></label>
+</fieldset><div class="br-ex"><p class="small" data-i18n="k167">Examples</p>
+<button type="button" class="ex" data-ex="0"><span data-i18n="k168">Which drawing was approved for the facade?</span></button>
+<button type="button" class="ex" data-ex="1"><span data-i18n="k169">Who signed off the fire safety changes, and when?</span></button>
+<button type="button" class="ex" data-ex="2"><span data-i18n="k170">Where are the roof maintenance documents?</span></button>
+</div></form><div class="br-out"><pre class="out" id="briefOut">BETA ART · Retrieval brief
+Project: —
+
+Questions: —
+
+Not included: personal data or confidential files. They come only after scope, access and data processing are agreed.</pre><p class="small" id="briefMsg" aria-live="polite">0 of 5 written. A pilot needs 3.</p><div class="br-actions"><button type="button" class="mini" id="copyBrief"><span data-i18n="k171">Copy brief</span></button><button type="button" class="btn solid" id="briefToEnq"><span data-i18n="k172">Add to enquiry</span></button></div></div></div></div>
+<div class="intro mt-l"><div><h3 class="display h3" data-i18n="k173">Where visual evidence <em>has to hold up.</em></h3></div><p class="body" data-i18n="k174">Phase 1 is construction. The rest are use areas, not customers.</p></div><div class="cells c3 mt-m">
+<article class="area first"><span class="chip ok" data-i18n="k175">Phase 1</span><h4 class="cell-t" data-i18n="k176">Construction</h4><p class="cell-p" data-i18n="k177">Closeout and FDV photo records.</p></article>
+<article class="area"><h4 class="cell-t" data-i18n="k178">Maritime / offshore</h4><p class="cell-p" data-i18n="k179">Hull, pipeline and ROV inspection.</p></article>
+<article class="area"><h4 class="cell-t" data-i18n="k180">Energy</h4><p class="cell-p" data-i18n="k181">Installation, operation, maintenance.</p></article>
+<article class="area"><h4 class="cell-t" data-i18n="k182">Aquaculture</h4><p class="cell-p" data-i18n="k183">Nets, fish health, environment.</p></article>
+<article class="area"><h4 class="cell-t" data-i18n="k184">Health</h4><p class="cell-p" data-i18n="k185">Equipment and quality records.</p></article>
+<article class="area"><h4 class="cell-t" data-i18n="k186">Tourism</h4><p class="cell-p" data-i18n="k187">Real, dated images, not AI or stock.</p></article>
+</div>
+<div id="business-price" class="mt-l"><h3 class="display h3" data-i18n="k188">A hypothesis, <em>not a price list.</em></h3><div class="cells c3 price-grid mt-m">
+<article><span class="pm" data-i18n="k189">Establishment</span><strong class="pv">15 000 kr</strong><span class="pm" data-i18n="k190">excl. VAT, incl. 5 years of storage</span></article>
+<article><span class="pm" data-i18n="k191">Yearly, years 6–10</span><strong class="pv">2 500 kr</strong><span class="pm" data-i18n="k192">excl. VAT</span></article>
+<article><span class="pm" data-i18n="k193">Assignment day</span><strong class="pv">11 000 kr</strong><span class="pm" data-i18n="k194">excl. VAT</span></article>
+</div><p class="note mt-m" data-i18n="k195">Tested in paid pilots. Data terms are agreed before any intake.</p></div>
+</div></section>
+<section id="privat" class="sec tint"><div class="wrap">
+<div class="pillar"><div class="pcard" data-no="03"><h2 class="display" data-i18n="k196">Privat.</h2><span class="chip stop" data-i18n="k197">Creator marketplace prototype, backend not built</span></div><div class="pbody"><h3 class="display h3" data-i18n="k198">Put the work in view. <em>Keep the terms clear.</em></h3><p class="quote" data-i18n="k199">For photographers, artists and independent makers.</p></div></div>
+<div class="cells c3 mt-l">
+<article><p class="label acc" data-i18n="k200">Availability</p><h4 class="cell-t" data-i18n="k201">Display, enquiry, sale or licence.</h4></article>
+<article><p class="label acc" data-i18n="k202">Rights</p><h4 class="cell-t" data-i18n="k203">Available is not licensed.</h4></article>
+<article><p class="label acc" data-i18n="k204">Source</p><h4 class="cell-t" data-i18n="k205">Public profile, protected evidence.</h4></article>
+</div></div></section>
+<section id="gallery-events" class="sec"><div class="wrap">
+<div class="pillar"><div class="pcard" data-no="04"><h2 class="display" data-i18n="k206">Gallery &amp; Events.</h2><span class="chip " data-i18n="k207">Discovery prototype, live event data not connected</span></div><div class="pbody"><h3 class="display h3" data-i18n="k208">Find what is happening around you. <em>The record remains.</em></h3><p class="quote" data-i18n="k209">Museums, galleries and events across Scandinavia. Venues and tickets appear only from approved records.</p></div></div>
+<div class="mt-l"><p class="label acc" data-i18n="k210">For organisers: one event record, five parts</p><div class="cells c5 mt-m">
+<article><span class="num">01</span><h4 class="cell-t" data-i18n="k211">Event information</h4></article>
+<article><span class="num">02</span><h4 class="cell-t" data-i18n="k212">Venue and dates</h4></article>
+<article><span class="num">03</span><h4 class="cell-t" data-i18n="k213">Artists and context</h4></article>
+<article><span class="num">04</span><h4 class="cell-t" data-i18n="k214">Images and rights</h4></article>
+<article><span class="num">05</span><h4 class="cell-t" data-i18n="k215">External link, when real</h4></article>
+</div><div class="cells c2 mt-m"><article><p class="label acc" data-i18n="k216">Independence rule</p><h4 class="cell-t" data-i18n="k217">The verifier is never the maker.</h4></article><article><p class="label acc" data-i18n="k218">Standing review</p><h4 class="cell-t" data-i18n="k219">Logged, dated and revocable.</h4></article></div></div>
+<div id="gallery-check" class="mt-l"><div class="intro"><div><h3 class="display h3" data-i18n="k220">Check your evidence <em>before you submit.</em></h3></div><p class="body" data-i18n="k221">Submissions are not open yet. Tick what you hold. Nothing is sent.</p></div><div class="brief mt-m"><form class="form" id="gcForm" novalidate><label for="gcWork"><span data-i18n="k222">Working title (optional)</span><input type="text" id="gcWork" name="work" maxlength="120" placeholder="e.g. Untitled, winter series" data-i18n-ph="k223"></label>
+<fieldset class="gc-g"><legend><span data-i18n="k224">Source</span></legend>
+<label class="ck" for="gc1"><input type="checkbox" id="gc1" data-gc><span class="ck-t" data-i18n="k225">The original file or work can be shown.</span></label>
+<label class="ck" for="gc2"><input type="checkbox" id="gc2" data-gc><span class="ck-t" data-i18n="k226">Process material exists.</span></label>
+</fieldset>
+<fieldset class="gc-g"><legend><span data-i18n="k227">Identity</span></legend>
+<label class="ck" for="gc3"><input type="checkbox" id="gc3" data-gc><span class="ck-t" data-i18n="k228">I made the work and can confirm who I am.</span></label>
+<label class="ck" for="gc4"><input type="checkbox" id="gc4" data-gc><span class="ck-t" data-i18n="k229">Helpers can be named, with consent.</span></label>
+</fieldset>
+<fieldset class="gc-g"><legend><span data-i18n="k230">Rights</span></legend>
+<label class="ck" for="gc5"><input type="checkbox" id="gc5" data-gc><span class="ck-t" data-i18n="k231">I hold display and catalogue rights.</span></label>
+<label class="ck" for="gc6"><input type="checkbox" id="gc6" data-gc><span class="ck-t" data-i18n="k232">Written releases exist, or none are needed.</span></label>
+<label class="ck" for="gc7"><input type="checkbox" id="gc7" data-gc><span class="ck-t" data-i18n="k233">My AI-training choice is in writing.</span></label>
+</fieldset>
+<fieldset class="gc-g"><legend><span data-i18n="k234">Edition</span></legend>
+<label class="ck" for="gc8"><input type="checkbox" id="gc8" data-gc><span class="ck-t" data-i18n="k235">Edition size and numbers are known.</span></label>
+</fieldset>
+</form><div class="br-out"><pre class="out" id="gcOut">BETA ART · Gallery checklist
+Work: —
+Ready: 0 / 8</pre><p class="small" id="gcMsg" aria-live="polite">0 of 8 ready.</p><div class="br-actions"><button type="button" class="mini" id="copyGc"><span data-i18n="k236">Copy checklist</span></button><button type="button" class="btn solid" id="gcToEnq"><span data-i18n="k237">Add to enquiry</span></button></div></div></div></div>
+<div id="field-notes" class="callout mt-l"><div><p class="label acc" data-i18n="k238">Field Notes</p><h3 class="display h3 mt-m" data-i18n="k239">What the work <em>actually looks like.</em></h3></div><p class="body" data-i18n="k240">Provenance and process writing. First entries after the first approved event.</p></div>
+</div></section>
+<section id="record" class="sec"><div class="wrap"><div class="verify"><div class="vpanel inv"><p class="label acc" data-i18n="k241">BETA-ID</p><h2 class="display h2" data-i18n="k242">A work is more than an image. <em>Read the record.</em></h2><p class="tagline" data-i18n="k243">Verify the record, not the slogan.</p></div><div class="vmain"><search><form class="lookup" id="lookupForm" novalidate><label class="label acc" for="lookupInput"><span data-i18n="k244">Look up a record</span></label><div class="lk-row"><input class="field" id="lookupInput" name="lookup" spellcheck="false" aria-describedby="lkHint" value="BA-003" placeholder="BA-003" data-i18n-ph="k245"><button class="btn solid" type="submit"><span data-i18n="k246">Look up</span></button></div><p class="small" data-i18n="k247" id="lkHint">Demo: 12 sample records, none verified.</p><div id="lookupOut" aria-live="polite" aria-atomic="true"><div class="lk-out"><div class="lk-top"><span class="lk-t" lang="en">Sea of Fog</span><span class="lk-id">BA-003</span></div><dl class="kv"><div><dt>Record type</dt><dd>Sample record</dd></div><div><dt>Provenance</dt><dd class="pend">Pending</dd></div><div><dt>Rights</dt><dd class="pend">Not stated</dd></div><div><dt>Gates met</dt><dd class="pend">0 / 3</dd></div><div><dt>Public verification</dt><dd class="pend">Not available</dd></div></dl><div class="lk-foot"><p>An ID finds a record. It does not prove it.</p><button type="button" class="mini" data-open="BA-003" aria-haspopup="dialog">Open passport</button></div></div></div></form></search><div class="proof">
+<details><summary><span class="pf-l">BETA-ID / VERIFY</span><span class="pf-t" data-i18n="k248">Record lookup and status explanation</span></summary><div class="pf-b"><p data-i18n="k249">An identifier helps find a record and explain its state.</p><p data-i18n="k250">An ID, QR code or C2PA record alone proves nothing.</p></div></details>
+<details><summary><span class="pf-l">PASSPORT</span><span class="pf-t" data-i18n="k251">A readable record summary</span></summary><div class="pf-b"><p data-i18n="k252">Provenance, rights and status in one view.</p><p data-i18n="k253">A Passport summarises supported facts. It does not replace evidence or the agreement.</p></div></details>
+<details><summary><span class="pf-l">VAULT</span><span class="pf-t" data-i18n="k254">Protected source evidence</span></summary><div class="pf-b"><p data-i18n="k255">Original files and confidential evidence stay in the protected layer.</p><p data-i18n="k256">Private evidence is never published just because a public record exists.</p></div></details>
+<details><summary><span class="pf-l">RIGHTS</span><span class="pf-t" data-i18n="k257">Usage scope stays explicit</span></summary><div class="pf-b"><p data-i18n="k258">The written licence controls use; machine-readable signals support it.</p><p data-i18n="k259">AI training, usage and contract scope are separate states.</p></div></details>
+</div></div></div></div></section>
+<section id="transparency" class="sec tint"><div class="wrap"><div class="intro"><div><h2 class="display h2" data-i18n="k260">Paid is not licensed. <em>Identified is not verified.</em></h2></div><p class="body" data-i18n="k261">Try it: this example is paid, yet has no licence.</p></div><div class="sim mt-l"><div class="sim-rows" id="simRows">
+<fieldset><legend><span data-i18n="k262">Request</span></legend><div class="opts">
+<label><input type="radio" name="request" id="sim-request-received" value="received"><span data-i18n="k263">Received</span></label>
+<label><input type="radio" name="request" id="sim-request-qualified" value="qualified" checked><span data-i18n="k264">Qualified</span></label>
+<label><input type="radio" name="request" id="sim-request-closed" value="closed"><span data-i18n="k265">Closed</span></label>
+</div></fieldset>
+<fieldset><legend><span data-i18n="k266">Quote</span></legend><div class="opts">
+<label><input type="radio" name="quote" id="sim-quote-draft" value="draft"><span data-i18n="k267">Draft</span></label>
+<label><input type="radio" name="quote" id="sim-quote-prepared" value="prepared"><span data-i18n="k268">Prepared</span></label>
+<label><input type="radio" name="quote" id="sim-quote-approved" value="approved" checked><span data-i18n="k269">Approved</span></label>
+</div></fieldset>
+<fieldset><legend><span data-i18n="k270">Payment</span></legend><div class="opts">
+<label><input type="radio" name="payment" id="sim-payment-pending" value="pending"><span data-i18n="k271">Pending</span></label>
+<label><input type="radio" name="payment" id="sim-payment-paid" value="paid" checked><span data-i18n="k272">Paid</span></label>
+<label><input type="radio" name="payment" id="sim-payment-refunded" value="refunded"><span data-i18n="k273">Refunded</span></label>
+</div></fieldset>
+<fieldset><legend><span data-i18n="k274">Rights</span></legend><div class="opts">
+<label><input type="radio" name="rights" id="sim-rights-pending" value="pending" checked><span data-i18n="k275">Pending</span></label>
+<label><input type="radio" name="rights" id="sim-rights-approved" value="approved"><span data-i18n="k276">Approved</span></label>
+<label><input type="radio" name="rights" id="sim-rights-restricted" value="restricted"><span data-i18n="k277">Restricted</span></label>
+</div></fieldset>
+<fieldset><legend><span data-i18n="k278">Delivery</span></legend><div class="opts">
+<label><input type="radio" name="delivery" id="sim-delivery-preparing" value="preparing" checked><span data-i18n="k279">Preparing</span></label>
+<label><input type="radio" name="delivery" id="sim-delivery-ready" value="ready"><span data-i18n="k280">Ready</span></label>
+<label><input type="radio" name="delivery" id="sim-delivery-accepted" value="accepted"><span data-i18n="k281">Accepted</span></label>
+</div></fieldset>
+</div><div class="sim-out" aria-live="polite"><h3 data-i18n="k282">What the record can say now</h3><div class="sim-line"><b id="simLicL">Licence</b><span id="simLic">No licence exists.</span></div><div class="sim-line"><b id="simDelL">Delivery</b><span id="simDel">Nothing has been delivered.</span></div><div id="simWarn"><p class="sim-warn">Paid, but not licensed. Payment does not transfer rights.</p></div></div></div></div></section>
+<section id="studio" class="sec"><div class="wrap"><div class="intro"><div><p class="label acc" data-i18n="k283">Studio</p><h2 class="display h2" data-i18n="k284">One place <em>for the record.</em></h2></div><div class="stack"><span class="chip stop" data-i18n="k285">Local prototype, nothing connected</span></div></div><div class="tabs mt-l" role="tablist" aria-label="Studio sections" data-i18n-aria="k286"><button class="tab" role="tab" id="tab-overview" aria-controls="p-overview" aria-selected="true"><span data-i18n="k287">Overview</span></button><button class="tab" role="tab" id="tab-records" aria-controls="p-records" aria-selected="false" tabindex="-1"><span data-i18n="k288">Records</span></button><button class="tab" role="tab" id="tab-upload" aria-controls="p-upload" aria-selected="false" tabindex="-1"><span data-i18n="k289">Source intake</span></button><button class="tab" role="tab" id="tab-billing" aria-controls="p-billing" aria-selected="false" tabindex="-1"><span data-i18n="k290">Billing</span></button></div>
+<div class="panel" role="tabpanel" id="p-overview" aria-labelledby="tab-overview"><div class="pcards"><article class="pc"><span class="chip ok" data-i18n="k291">Designed</span><h3 data-i18n="k292">Personal access</h3><p data-i18n="k293">Originals, credits, permissions.</p></article><article class="pc"><span class="chip" data-i18n="k294">Verification needed</span><h3 data-i18n="k295">Business access</h3><p data-i18n="k296">Handovers, roles, retrieval questions.</p></article><article class="pc"><span class="chip stop" data-i18n="k297">Backend missing</span><h3 data-i18n="k298">Secure sign-in</h3><p data-i18n="k299">Needs an identity provider and audit log.</p></article></div></div>
+<div class="panel" role="tabpanel" id="p-records" aria-labelledby="tab-records" hidden><div class="tbl-wrap"><table><caption data-i18n="k300">Example rows, not real records</caption><thead><tr><th scope="col"><span data-i18n="k301">Record</span></th><th scope="col"><span data-i18n="k302">Type</span></th><th scope="col"><span data-i18n="k303">Rights</span></th><th scope="col"><span data-i18n="k304">Status</span></th><th scope="col"><span class="sr"><span data-i18n="k305">Action</span></span></th></tr></thead><tbody><tr><td>First Light</td><td><span data-i18n="k306">Photo · BA-001</span></td><td><span data-i18n="k307">Pending</span></td><td><span class="chip" data-i18n="k308">Pending</span></td><td><button type="button" class="mini" data-manifest="BA-001"><span data-i18n="k309">View manifest</span></button></td></tr><tr><td><span data-i18n="k310">Project closeout</span></td><td><span data-i18n="k311">Business · BP-001</span></td><td><span data-i18n="k312">Internal</span></td><td><span class="chip" data-i18n="k313">Draft</span></td><td><button type="button" class="mini" data-manifest="BP-001"><span data-i18n="k314">View manifest</span></button></td></tr><tr><td><span data-i18n="k315">Open studio</span></td><td><span data-i18n="k316">Event · GE-001</span></td><td><span data-i18n="k317">Unconfirmed</span></td><td><span class="chip" data-i18n="k318">Draft</span></td><td><button type="button" class="mini" data-manifest="GE-001"><span data-i18n="k319">View manifest</span></button></td></tr></tbody></table></div><div class="outbox mt-m"><div class="row"><span class="label acc" data-i18n="k320">Review manifest</span><span class="row"><span class="small" id="mfMsg" aria-live="polite"></span><button type="button" class="mini" id="copyManifest"><span data-i18n="k321">Copy</span></button></span></div><pre class="out" id="manifestOut">BETA ART · review manifest
+Record: BA-001 · First Light
+Type: Photo (sample)
+Rights: pending
+Status: review only, not a verified record</pre></div></div>
+<div class="panel" role="tabpanel" id="p-upload" aria-labelledby="tab-upload" hidden><div class="drop" id="drop"><strong data-i18n="k322">Bring the original into the record.</strong><p data-i18n="k323">SHA-256 is computed on this device. Nothing is uploaded.</p><button type="button" class="btn" id="pickFiles"><span data-i18n="k324">Choose files</span></button><input id="fileInput" type="file" accept="image/*,.pdf,.csv,.zip,.dng,.cr3,.nef,.arw,.raf" multiple hidden></div><ul class="files" id="fileList" aria-live="polite"><li><small>No files selected yet.</small></li></ul></div>
+<div class="panel" role="tabpanel" id="p-billing" aria-labelledby="tab-billing" hidden><div class="pcards"><article class="pc"><span class="chip" data-i18n="k325">Price pending</span><h3 data-i18n="k326">Archive licence</h3></article><article class="pc"><span class="chip" data-i18n="k327">Price under test</span><h3 data-i18n="k328">Business pilot</h3><a class="mini" style="display:inline-flex;align-items:center;width:fit-content;text-decoration:none" href="#business-price"><span data-i18n="k329">See hypothesis</span></a></article><article class="pc"><span class="chip" data-i18n="k330">Price pending</span><h3 data-i18n="k331">Event programme</h3></article></div></div>
+</div></section>
+<section id="join" class="sec tint"><div class="wrap"><div class="intro"><div><h2 class="display h2" data-i18n="k332">Join BETA ART. <em>Start with the right route.</em></h2></div><div class="stack"><p class="body" data-i18n="k333">Build an enquiry here and copy it. No mailbox is published yet.</p></div></div>
+<div class="contact mt-l"><form class="form" id="enqForm" novalidate><label for="enqRoute"><span data-i18n="k334">Route</span><select id="enqRoute" name="route">
+<option value="archive" data-i18n="k335">Explore / licensing</option>
+<option value="rights" data-i18n="k336">Rights claim</option>
+<option value="business" data-i18n="k337">Business project</option>
+<option value="privat" data-i18n="k338">Privat / Creator Marketplace</option>
+<option value="gallery" data-i18n="k339">Gallery &amp; Events</option>
+<option value="assignment" data-i18n="k340">Assignment</option>
+<option value="collab" data-i18n="k341">Collaboration</option>
+</select></label><label for="enqMaterial"><span data-i18n="k342">What material is this about?</span><textarea id="enqMaterial" name="material" rows="2"></textarea></label><label for="enqDecision"><span data-i18n="k343">Which decision should it support?</span><textarea id="enqDecision" name="decision" rows="2"></textarea></label><label for="enqEvidence"><span data-i18n="k344">What evidence already exists?</span><textarea id="enqEvidence" name="evidence" rows="2"></textarea></label></form><div class="outbox"><div class="row"><span class="label acc" data-i18n="k345">Your enquiry</span><button type="button" class="btn solid" id="copyEnq"><span data-i18n="k346">Copy enquiry</span></button></div><pre class="out" id="enqOut">BETA ART · Enquiry
+
+Route: Explore / licensing
+Material: —
+Decision it supports: —
+Evidence that exists: —</pre><p class="small" id="enqMsg" aria-live="polite"></p></div></div></div></section>
+<section id="about" class="sec"><div class="wrap intro"><div><h2 class="display h2" data-i18n="k347">One brand. <em>Clear routes to action.</em></h2></div><div class="stack"><p class="body" data-i18n="k348">Unverified claims are never shown as facts.</p><p class="note" data-i18n="k349">BETA ART Creative is a separate family.</p></div></div></section>
+</main>
+<footer class="foot"><div class="wrap"><div class="foot-grid"><div><a class="brand" href="#top"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="46"/><g class="spin"><g class="blades"><path d="M50 30 75.81 11.92M67.32 40 84.99 47.86M67.32 60 76.66 84.02M50 70 24.19 88.08M32.68 60 15.01 52.14M32.68 40 23.34 15.98"/><path d="M50 30 32.68 40 32.68 60 50 70 67.32 60 67.32 40Z"/></g></g></g><circle class="dot" cx="50" cy="50" r="6" fill="var(--accent)"/></svg><span>BETA ART</span></a></div><div><h2 data-i18n="k350">Main areas</h2><a class="fl" href="#explore"><span data-i18n="k351">Explore</span></a><a class="fl" href="#business"><span data-i18n="k352">Business</span></a><a class="fl" href="#privat"><span data-i18n="k353">Privat</span></a><a class="fl" href="#gallery-events"><span data-i18n="k354">Gallery &amp; Events</span></a></div><div><h2 data-i18n="k355">The Record</h2><a class="fl" href="#ledger"><span data-i18n="k356">Evidence ledger</span></a><a class="fl" href="#record"><span data-i18n="k357">BETA-ID lookup</span></a><a class="fl" href="#transparency"><span data-i18n="k358">Transparency</span></a><a class="fl" href="#studio"><span data-i18n="k359">Studio</span></a></div><div><h2 data-i18n="k360">More</h2><a class="fl" href="#field-notes"><span data-i18n="k361">Field Notes</span></a><a class="fl" href="#assignments"><span data-i18n="k362">Assignments</span></a><a class="fl" href="#about"><span data-i18n="k363">About</span></a><a class="fl" href="#join"><span data-i18n="k364">Join</span></a></div></div><div class="foot-bottom"><span>© 2026 Beta Art ENK, master design</span><span data-i18n="k365">Early version, no confirmed contact channel</span></div></div></footer>
+<a class="totop" id="toTop" href="#top" aria-label="Back to top" data-i18n-aria="k366"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
+<dialog class="pp" id="passport" closedby="any" aria-labelledby="ppTitle"><div class="pp-head"><div><p class="label acc" data-i18n="k367">BETA PASSPORT</p><h2 id="ppTitle"></h2></div><form method="dialog"><button class="iconbtn" id="ppClose" aria-label="Close passport" data-i18n-aria="k368"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></form></div><p class="pp-banner" id="ppBanner"></p><div id="ppRows"></div><p class="pp-foot" id="ppFoot"></p><div class="pp-act"><a class="mini" id="ppMail" href="mailto:"><span data-i18n="k369">Email this record</span></a><a class="mini" id="ppClaim" href="#join"><span data-i18n="k370">Report a rights issue</span></a><button type="button" class="mini" id="ppLink"><span data-i18n="k371">Copy link</span></button></div><p class="pp-url" id="ppUrl" hidden></p><div class="pp-nav"><button type="button" class="mini" id="ppPrev"></button><button type="button" class="mini" id="ppNext"></button></div><p class="vh" id="ppLive" aria-live="polite"></p></dialog>
+<script>
+(function () {
+  "use strict";
+  var root = document.documentElement;
+  var store = {
+    get: function (k) { try { return window.localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { window.localStorage.setItem(k, v); } catch (e) {} },
+    del: function (k) { try { window.localStorage.removeItem(k); } catch (e) {} }
+  };
+  var NO = {"k1": "Hopp til innhold", "k2": "Sidestatus", "k3": "<strong>Tidlig versjon</strong>, bare eksempelposter", "k4": "BETA ART, til toppen", "k5": "Hovedmeny", "k6": "Utforsk", "k7": "Business", "k8": "Privat", "k9": "Galleri &amp; arrangementer", "k10": "The Record", "k11": "Bli med", "k12": "Språk", "k13": "Mørkt tema", "k14": "Seksjoner", "k15": "Utforsk", "k16": "Business", "k17": "Privat", "k18": "Galleri &amp; arrangementer", "k19": "The Record", "k20": "Bli med", "k21": "Se verket. <em>Forstå registreringen. Vit hva som skjer videre.</em>", "k22": "Fotografi, skapere og kulturell oppdagelse – med tydeligere kontekst, status og veier til handling.", "k23": "Utforsk BETA ART", "k24": "Åpne The Record", "k25": "BETA ART-masterpost", "k26": "Status", "k27": "Tidlig versjon", "k28": "Hovedområder", "k29": "Publisering", "k30": "Godkjent 04.10.2026", "k31": "Utgave", "k32": "Gå til et område", "k33": "Utforsk", "k34": "Business", "k35": "Privat", "k36": "Galleri &amp; arrangementer", "k37": "The Record", "k38": "Bli med", "k39": "Hva er du her for å gjøre?", "k40": "Fem startveier", "k41": "01 Utforsk", "k42": "Oppdag fotografi, kunstverk og skaperposter.", "k43": "02 Dokumenter et prosjekt", "k44": "Hold prosjekt&shy;dokumentasjon gjenfinnbar i mange år.", "k45": "03 Del arbeidet ditt", "k46": "Vis arbeidet for salg eller lisensiering.", "k47": "04 Finn kultur", "k48": "Oppdag gallerier, museer, utstillinger og arrangementer.", "k49": "05 Bruk eller lisensier", "k50": "Sjekk tilgjengelighet, rettigheter og forespørsels&shy;veien.", "k51": "Status", "k52": "Venter eller mangler bevis", "k53": "Besluttet eller utformet", "k54": "Ikke bygget eller stoppet", "k55": "Se. Forstå. <em>Status. Handle.</em>", "k56": "Se", "k57": "Finn verket og skaperen.", "k58": "Forstå", "k59": "Les opphav, kontekst og rettigheter.", "k60": "Status", "k61": "Registrert, venter, begrenset eller tilgjengelig.", "k62": "Handle", "k63": "Lisensier, spør eller bli med.", "k64": "Posten har en <em>ubrutt beviskjede.</em>", "k65": "Bevisprotokoll, sju trinn", "k66": "Kilde / original", "k67": "Metadata", "k68": "Verifisering eller avvik", "k69": "Rettigheter", "k70": "Gjenfinning", "k71": "Oppbevaring", "k72": "Eksport / avslutning", "k73": "Utforsk.", "k74": "Offentlig oppdagelse åpen, lisensiering ikke ennå", "k75": "Laget av et menneske. <em>Verifisert ved kilden.</em>", "k76": "Fotografi og skaperposter, med opphav og rettigheter synlig.", "k77": "Oppdagelse før transaksjon.", "k78": "Synlig er ikke tilgjengelig, lisensiert eller verifisert. Hver tilstand står for seg.", "k79": "Rammene er tomme <em>med vilje.</em>", "k80": "Velg en plate for å lese posten.", "k81": "Filtrer etter motiv", "k82": "Alle", "k83": "Landskap", "k84": "By", "k85": "Portrett", "k86": "Sju måter å <em>lese et sted på.</em>", "k87": "Ingen plate er tildelt en serie ennå.", "k88": "Slik blir en lisens <em>til.</em>", "k89": "Velg platen", "k90": "Beskriv bruken", "k91": "Motta avtalen", "k92": "Filtrer etter bruk", "k93": "Alle", "k94": "Privat bruk", "k95": "Bedriftsbruk", "k96": "Personlig", "k97": "Omfang", "k98": "Dekker", "k99": "Privat bruk, gaver, eget nettsted.", "k100": "Dekker ikke", "k101": "All bruk for en bedrift.", "k102": "Fra kr 190, veiledende", "k103": "Kommersiell", "k104": "Omfang", "k105": "Dekker", "k106": "Bedriftens nett, sosiale medier, markedsføring, redaksjonelt.", "k107": "Dekker ikke", "k108": "Produkter for videresalg og underlisens.", "k109": "Pris etter bruk", "k110": "Utvidet", "k111": "Omfang", "k112": "Dekker", "k113": "Ubegrenset opplag, produkter for salg, én navngitt kunde.", "k114": "Dekker ikke", "k115": "Flere kunder eller bildebyråer.", "k116": "Pris etter bruk", "k117": "Tilpasset og eksklusiv", "k118": "Omfang", "k119": "Dekker", "k120": "Eksklusivitet, egne vilkår, bestilte oppdrag.", "k121": "Dekker ikke", "k122": "Alt utenfor den skriftlige avtalen.", "k123": "Etter avtale", "k124": "Ingen plater kan lisensieres ennå.", "k125": "Spørsmål om lisens", "k126": "Kan jeg beskjære eller redigere fotografiet?", "k127": "Ja, for layout og farge, uten å endre verket.", "k128": "Kan det brukes til å trene KI?", "k129": "Nei. Alle lisenser utelukker KI-trening, logoer og varemerker, og fjerning av metadata.", "k130": "Er en lisens eksklusiv?", "k131": "Nei, med mindre eksklusivitet er avtalt skriftlig.", "k132": "Kan jeg overføre lisensen til en kunde?", "k133": "Bare med Utvidet, til én navngitt kunde.", "k134": "Kan jeg angre et kjøp?", "k135": "Forbrukere har 14 dagers angrerett, om de ikke velger levering straks.", "k136": "Mangler det, <em>bestill et fotooppdrag.</em>", "k137": "Søk", "k138": "Verifiser", "k139": "Lisensier", "k140": "Mangler det?", "k141": "Bestill et fotooppdrag", "k142": "Be om en pilotvurdering", "k143": "Se prishypotesen", "k144": "Business.", "k145": "Pilotfase: Norge først, bygg og anlegg først", "k146": "Prosjektet avsluttes. <em>Dokumentasjonen skal ikke.</em>", "k147": "Gjenfinning, ikke lagring: en testet overlevering.", "k148": "Utvekslingen", "k149": "Kunden gir", "k150": "Ett prosjekt, tilgang, 3–5 spørsmål.", "k151": "Beta Art gjør", "k152": "Mottak, metadata, avvik, gjenfinningstester.", "k153": "Kunden får", "k154": "Arkiv, manifest, eksport, avslutningspakke.", "k155": "Grense", "k156": "Erstatter ikke FDV- eller prosjektsystemer.", "k157": "Pilotrytme", "k158": "Avgrens", "k159": "Kartlegg", "k160": "Test", "k161": "Avslutt", "k162": "Skriv spørsmålene <em>før filene.</em>", "k163": "Skriv 3–5 spørsmål noen må kunne svare på om flere år. Ingenting sendes.", "k164": "Prosjekt og periode", "k165": "f.eks. ferdig skoleutvidelse, 2021–2024", "k166": "Spørsmål noen må kunne svare på senere", "k167": "Eksempler", "k168": "Hvilken tegning ble godkjent for fasaden?", "k169": "Hvem godkjente endringene i brannsikringen, og når?", "k170": "Hvor ligger FDV-dokumentasjonen for taket?", "k171": "Kopier notatet", "k172": "Legg til i henvendelsen", "k173": "Der visuelt bevis <em>må tåle ettersyn.</em>", "k174": "Fase 1 er bygg og anlegg. Resten er bruksområder, ikke kunder.", "k175": "Fase 1", "k176": "Bygg og anlegg", "k177": "Sluttdokumentasjon og FDV-bilder.", "k178": "Maritim / offshore", "k179": "Skrog-, rør- og ROV-inspeksjon.", "k180": "Energi", "k181": "Installasjon, drift, vedlikehold.", "k182": "Havbruk", "k183": "Nøter, fiskehelse, miljø.", "k184": "Helse", "k185": "Utstyr og kvalitetssikring.", "k186": "Reiseliv", "k187": "Ekte, daterte bilder, ikke KI eller bildebyrå.", "k188": "En hypotese, <em>ikke en prisliste.</em>", "k189": "Etablering", "k190": "eks. mva, inkl. 5 års lagring", "k191": "Årlig, år 6–10", "k192": "eks. mva", "k193": "Formidlet oppdragsdag", "k194": "eks. mva", "k195": "Testes i betalte piloter. Databehandling avtales før noe mottas.", "k196": "Privat.", "k197": "Prototype for skapermarked, backend ikke bygget", "k198": "Vis arbeidet. <em>Hold vilkårene tydelige.</em>", "k199": "For fotografer, kunstnere og uavhengige skapere.", "k200": "Tilgjengelighet", "k201": "Visning, forespørsel, salg eller lisens.", "k202": "Rettigheter", "k203": "Tilgjengelig er ikke lisensiert.", "k204": "Kilde", "k205": "Offentlig profil, beskyttet bevis.", "k206": "Galleri &amp; arrange&shy;menter.", "k207": "Oppdagelses&shy;prototype, live arrangementsdata ikke koblet til", "k208": "Finn ut hva som skjer rundt deg. <em>Registreringen består.</em>", "k209": "Museer, gallerier og arrangementer i Skandinavia. Lokaler og billetter vises bare fra godkjente poster.", "k210": "For arrangører: én arrangementspost, fem deler", "k211": "Arrangements&shy;informasjon", "k212": "Lokale og datoer", "k213": "Kunstnere og kontekst", "k214": "Bilder og rettigheter", "k215": "Ekstern lenke, når den finnes", "k216": "Uavhengighetsregel", "k217": "Den som verifiserer, har aldri laget verket.", "k218": "Løpende gjennomgang", "k219": "Loggføres, dateres og kan trekkes tilbake.", "k220": "Sjekk bevisene <em>før du sender inn.</em>", "k221": "Innsending er ikke åpen ennå. Kryss av for det du har. Ingenting sendes.", "k222": "Arbeidstittel (valgfritt)", "k223": "f.eks. Uten tittel, vinterserie", "k224": "Kilde", "k225": "Originalfilen eller verket kan vises.", "k226": "Prosessmateriale finnes.", "k227": "Identitet", "k228": "Jeg har laget verket og kan bekrefte hvem jeg er.", "k229": "Medhjelpere kan navngis, med samtykke.", "k230": "Rettigheter", "k231": "Jeg har rett til å vise verket og gjengi det i katalogen.", "k232": "Skriftlige samtykker finnes, eller trengs ikke.", "k233": "Jeg har skriftlig tatt stilling til KI-trening.", "k234": "Opplag", "k235": "Opplagsstørrelse og numre er kjent.", "k236": "Kopier listen", "k237": "Legg til i henvendelsen", "k238": "Field Notes", "k239": "Slik arbeidet <em>faktisk ser ut.</em>", "k240": "Proveniens og prosesstekster. Første innlegg etter første godkjente arrangement.", "k241": "BETA-ID", "k242": "Et verk er mer enn et bilde. <em>Les registreringen.</em>", "k243": "Verifiser posten, ikke slagordet.", "k244": "Slå opp en post", "k245": "BA-003", "k246": "Slå opp", "k247": "Demo: 12 eksempelposter, ingen verifiserte.", "k248": "Oppslag og statusforklaring", "k249": "En identifikator hjelper deg å finne en post og forklarer statusen.", "k250": "En ID, QR-kode eller C2PA-post beviser ingenting alene.", "k251": "Et lesbart postsammendrag", "k252": "Proveniens, rettigheter og status i én visning.", "k253": "Et Passport oppsummerer dokumenterte fakta. Det erstatter ikke bevis eller avtalen.", "k254": "Beskyttet kildebevis", "k255": "Originalfiler og konfidensielle bevis blir i det beskyttede laget.", "k256": "Privat bevis publiseres aldri bare fordi det finnes en offentlig post.", "k257": "Bruksomfanget holdes tydelig", "k258": "Den skriftlige lisensen styrer bruken; maskinlesbare signaler støtter den.", "k259": "KI-trening, bruk og avtaleomfang er separate tilstander.", "k260": "Betalt er ikke lisensiert. <em>Identifisert er ikke verifisert.</em>", "k261": "Prøv: eksempelet er betalt, men har ingen lisens.", "k262": "Forespørsel", "k263": "Mottatt", "k264": "Kvalifisert", "k265": "Avsluttet", "k266": "Tilbud", "k267": "Utkast", "k268": "Klargjort", "k269": "Godkjent", "k270": "Betaling", "k271": "Venter", "k272": "Betalt", "k273": "Refundert", "k274": "Rettigheter", "k275": "Venter", "k276": "Godkjent", "k277": "Begrenset", "k278": "Levering", "k279": "Forberedes", "k280": "Klar", "k281": "Akseptert", "k282": "Hva posten kan si nå", "k283": "Studio", "k284": "Ett sted <em>for posten.</em>", "k285": "Lokal prototype, ingenting er koblet til", "k286": "Studio-seksjoner", "k287": "Oversikt", "k288": "Poster", "k289": "Kildemottak", "k290": "Betaling", "k291": "Utformet", "k292": "Personlig tilgang", "k293": "Originaler, kreditering, tillatelser.", "k294": "Krever verifisering", "k295": "Business-tilgang", "k296": "Overleveringer, roller, gjenfinningsspørsmål.", "k297": "Backend mangler", "k298": "Sikker innlogging", "k299": "Krever identitetsleverandør og revisjonslogg.", "k300": "Eksempelrader, ikke reelle poster", "k301": "Post", "k302": "Type", "k303": "Rettigheter", "k304": "Status", "k305": "Handling", "k306": "Foto · BA-001", "k307": "Venter", "k308": "Venter", "k309": "Vis manifest", "k310": "Prosjektavslutning", "k311": "Business · BP-001", "k312": "Intern", "k313": "Utkast", "k314": "Vis manifest", "k315": "Åpent studio", "k316": "Arrangement · GE-001", "k317": "Ubekreftet", "k318": "Utkast", "k319": "Vis manifest", "k320": "Gjennomgangsmanifest", "k321": "Kopier", "k322": "Legg originalen inn i posten.", "k323": "SHA-256 beregnes på denne enheten. Ingenting lastes opp.", "k324": "Velg filer", "k325": "Pris ikke satt", "k326": "Arkivlisens", "k327": "Pris under utprøving", "k328": "Business-pilot", "k329": "Se hypotesen", "k330": "Pris ikke satt", "k331": "Arrangements&shy;program", "k332": "Bli med i BETA ART. <em>Start med riktig vei.</em>", "k333": "Lag en henvendelse her og kopier den. Ingen e-postadresse er publisert ennå.", "k334": "Type henvendelse", "k335": "Utforsk / lisensiering", "k336": "Rettighetskrav", "k337": "Business-prosjekt", "k338": "Privat / Creator Marketplace", "k339": "Galleri &amp; arrangementer", "k340": "Oppdrag", "k341": "Samarbeid", "k342": "Hvilket materiale gjelder det?", "k343": "Hvilken beslutning skal den støtte?", "k344": "Hvilke bevis finnes allerede?", "k345": "Din henvendelse", "k346": "Kopier henvendelsen", "k347": "Ett merke. <em>Tydelige veier til handling.</em>", "k348": "Uverifiserte påstander vises aldri som fakta.", "k349": "BETA ART Creative er en egen familie.", "k350": "Hovedområder", "k351": "Utforsk", "k352": "Business", "k353": "Privat", "k354": "Galleri &amp; arrangementer", "k355": "The Record", "k356": "Bevisprotokoll", "k357": "BETA-ID-oppslag", "k358": "Åpenhet", "k359": "Studio", "k360": "Mer", "k361": "Field Notes", "k362": "Oppdrag", "k363": "Om", "k364": "Bli med", "k365": "Tidlig versjon, ingen bekreftet kontaktkanal", "k366": "Til toppen", "k367": "BETA PASSPORT", "k368": "Lukk passet", "k369": "Send posten på e-post", "k370": "Meld fra om rettigheter", "k371": "Kopier lenke"};
+
+  var S = {
+    en: {
+      pending: "Original pending",
+      sampleBanner: "Sample record. Not a verified archive original.",
+      photographer: "Photographer", date: "Capture date", location: "Location", camera: "Camera and lens",
+      raw: "RAW original", checksum: "Checksum", c2pa: "Content credentials (C2PA)", rights: "Rights",
+      ai: "AI-training reservation", series: "Series", provenance: "Provenance",
+      holder: "Rights holder", releases: "Model and property releases",
+      subject: "Subject", sub_land: "Landscape", sub_city: "City", sub_portrait: "Portrait",
+      ppPrev: "Previous plate", ppNext: "Next plate", mailGates: "Gates met",
+      notSupplied: "Not supplied", notArchived: "Not archived", none: "None", notStated: "Not stated",
+      unassigned: "Unassigned", pendingV: "Pending",
+      ppFoot: "Verified only when all three gates have evidence. Logged, dated and revocable.",
+      ppHow: "How this plate becomes verified",
+      gate: "Gate", gateNotMet: "Not met", gatesMet: "Gates met",
+      gSource: "Source", gSourceD: "The original file is archived with a checksum. Capture data comes from the file.",
+      gIdentity: "Identity", gIdentityD: "The photographer is identified. The verifier is never the maker.",
+      gRights: "Rights", gRightsD: "Rights holder, written licence, releases and an AI-training reservation.",
+      ppOther: "Catalogue",
+      lkType: "Record type", lkSample: "Sample record", lkPublic: "Public verification", lkNA: "Not available",
+      lkExplain: "An ID finds a record. It does not prove it.",
+      lkOpen: "Open passport",
+      lkMissing: "No record with ID “{q}”. In this demo, IDs run from BA-001 to BA-012.",
+      lkEmpty: "Type an ID such as BA-003.",
+      simLic: "Licence", simDel: "Delivery",
+      licIssue: "A licence can be issued in writing.",
+      licRestricted: "Use is restricted. Nothing beyond the stated limits is licensed.",
+      licNone: "No licence exists.",
+      delAccepted: "Client acceptance is recorded.",
+      delReady: "The file is ready. Acceptance is not recorded.",
+      delNone: "Nothing has been delivered.",
+      warnPaid: "Paid, but not licensed. Payment does not transfer rights.",
+      warnDel: "Delivery waits until rights are approved.",
+      warnQuote: "Rights approved, quote not. The licence waits.",
+      calm: "Each state stands on its own.",
+      upNone: "No files selected yet.",
+      upHash: "Computing SHA-256 fingerprint on this device…",
+      upSkip: "Skipped: larger than 100 MB",
+      upFail: "Fingerprint not available in this browser",
+      upDone: "SHA-256, computed on this device",
+      copied: "Copied.",
+      copyFail: "Copying was blocked. The text is selected; press Ctrl+C or ⌘C.",
+      mfHead: "BETA ART · review manifest", mfRecord: "Record", mfType: "Type", mfRights: "Rights", mfStatus: "Status",
+      mfStatusV: "review only, not a verified record", mfPhoto: "Photo (sample)", mfBiz: "Business (example)", mfEvent: "Event (example)",
+      mfPending: "pending", mfInternal: "internal", mfUnconfirmed: "unconfirmed", mfPick: "Select “View manifest” on a row above.",
+      enqHead: "BETA ART · Enquiry", enqRoute: "Route", enqMaterial: "Material", enqDecision: "Decision it supports",
+      enqEvidence: "Evidence that exists", enqPrepared: "Prepared", enqBlank: "—",
+      enqHint: "Fill in all three fields.",
+      brHead: "BETA ART · Retrieval brief", brProject: "Project", brQuestions: "Questions",
+      brSource: "Source: where is the file that answers it today?",
+      brAccess: "Access: who may lawfully open it in five years?",
+      brFormat: "Format: will it open without today's software?",
+      brNot: "Not included: personal data or confidential files. They come only after scope, access and data processing are agreed.",
+      brCount: "{n} of 5 written. A pilot needs 3.",
+      brReady: "{n} written. Ready to copy or add to the enquiry.",
+      brFull: "All five questions are written. Clear one to add an example.",
+      brAdded: "Added to the enquiry. Check the text before you send it anywhere.",
+      brEx: ["Which drawing was approved for the facade?", "Who signed off the fire safety changes, and when?", "Where are the roof maintenance documents?"],
+      gcHead: "BETA ART · Gallery checklist", gcWork: "Work", gcReady: "Ready",
+      gcMissing: "Missing before you submit:", gcNone: "Nothing is missing.",
+      gcNot: "Not included: names, files or personal data. Evidence is asked for only after submissions open.",
+      gcCount: "{n} of {t} ready.",
+      gcSome: "{n} of {t} ready. The list shows what is still missing.",
+      gcAll: "Everything on the list is ready for the first submission.",
+      gcAdded: "Added to the enquiry. Check the text before you send it anywhere.",
+      routes: { archive: "Explore / licensing", rights: "Rights claim", business: "Business project", privat: "Privat / Creator Marketplace", gallery: "Gallery & Events", assignment: "Assignment: Request a Shoot", collab: "Collaboration" },
+      hints: {
+        archive: ["Plate number, e.g. BA-003", "Intended use, territory and duration", "Any earlier licence or correspondence"],
+        rights: ["Plate number, e.g. BA-003", "What you claim, and what you ask Beta Art to do", "Contracts, registrations or files that show it"],
+        business: ["The completed project, its size and period", "3–5 questions someone must answer later", "Where the files live today and who has lawful access"],
+        privat: ["Your work and its medium", "Display, enquiry, sale or licence", "Source files, rights or releases you hold"],
+        gallery: ["Proposed venue, dates and programme", "Exhibit, host or partner", "Partners and image credits already confirmed"],
+        assignment: ["Subject and location", "Where the images will be used", "Consents or permits already in place"],
+        collab: ["Institution, research or editorial context", "What the collaboration should produce", "Earlier work or references"]
+      },
+      themeName: "Dark theme"
+    },
+    no: {
+      pending: "Original venter",
+      sampleBanner: "Eksempelpost. Ikke en verifisert arkivoriginal.",
+      photographer: "Fotograf", date: "Opptaksdato", location: "Sted", camera: "Kamera og objektiv",
+      raw: "RAW-original", checksum: "Sjekksum", c2pa: "Innholdslegitimasjon (C2PA)", rights: "Rettigheter",
+      ai: "Forbehold mot KI-trening", series: "Serie", provenance: "Proveniens",
+      holder: "Rettighetshaver", releases: "Modell- og eiendomssamtykke",
+      subject: "Motiv", sub_land: "Landskap", sub_city: "By", sub_portrait: "Portrett",
+      ppPrev: "Forrige plate", ppNext: "Neste plate", mailGates: "Oppfylte kontroller",
+      notSupplied: "Ikke oppgitt", notArchived: "Ikke arkivert", none: "Ingen", notStated: "Ikke angitt",
+      unassigned: "Ikke tildelt", pendingV: "Venter",
+      ppFoot: "Verifisert først når alle tre kontrollene har bevis. Loggføres, dateres og kan trekkes tilbake.",
+      ppHow: "Slik blir denne platen verifisert",
+      gate: "Kontroll", gateNotMet: "Ikke oppfylt", gatesMet: "Oppfylte kontroller",
+      gSource: "Kilde", gSourceD: "Originalfilen er arkivert med sjekksum. Opptaksdata hentes fra filen.",
+      gIdentity: "Identitet", gIdentityD: "Fotografen er identifisert. Den som verifiserer, har aldri laget verket.",
+      gRights: "Rettigheter", gRightsD: "Rettighetshaver, skriftlig lisens, samtykker og et forbehold mot KI-trening.",
+      ppOther: "Katalog",
+      lkType: "Posttype", lkSample: "Eksempelpost", lkPublic: "Offentlig verifisering", lkNA: "Ikke tilgjengelig",
+      lkExplain: "En ID finner en post. Den beviser den ikke.",
+      lkOpen: "Åpne passet",
+      lkMissing: "Ingen post med ID «{q}». I denne demoen går ID-ene fra BA-001 til BA-012.",
+      lkEmpty: "Skriv en ID, for eksempel BA-003.",
+      simLic: "Lisens", simDel: "Levering",
+      licIssue: "En lisens kan utstedes skriftlig.",
+      licRestricted: "Bruken er begrenset. Ingenting utover de angitte grensene er lisensiert.",
+      licNone: "Det finnes ingen lisens.",
+      delAccepted: "Kundens aksept er registrert.",
+      delReady: "Filen er klar. Aksept er ikke registrert.",
+      delNone: "Ingenting er levert.",
+      warnPaid: "Betalt, men ikke lisensiert. Betaling overfører ikke rettigheter.",
+      warnDel: "Levering venter til rettighetene er godkjent.",
+      warnQuote: "Rettighetene er godkjent, tilbudet ikke. Lisensen venter.",
+      calm: "Hver tilstand står for seg.",
+      upNone: "Ingen filer valgt ennå.",
+      upHash: "Beregner SHA-256-fingeravtrykk på denne enheten…",
+      upSkip: "Hoppet over: større enn 100 MB",
+      upFail: "Fingeravtrykk er ikke tilgjengelig i denne nettleseren",
+      upDone: "SHA-256, beregnet på denne enheten",
+      copied: "Kopiert.",
+      copyFail: "Kopiering ble blokkert. Teksten er markert; trykk Ctrl+C eller ⌘C.",
+      mfHead: "BETA ART · gjennomgangsmanifest", mfRecord: "Post", mfType: "Type", mfRights: "Rettigheter", mfStatus: "Status",
+      mfStatusV: "kun gjennomgang, ikke en verifisert post", mfPhoto: "Foto (eksempel)", mfBiz: "Business (eksempel)", mfEvent: "Arrangement (eksempel)",
+      mfPending: "venter", mfInternal: "intern", mfUnconfirmed: "ubekreftet", mfPick: "Velg «Vis manifest» på en rad over.",
+      enqHead: "BETA ART · Henvendelse", enqRoute: "Type", enqMaterial: "Materiale", enqDecision: "Beslutning den støtter",
+      enqEvidence: "Bevis som finnes", enqPrepared: "Utarbeidet", enqBlank: "—",
+      enqHint: "Fyll ut alle tre feltene.",
+      brHead: "BETA ART · Gjenfinningsnotat", brProject: "Prosjekt", brQuestions: "Spørsmål",
+      brSource: "Kilde: hvor ligger filen som svarer på det i dag?",
+      brAccess: "Tilgang: hvem kan lovlig åpne den om fem år?",
+      brFormat: "Format: kan den åpnes uten dagens programvare?",
+      brNot: "Ikke med: personopplysninger eller fortrolige filer. De kommer først når omfang, tilgang og databehandling er avtalt.",
+      brCount: "{n} av 5 skrevet. En pilot trenger 3.",
+      brReady: "{n} skrevet. Klart til å kopiere eller legge til i henvendelsen.",
+      brFull: "Alle fem spørsmålene er skrevet. Tøm ett felt for å legge til et eksempel.",
+      brAdded: "Lagt til i henvendelsen. Les gjennom teksten før du sender den noe sted.",
+      brEx: ["Hvilken tegning ble godkjent for fasaden?", "Hvem godkjente endringene i brannsikringen, og når?", "Hvor ligger FDV-dokumentasjonen for taket?"],
+      gcHead: "BETA ART · Sjekkliste for galleri", gcWork: "Verk", gcReady: "Klart",
+      gcMissing: "Mangler før du sender inn:", gcNone: "Ingenting mangler.",
+      gcNot: "Ikke med: navn, filer eller personopplysninger. Bevis etterspørres først når innsending åpner.",
+      gcCount: "{n} av {t} klart.",
+      gcSome: "{n} av {t} klart. Listen viser hva som fortsatt mangler.",
+      gcAll: "Alt på listen er klart for første innsending.",
+      gcAdded: "Lagt til i henvendelsen. Les gjennom teksten før du sender den noe sted.",
+      routes: { archive: "Utforsk / lisensiering", rights: "Rettighetskrav", business: "Business-prosjekt", privat: "Privat / Creator Marketplace", gallery: "Galleri & arrangementer", assignment: "Oppdrag: Bestill et fotooppdrag", collab: "Samarbeid" },
+      hints: {
+        archive: ["Platenummer, f.eks. BA-003", "Tiltenkt bruk, territorium og varighet", "Tidligere lisens eller korrespondanse"],
+        rights: ["Platenummer, f.eks. BA-003", "Hva du krever, og hva du ber Beta Art gjøre", "Avtaler, registreringer eller filer som viser det"],
+        business: ["Det avsluttede prosjektet, størrelse og periode", "3–5 spørsmål noen må kunne svare på senere", "Hvor filene ligger i dag, og hvem som har lovlig tilgang"],
+        privat: ["Arbeidet ditt og mediet", "Visning, forespørsel, salg eller lisens", "Kildefiler, rettigheter eller samtykker du har"],
+        gallery: ["Foreslått lokale, datoer og program", "Stille ut, være vert eller partner", "Partnere og bildekreditering som allerede er bekreftet"],
+        assignment: ["Motiv og sted", "Hvor bildene skal brukes", "Samtykker eller tillatelser som allerede finnes"],
+        collab: ["Institusjon, forskning eller redaksjonell kontekst", "Hva samarbeidet skal gi", "Tidligere arbeid eller referanser"]
+      },
+      themeName: "Mørkt tema"
+    }
+  };
+
+  /* third field: subject, Betul's own grouping on beta-art.com (29.09.2026) */
+  var PLATES = [
+    ["BA-001", "First Light", "land"], ["BA-002", "Into the Pines", "land"], ["BA-003", "Sea of Fog", "land"], ["BA-004", "Still Water", "land"],
+    ["BA-005", "PALM", "city"], ["BA-006", "Blue Hour Grid", "city"], ["BA-007", "Night Crossing", "city"], ["BA-008", "Golden Hour", "land"],
+    ["BA-009", "Portrait in Amber", "portrait"], ["BA-010", "The Maker", "portrait"], ["BA-011", "Slow Morning", "land"], ["BA-012", "Low Tide", "land"]
+  ];
+  /* Every sample plate has the same empty evidence. A gate is met only when all of its fields hold evidence. */
+  var GATES = [
+    { key: "gSource", fields: [["raw", "notArchived"], ["checksum", "none"], ["date", "notSupplied"], ["camera", "notSupplied"], ["location", "notSupplied"], ["c2pa", "none"]] },
+    { key: "gIdentity", fields: [["photographer", "notSupplied"]] },
+    { key: "gRights", fields: [["holder", "notSupplied"], ["rights", "notStated"], ["releases", "notSupplied"], ["ai", "notStated"]] }
+  ];
+  var OTHER = [["series", "unassigned"], ["provenance", "pendingV"]];
+  function gatesMet() { return 0; }
+
+  var lang = "en";
+  function t(k) { var d = S[lang] || S.en; return d[k] != null ? d[k] : S.en[k]; }
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function $(s, c) { return (c || document).querySelector(s); }
+  function $$(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
+
+  /* ---------- i18n ---------- */
+  var i18nEls = $$("[data-i18n]"), enHTML = new Map();
+  i18nEls.forEach(function (el) { enHTML.set(el, el.innerHTML); });
+  var phEls = $$("[data-i18n-ph]"), enPh = new Map();
+  phEls.forEach(function (el) { enPh.set(el, el.getAttribute("placeholder")); });
+  var arEls = $$("[data-i18n-aria]"), enAr = new Map();
+  arEls.forEach(function (el) { enAr.set(el, el.getAttribute("aria-label")); });
+
+  function applyLang(l, save) {
+    lang = l === "no" ? "no" : "en";
+    root.lang = lang === "no" ? "nb" : "en";
+    i18nEls.forEach(function (el) {
+      var k = el.getAttribute("data-i18n");
+      el.innerHTML = lang === "no" && NO[k] != null ? NO[k] : enHTML.get(el);
+    });
+    phEls.forEach(function (el) {
+      var k = el.getAttribute("data-i18n-ph");
+      el.setAttribute("placeholder", lang === "no" && NO[k] != null ? NO[k] : enPh.get(el));
+    });
+    arEls.forEach(function (el) {
+      var k = el.getAttribute("data-i18n-aria");
+      el.setAttribute("aria-label", lang === "no" && NO[k] != null ? NO[k] : enAr.get(el));
+    });
+    $$("[data-lang-btn]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-lang-btn") === lang)); });
+    if (save) store.set("ba-lang", lang);
+    renderAll();
+  }
+  $$("[data-lang-btn]").forEach(function (b) {
+    b.addEventListener("click", function () { applyLang(b.getAttribute("data-lang-btn"), true); });
+  });
+
+  /* ---------- theme ---------- */
+  var themeBtn = $("#themeBtn");
+  var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+  /* two states (modern-web-guidance: dark-mode): follow the system, or pin the opposite of it */
+  var metaCS = document.querySelector('meta[name="color-scheme"]');
+  function pinned() { var th = root.getAttribute("data-theme"); return th === "dark" || th === "light" ? th : null; }
+  function systemDark() { return !!(mq && mq.matches); }
+  function isDark() { var p = pinned(); return p ? p === "dark" : systemDark(); }
+  function syncThemeBtn() { themeBtn.setAttribute("aria-pressed", String(isDark())); themeBtn.title = t("themeName"); }
+  function setTheme(p) {
+    if (p) { root.setAttribute("data-theme", p); store.set("ba-theme", p); }
+    else { root.removeAttribute("data-theme"); store.del("ba-theme"); }
+    if (metaCS) metaCS.content = p || "light dark";
+    syncThemeBtn();
+  }
+  var savedTheme = store.get("ba-theme");
+  if (savedTheme === "dark" || savedTheme === "light") setTheme(savedTheme);
+  themeBtn.addEventListener("click", function () {
+    var wantDark = !isDark();
+    setTheme(wantDark === systemDark() ? null : (wantDark ? "dark" : "light"));
+  });
+  if (mq) { try { mq.addEventListener("change", syncThemeBtn); } catch (e) { if (mq.addListener) mq.addListener(syncThemeBtn); } }
+
+  /* ---------- plates + passport ---------- */
+  var platesEl = $("#plates"), dlg = $("#passport"), openId = null, filter = "all", navigated = false;
+  function shown(p) { return filter === "all" || p[2] === filter; }
+  function renderPlates() {
+    platesEl.innerHTML = PLATES.map(function (p, i) {
+      var n = p[0].slice(3);
+      /* the visible caption is the button's name (label in name); the empty frame is decoration */
+      return '<button type="button" class="pl" data-id="' + p[0] + '" data-sub="' + p[2] + '" aria-haspopup="dialog" style="--ang:' + (28 + i * 23) + 'deg"' + (shown(p) ? '' : ' hidden') + '>' +
+        '<span class="pl-frame" aria-hidden="true"><span class="pl-crop"></span><span class="pl-no">' + n + '</span></span>' +
+        '<span class="pl-cap"><span class="pl-id">' + p[0] + '</span><span class="pl-title" lang="en">' + esc(p[1]) + '</span></span></button>';
+    }).join("");
+  }
+  platesEl.addEventListener("click", function (e) {
+    var b = e.target.closest(".pl");
+    if (b) openPassport(b.getAttribute("data-id"));
+  });
+  /* subject filter: toggle buttons with aria-pressed; the count sits in each button's visible name */
+  var fBtns = $$("[data-filter]");
+  fBtns.forEach(function (b) {
+    b.addEventListener("click", function () {
+      filter = b.getAttribute("data-filter");
+      fBtns.forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+      $$(".pl", platesEl).forEach(function (el) { el.hidden = !shown(plateBy(el.getAttribute("data-id"))); });
+    });
+  });
+  function plateBy(id) { for (var i = 0; i < PLATES.length; i++) if (PLATES[i][0] === id) return PLATES[i]; return null; }
+  /* prev/next walk the plates the filter shows; a plate opened from BETA-ID outside the filter walks all twelve */
+  function navList() {
+    var list = PLATES.filter(shown);
+    return list.some(function (p) { return p[0] === openId; }) ? list : PLATES;
+  }
+  function neighbour(step) {
+    var list = navList(), i = 0;
+    for (var k = 0; k < list.length; k++) if (list[k][0] === openId) i = k;
+    return list[(i + step + list.length) % list.length];
+  }
+  function navLabel(el, key, p, before) {
+    var arrow = '<span aria-hidden="true">' + (before ? "←" : "→") + '</span>';
+    var text = '<span class="vh">' + esc(t(key)) + ': </span>' + p[0] + ' <span class="pp-nav-t" lang="en">' + esc(p[1]) + '</span>';
+    el.innerHTML = before ? arrow + ' ' + text : text + ' ' + arrow;
+    el.setAttribute("data-go", p[0]);
+  }
+  function fillPassport() {
+    var p = plateBy(openId); if (!p) return;
+    $("#ppTitle").textContent = p[0] + " · " + p[1];
+    $("#ppBanner").textContent = t("sampleBanner");
+    function rows(list) {
+      return list.map(function (f) { return '<div><dt>' + esc(t(f[0])) + '</dt><dd' + (f[2] ? '' : ' class="pend"') + '>' + esc(t(f[1])) + '</dd></div>'; }).join("");
+    }
+    var other = [["subject", "sub_" + p[2], true]].concat(OTHER);
+    $("#ppRows").innerHTML =
+      '<h3 class="pp-how">' + esc(t("ppHow")) + '<span class="pp-count">' + esc(t("gatesMet")) + ': ' + gatesMet() + ' / 3</span></h3>' +
+      '<ol class="gates">' + GATES.map(function (g, i) {
+        return '<li class="gate"><div class="gate-head"><span class="label acc">' + esc(t("gate")) + ' ' + (i + 1) + ': ' + esc(t(g.key)) + '</span>' +
+          '<span class="chip stop">' + esc(t("gateNotMet")) + '</span></div>' +
+          '<p class="gate-d">' + esc(t(g.key + "D")) + '</p><dl class="kv">' + rows(g.fields) + '</dl></li>';
+      }).join("") + '</ol>' +
+      '<p class="label pp-other">' + esc(t("ppOther")) + '</p><dl class="kv">' + rows(other) + '</dl>';
+    $("#ppFoot").textContent = t("ppFoot");
+    /* forward by email: opens the reader's own mail app, no address is published and nothing is sent by the page */
+    var subj = "BETA ART · " + p[0] + " · " + p[1];
+    var body = [p[0] + " · " + p[1], t("sampleBanner"), t("mailGates") + ": " + gatesMet() + " / 3"].join("\n");
+    $("#ppMail").href = "mailto:?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(body);
+    var many = navList().length > 1;
+    [$("#ppPrev"), $("#ppNext")].forEach(function (b) { b.hidden = !many; });
+    if (many) { navLabel($("#ppPrev"), "ppPrev", neighbour(-1), true); navLabel($("#ppNext"), "ppNext", neighbour(1), false); }
+  }
+  /* copy a link that reopens this plate's passport (#BA-003); nothing is shared with any service */
+  function plateLink(id) { return location.href.split("#")[0] + "#" + id; }
+  $("#ppLink").addEventListener("click", function () {
+    var url = $("#ppUrl"); url.textContent = plateLink(openId); url.hidden = false;
+    copyText(url.textContent, url, $("#ppLive"));
+  });
+  function go(id) {
+    if (!id || id === openId) return;
+    openId = id; navigated = true; $("#ppUrl").hidden = true; fillPassport();
+    var p = plateBy(id);
+    /* the live region sits inside the dialog: outside it the page is inert while the dialog is open */
+    var live = $("#ppLive"); live.textContent = ""; setTimeout(function () { live.textContent = p[0] + " · " + p[1]; }, 60);
+  }
+  $("#ppPrev").addEventListener("click", function () { go(this.getAttribute("data-go")); });
+  $("#ppNext").addEventListener("click", function () { go(this.getAttribute("data-go")); });
+  dlg.addEventListener("keydown", function (e) {
+    if (!dlg.open || e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+      var n = neighbour(e.key === "ArrowLeft" ? -1 : 1); if (n) { e.preventDefault(); go(n[0]); }
+    }
+  });
+  /* a rights claim goes to the enquiry builder with the plate already named */
+  var claimNext = false;
+  $("#ppClaim").addEventListener("click", function (e) {
+    e.preventDefault();
+    var p = plateBy(openId);
+    enqRoute.value = "rights";
+    if (p && !enqM.value.trim()) enqM.value = p[0] + " · " + p[1];
+    renderEnquiry();
+    claimNext = true; closePassport();
+  });
+  var lastFocus = null;
+  function openPassport(id) {
+    lastFocus = document.activeElement;
+    openId = id; navigated = false; $("#ppUrl").hidden = true; fillPassport();
+    if (typeof dlg.showModal === "function") { if (!dlg.open) dlg.showModal(); }
+    else dlg.setAttribute("open", "");
+  }
+  function closePassport() { if (typeof dlg.close === "function") dlg.close(); else dlg.removeAttribute("open"); }
+  /* the close button sits in <form method="dialog">; closedby="any" gives light dismiss where supported */
+  if (!("closedBy" in HTMLDialogElement.prototype)) {
+    dlg.addEventListener("click", function (e) {
+      if (e.target !== dlg) return;
+      var r = dlg.getBoundingClientRect();
+      var inside = r.top <= e.clientY && e.clientY <= r.top + r.height && r.left <= e.clientX && e.clientX <= r.left + r.width;
+      if (!inside) closePassport();
+    });
+  }
+  dlg.addEventListener("close", function () {
+    var id = openId; openId = null; $("#ppLive").textContent = "";
+    if (claimNext) {
+      claimNext = false; lastFocus = null;
+      $("#join").scrollIntoView(); enqM.focus({ preventScroll: true });
+      return;
+    }
+    /* give focus back to what opened the passport; after prev/next or a language switch, to the plate now shown */
+    var back = !navigated && lastFocus && lastFocus.isConnected ? lastFocus : null;
+    if (!back && id) back = platesEl.querySelector('.pl[data-id="' + id + '"]:not([hidden])');
+    if (!back && lastFocus && lastFocus.isConnected) back = lastFocus;
+    if (back && typeof back.focus === "function") back.focus();
+    lastFocus = null;
+  });
+
+  /* ---------- licence use filter ---------- */
+  var uBtns = $$("[data-use]").filter(function (b) { return b.tagName === "BUTTON"; });
+  uBtns.forEach(function (b) {
+    b.addEventListener("click", function () {
+      var u = b.getAttribute("data-use");
+      uBtns.forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+      $$("#tiers .tier").forEach(function (el) { el.hidden = u !== "all" && el.getAttribute("data-use") !== u; });
+    });
+  });
+
+  /* ---------- lookup ---------- */
+  var lkInput = $("#lookupInput"), lkOut = $("#lookupOut");
+  function normalizeId(q) {
+    var s = String(q || "").toUpperCase().replace(/\s+/g, "");
+    var m = s.match(/^(?:BA-?)?0*(\d{1,3})$/);
+    if (m) { var n = parseInt(m[1], 10); return "BA-" + ("00" + n).slice(-3); }
+    return s;
+  }
+  function renderLookup() {
+    var raw = lkInput.value.trim();
+    if (!raw) { lkOut.innerHTML = '<div class="lk-out"><p class="lk-miss">' + esc(t("lkEmpty")) + '</p></div>'; return; }
+    var id = normalizeId(raw), p = plateBy(id);
+    if (!p) {
+      lkOut.innerHTML = '<div class="lk-out"><p class="lk-miss">' + esc(t("lkMissing").replace("{q}", raw)) + '</p></div>';
+      return;
+    }
+    lkOut.innerHTML = '<div class="lk-out"><div class="lk-top"><span class="lk-t" lang="en">' + esc(p[1]) + '</span><span class="lk-id">' + p[0] + '</span></div>' +
+      '<dl class="kv">' +
+      '<div><dt>' + esc(t("lkType")) + '</dt><dd>' + esc(t("lkSample")) + '</dd></div>' +
+      '<div><dt>' + esc(t("provenance")) + '</dt><dd class="pend">' + esc(t("pendingV")) + '</dd></div>' +
+      '<div><dt>' + esc(t("rights")) + '</dt><dd class="pend">' + esc(t("notStated")) + '</dd></div>' +
+      '<div><dt>' + esc(t("gatesMet")) + '</dt><dd class="pend">' + gatesMet() + ' / 3</dd></div>' +
+      '<div><dt>' + esc(t("lkPublic")) + '</dt><dd class="pend">' + esc(t("lkNA")) + '</dd></div>' +
+      '</dl><div class="lk-foot"><p>' + esc(t("lkExplain")) + '</p>' +
+      '<button type="button" class="mini" data-open="' + p[0] + '" aria-haspopup="dialog">' + esc(t("lkOpen")) + '</button></div></div>';
+  }
+  $("#lookupForm").addEventListener("submit", function (e) { e.preventDefault(); renderLookup(); });
+  lkOut.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-open]"); if (b) openPassport(b.getAttribute("data-open"));
+  });
+
+  /* ---------- transparency simulator ---------- */
+  var simRows = $("#simRows");
+  function val(name) { var el = simRows.querySelector('input[name="' + name + '"]:checked'); return el ? el.value : ""; }
+  function renderSim() {
+    var quote = val("quote"), pay = val("payment"), rights = val("rights"), del = val("delivery");
+    var licensed = rights === "approved" && quote === "approved";
+    var lic = licensed ? t("licIssue") : rights === "restricted" ? t("licRestricted") : t("licNone");
+    var d = del === "accepted" ? t("delAccepted") : del === "ready" ? t("delReady") : t("delNone");
+    $("#simLicL").textContent = t("simLic"); $("#simLic").textContent = lic;
+    $("#simDelL").textContent = t("simDel"); $("#simDel").textContent = d;
+    var warns = [];
+    if (pay === "paid" && !licensed) warns.push(t("warnPaid"));
+    if ((del === "ready" || del === "accepted") && rights !== "approved") warns.push(t("warnDel"));
+    if (rights === "approved" && quote !== "approved") warns.push(t("warnQuote"));
+    $("#simWarn").innerHTML = warns.length
+      ? warns.map(function (w) { return '<p class="sim-warn">' + esc(w) + '</p>'; }).join("")
+      : '<p class="sim-warn calm">' + esc(t("calm")) + '</p>';
+  }
+  simRows.addEventListener("change", renderSim);
+
+  /* ---------- studio tabs ---------- */
+  var tabs = $$(".tab");
+  /* hidden panels stay findable with Find in page where hidden="until-found" is supported */
+  var untilFound = "onbeforematch" in HTMLElement.prototype;
+  function hidePanel(panel, hide) {
+    if (!panel) return;
+    if (!hide) { panel.hidden = false; return; }
+    if (untilFound) panel.setAttribute("hidden", "until-found"); else panel.hidden = true;
+  }
+  function selectTab(tab, focus) {
+    tabs.forEach(function (b) {
+      var on = b === tab;
+      b.setAttribute("aria-selected", String(on));
+      b.tabIndex = on ? 0 : -1;
+      hidePanel($("#" + b.getAttribute("aria-controls")), !on);
+    });
+    if (focus) tab.focus();
+  }
+  tabs.forEach(function (b, i) {
+    b.addEventListener("click", function () { selectTab(b); });
+    b.addEventListener("keydown", function (e) {
+      var n = -1;
+      if (e.key === "ArrowRight") n = (i + 1) % tabs.length;
+      else if (e.key === "ArrowLeft") n = (i - 1 + tabs.length) % tabs.length;
+      else if (e.key === "Home") n = 0;
+      else if (e.key === "End") n = tabs.length - 1;
+      if (n > -1) { e.preventDefault(); selectTab(tabs[n], true); }
+    });
+  });
+
+  tabs.forEach(function (b) {
+    var panel = $("#" + b.getAttribute("aria-controls"));
+    if (b.getAttribute("aria-selected") !== "true") hidePanel(panel, true);
+    if (panel) panel.addEventListener("beforematch", function () { selectTab(b); });
+  });
+
+  /* ---------- manifest ---------- */
+  var mfId = "BA-001";
+  var MF = {
+    "BA-001": ["BA-001 · First Light", "mfPhoto", "mfPending"],
+    "BP-001": ["BP-001", "mfBiz", "mfInternal"],
+    "GE-001": ["GE-001", "mfEvent", "mfUnconfirmed"]
+  };
+  function renderManifest() {
+    var m = MF[mfId], out = $("#manifestOut");
+    if (!m) { out.textContent = t("mfPick"); return; }
+    out.textContent = [t("mfHead"), t("mfRecord") + ": " + m[0], t("mfType") + ": " + t(m[1]),
+      t("mfRights") + ": " + t(m[2]), t("mfStatus") + ": " + t("mfStatusV")].join("\n");
+  }
+  $$("[data-manifest]").forEach(function (b) {
+    b.addEventListener("click", function () { mfId = b.getAttribute("data-manifest"); renderManifest(); });
+  });
+
+  function status(el, text) { if (!el) return; clearTimeout(el._baT); el._baT = setTimeout(function () { el.textContent = text; }, 450); }
+
+  /* ---------- copy helper ---------- */
+  function copyText(text, node, msgEl) {
+    function fallback() {
+      try {
+        var r = document.createRange(); r.selectNodeContents(node);
+        var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      } catch (e) {}
+      if (msgEl) msgEl.textContent = t("copyFail");
+    }
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { if (msgEl) msgEl.textContent = t("copied"); }, fallback);
+      } else fallback();
+    } catch (e) { fallback(); }
+  }
+  $("#copyManifest").addEventListener("click", function () {
+    var out = $("#manifestOut"), msg = $("#mfMsg"); copyText(out.textContent, out, msg);
+    setTimeout(function () { msg.textContent = ""; }, 2400);
+  });
+
+  /* ---------- source intake with local SHA-256 ---------- */
+  var files = [], drop = $("#drop"), fileInput = $("#fileInput"), fileList = $("#fileList");
+  var LIMIT = 100 * 1024 * 1024;
+  function fmtSize(b) { return b >= 1048576 ? (b / 1048576).toFixed(1) + " MB" : Math.max(1, Math.round(b / 1024)) + " KB"; }
+  function renderFiles() {
+    if (!files.length) { fileList.innerHTML = '<li><small>' + esc(t("upNone")) + '</small></li>'; return; }
+    fileList.innerHTML = files.map(function (f) {
+      var line = f.state === "hashing" ? t("upHash") : f.state === "skip" ? t("upSkip") : f.state === "fail" ? t("upFail") : t("upDone") + ": " + f.hash;
+      return '<li><strong>' + esc(f.name) + '</strong><span class="sz">' + fmtSize(f.size) + '</span><small>' + esc(line) + '</small></li>';
+    }).join("");
+  }
+  function hashFile(entry, file) {
+    if (file.size > LIMIT) { entry.state = "skip"; renderFiles(); return; }
+    if (!(window.crypto && crypto.subtle && file.arrayBuffer)) { entry.state = "fail"; renderFiles(); return; }
+    file.arrayBuffer().then(function (buf) { return crypto.subtle.digest("SHA-256", buf); }).then(function (h) {
+      entry.hash = Array.prototype.map.call(new Uint8Array(h), function (x) { return ("0" + x.toString(16)).slice(-2); }).join("");
+      entry.state = "done"; renderFiles();
+    }, function () { entry.state = "fail"; renderFiles(); });
+  }
+  function addFiles(list) {
+    Array.prototype.forEach.call(list || [], function (file) {
+      var entry = { name: file.name, size: file.size, state: "hashing", hash: "" };
+      files.unshift(entry); hashFile(entry, file);
+    });
+    renderFiles();
+  }
+  $("#pickFiles").addEventListener("click", function () { fileInput.click(); });
+  fileInput.addEventListener("change", function (e) { addFiles(e.target.files); fileInput.value = ""; });
+  ["dragenter", "dragover"].forEach(function (ev) {
+    drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.add("over"); });
+  });
+  ["dragleave", "drop"].forEach(function (ev) {
+    drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.remove("over"); });
+  });
+  drop.addEventListener("drop", function (e) { addFiles(e.dataTransfer && e.dataTransfer.files); });
+
+  /* ---------- enquiry builder ---------- */
+  var enqRoute = $("#enqRoute"), enqM = $("#enqMaterial"), enqD = $("#enqDecision"), enqE = $("#enqEvidence");
+  function today() { var d = new Date(); return ("0" + d.getDate()).slice(-2) + "." + ("0" + (d.getMonth() + 1)).slice(-2) + "." + d.getFullYear(); }
+  function renderEnquiry() {
+    var r = enqRoute.value, h = t("hints")[r] || ["", "", ""];
+    enqM.placeholder = h[0]; enqD.placeholder = h[1]; enqE.placeholder = h[2];
+    function v(el) { return el.value.trim() || t("enqBlank"); }
+    $("#enqOut").textContent = [t("enqHead"), "", t("enqRoute") + ": " + t("routes")[r],
+      t("enqMaterial") + ": " + v(enqM), t("enqDecision") + ": " + v(enqD), t("enqEvidence") + ": " + v(enqE),
+      t("enqPrepared") + ": " + today()].join("\n");
+    var filled = enqM.value.trim() && enqD.value.trim() && enqE.value.trim();
+    status($("#enqMsg"), filled ? "" : t("enqHint"));
+  }
+  [enqRoute, enqM, enqD, enqE].forEach(function (el) { el.addEventListener("input", renderEnquiry); el.addEventListener("change", renderEnquiry); });
+  $("#enqForm").addEventListener("submit", function (e) { e.preventDefault(); });
+  $("#copyEnq").addEventListener("click", function () {
+    var out = $("#enqOut"); copyText(out.textContent, out, $("#enqMsg"));
+  });
+  $$("[data-route]").forEach(function (a) {
+    a.addEventListener("click", function () { enqRoute.value = a.getAttribute("data-route"); renderEnquiry(); });
+  });
+
+  /* ---------- retrieval brief (Business) ---------- */
+  var brProject = $("#brProject"), brQs = [1, 2, 3, 4, 5].map(function (i) { return $("#brQ" + i); });
+  function brFilled() { return brQs.map(function (el) { return el.value.trim(); }).filter(Boolean); }
+  function renderBrief() {
+    var qs = brFilled(), lines = [t("brHead"), t("brProject") + ": " + (brProject.value.trim() || t("enqBlank")), ""];
+    if (!qs.length) lines.push(t("brQuestions") + ": " + t("enqBlank"), "");
+    qs.forEach(function (q, i) {
+      lines.push("Q" + (i + 1) + "  " + q, "    [ ] " + t("brSource"), "    [ ] " + t("brAccess"), "    [ ] " + t("brFormat"), "");
+    });
+    lines.push(t("brNot"), t("enqPrepared") + ": " + today());
+    $("#briefOut").textContent = lines.join("\n");
+    status($("#briefMsg"), (qs.length >= 3 ? t("brReady") : t("brCount")).replace("{n}", qs.length));
+  }
+  [brProject].concat(brQs).forEach(function (el) { el.addEventListener("input", renderBrief); });
+  $("#briefForm").addEventListener("submit", function (e) { e.preventDefault(); });
+  $$(".ex").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var text = t("brEx")[+b.getAttribute("data-ex")], empty = null;
+      for (var i = 0; i < brQs.length; i++) { if (brQs[i].value.trim() === text) return; if (!empty && !brQs[i].value.trim()) empty = brQs[i]; }
+      if (!empty) { $("#briefMsg").textContent = t("brFull"); return; }
+      empty.value = text; renderBrief();
+    });
+  });
+  $("#copyBrief").addEventListener("click", function () { var out = $("#briefOut"); copyText(out.textContent, out, $("#briefMsg")); });
+  $("#briefToEnq").addEventListener("click", function () {
+    var qs = brFilled();
+    enqRoute.value = "business";
+    if (brProject.value.trim()) enqM.value = brProject.value.trim();
+    if (qs.length) enqD.value = qs.map(function (q, i) { return (i + 1) + ". " + q; }).join("\n");
+    renderEnquiry();
+    $("#briefMsg").textContent = t("brAdded");
+    enqD.focus();
+  });
+
+  /* ---------- gallery checklist ---------- */
+  var gcWork = $("#gcWork"), gcBoxes = $$("[data-gc]");
+  function txt(el) { return el ? el.textContent.replace(/\u00ad/g, "").replace(/\s+/g, " ").trim() : ""; }
+  function renderGc() {
+    var held = gcBoxes.filter(function (c) { return c.checked; }).length, total = gcBoxes.length, missing = [];
+    var lines = [t("gcHead"), t("gcWork") + ": " + (gcWork.value.trim() || t("enqBlank")), t("gcReady") + ": " + held + " / " + total, ""];
+    $$("#gcForm .gc-g").forEach(function (fs) {
+      lines.push(txt(fs.querySelector("legend")));
+      $$("[data-gc]", fs).forEach(function (c) {
+        var label = txt(c.parentNode);
+        lines.push("  [" + (c.checked ? "x" : " ") + "] " + label);
+        if (!c.checked) missing.push(label);
+      });
+      lines.push("");
+    });
+    lines.push(t("gcMissing"));
+    if (missing.length) missing.forEach(function (m) { lines.push("  - " + m); }); else lines.push("  " + t("gcNone"));
+    lines.push("", t("gcNot"), t("enqPrepared") + ": " + today());
+    $("#gcOut").textContent = lines.join("\n");
+    var key = held === total ? "gcAll" : held ? "gcSome" : "gcCount";
+    status($("#gcMsg"), t(key).replace("{n}", held).replace("{t}", total));
+  }
+  gcBoxes.forEach(function (c) { c.addEventListener("change", renderGc); });
+  gcWork.addEventListener("input", renderGc);
+  $("#gcForm").addEventListener("submit", function (e) { e.preventDefault(); });
+  $("#copyGc").addEventListener("click", function () { var out = $("#gcOut"); copyText(out.textContent, out, $("#gcMsg")); });
+  $("#gcToEnq").addEventListener("click", function () {
+    var held = gcBoxes.filter(function (c) { return c.checked; }).map(function (c) { return txt(c.parentNode); });
+    enqRoute.value = "gallery";
+    if (gcWork.value.trim()) enqM.value = gcWork.value.trim();
+    if (held.length) enqE.value = held.map(function (h) { return "- " + h; }).join("\n");
+    renderEnquiry();
+    $("#gcMsg").textContent = t("gcAdded");
+    enqE.focus();
+  });
+
+  /* ---------- mobile menu: show that it scrolls sideways ---------- */
+  var mnav = $(".mnav");
+  /* the first and last links report whether they are fully visible, so no layout is read on scroll */
+  if (mnav && "IntersectionObserver" in window) {
+    var mItems = $$("a", mnav), first = mItems[0], last = mItems[mItems.length - 1];
+    var edgeIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        var hidden = en.intersectionRatio < 0.98;
+        if (en.target === first) mnav.classList.toggle("more-l", hidden);
+        if (en.target === last) mnav.classList.toggle("more-r", hidden);
+      });
+    }, { root: mnav, threshold: [0, 0.98, 1] });
+    if (first) edgeIO.observe(first);
+    if (last && last !== first) edgeIO.observe(last);
+  }
+  function keepCurrentInView() {
+    if (!mnav) return;
+    var a = mnav.querySelector('[aria-current="location"]'); if (!a || !mnav.clientWidth) return;
+    var left = a.offsetLeft - mnav.offsetLeft, right = left + a.offsetWidth, pad = 40;
+    if (left < mnav.scrollLeft + pad || right > mnav.scrollLeft + mnav.clientWidth - pad) {
+      var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+      try { mnav.scrollTo({ left: Math.max(0, left - pad), behavior: reduce ? "auto" : "smooth" }); } catch (e) { mnav.scrollLeft = Math.max(0, left - pad); }
+    }
+  }
+
+  /* ---------- nav: current section ---------- */
+  var links = $$(".nav a, .mnav a");
+  var ids = ["explore", "business", "privat", "gallery-events", "record", "join"];
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var id = en.target.id;
+        links.forEach(function (a) { if (a.getAttribute("href") === "#" + id) a.setAttribute("aria-current", "location"); else a.removeAttribute("aria-current"); });
+        keepCurrentInView();
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    ids.forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+  }
+
+  /* ---------- back to top ----------
+     The progress line and the turning aperture are CSS scroll-driven animations (decorative, progressive
+     enhancement, no script fallback). Only the back-to-top button needs script: it appears once the hero has left. */
+  var toTop = $("#toTop"), hero = $("#top");
+  if (toTop && hero && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { toTop.classList.toggle("show", !en.isIntersecting && en.boundingClientRect.top < 0); });
+    }).observe(hero);
+  }
+
+  function renderAll() {
+    renderPlates(); renderLookup(); renderSim(); renderManifest(); renderFiles(); renderEnquiry(); renderBrief(); renderGc(); syncThemeBtn(); keepCurrentInView();
+    if (openId) fillPassport();
+  }
+
+  /* a copied plate link (#BA-003) opens that plate's passport */
+  function openFromHash() { var m = /^#(BA-\d{3})$/.exec(location.hash); if (m && plateBy(m[1])) openPassport(m[1]); }
+  window.addEventListener("hashchange", openFromHash);
+  var savedLang = store.get("ba-lang");
+  applyLang(savedLang === "no" ? "no" : "en", false);
+  openFromHash();
+})();
+
+</script>
+</body>
+</html>
