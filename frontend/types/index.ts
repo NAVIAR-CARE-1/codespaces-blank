@@ -8,15 +8,32 @@ export interface User {
   updatedAt: string;
 }
 
-export interface Organization {
-  id: string;
+export interface AuthState {
+  user: User | null;
+  token: string | null;
+  isAuthenticated: boolean;
+  loading: boolean;
+  error: string | null;
+}
+
+export interface ApiResponse<T = unknown> {
+  success: boolean;
+  statusCode: number;
+  message: string;
+  payload?: T;
+  error?: string;
+}
+
+export interface LoginPayload {
+  email: string;
+  password: string;
+}
+
+export interface RegisterPayload {
+  email: string;
+  password: string;
   name: string;
-  industry: string;
-  country: string;
-  employees: number;
-  subscription: 'free' | 'standard' | 'professional' | 'enterprise';
-  createdAt: string;
-  updatedAt: string;
+  type: 'admin' | 'consultant' | 'employee' | 'manager';
 }
 
 export interface Consultation {
@@ -25,10 +42,8 @@ export interface Consultation {
   consultantId: string;
   title: string;
   description?: string;
+  scheduledAt: string;
   status: 'scheduled' | 'completed' | 'cancelled';
-  startTime: string;
-  endTime: string;
-  notes?: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -38,23 +53,18 @@ export interface Document {
   name: string;
   type: string;
   size: number;
-  organizationId: string;
   uploadedBy: string;
-  createdAt: string;
+  uploadedAt: string;
   updatedAt: string;
 }
 
-export interface AuthState {
-  user: User | null;
-  token: string | null;
-  isAuthenticated: boolean;
-  loading: boolean;
-  error: string | null;
-}
-
-export interface ApiResponse<T> {
-  success: boolean;
-  data?: T;
-  error?: string;
-  message?: string;
+export interface Organization {
+  id: string;
+  name: string;
+  email: string;
+  phone?: string;
+  website?: string;
+  address?: string;
+  createdAt: string;
+  updatedAt: string;
 }

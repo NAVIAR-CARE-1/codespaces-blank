@@ -1,25 +1,39 @@
 import { useDispatch, useSelector } from 'react-redux';
-import type { RootState, AppDispatch } from '@/store/store';
-import { loginUser, registerUser, logout, clearError } from '@/store/authSlice';
+import { RootState, AppDispatch } from '@/store/store';
+import { loginUser, registerUser, logout, restoreAuth, clearError } from '@/store/authSlice';
+import { LoginPayload, RegisterPayload } from '@/types';
 
-export function useAuth() {
+export const useAuth = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { user, token, isAuthenticated, loading, error } = useSelector((state: RootState) => state.auth);
+  const { user, token, isAuthenticated, loading, error } = useSelector(
+    (state: RootState) => state.auth
+  );
 
-  const login = (email: string, password: string) => {
+  const login = async (email: string, password: string) => {
     return dispatch(loginUser({ email, password }));
   };
 
-  const register = (email: string, password: string, name: string, type: string) => {
-    return dispatch(registerUser({ email, password, name, type }));
+  const register = async (email: string, password: string, name: string, type: string) => {
+    return dispatch(
+      registerUser({
+        email,
+        password,
+        name,
+        type: type as 'admin' | 'consultant' | 'employee' | 'manager',
+      })
+    );
   };
 
   const handleLogout = () => {
     dispatch(logout());
   };
 
-  const clearAuthError = () => {
+  const handleClearError = () => {
     dispatch(clearError());
+  };
+
+  const restoreSession = () => {
+    dispatch(restoreAuth());
   };
 
   return {
@@ -31,6 +45,7 @@ export function useAuth() {
     login,
     register,
     logout: handleLogout,
-    clearError: clearAuthError
+    clearError: handleClearError,
+    restoreSession,
   };
-}
+};

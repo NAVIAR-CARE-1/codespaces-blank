@@ -16,18 +16,12 @@ next-env.d.ts
 .env.production.local
 .env.*.production
 
-# Tests
-coverage/
-.nyc_output/
-
 # IDE
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
-
-# OS
 .DS_Store
 Thumbs.db
 
@@ -39,7 +33,3 @@ Thumbs.db
 # Cache
 .eslintcache
 .cache
-
-# Logs
-logs/
-*.log
