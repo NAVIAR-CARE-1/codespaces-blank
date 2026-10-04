@@ -14,6 +14,8 @@ const usageRoutes = require('./usage-routes');
 const analyticsRoutes = require('./analytics-routes');
 const calendlyRoutes = require('./calendly-routes');
 const wherbyRoutes = require('./whereby-routes');
+const sapRoutes = require('./sap-routes');
+const vismaRoutes = require('./visma-routes');
 
 const app = express();
 
@@ -67,6 +69,12 @@ app.use('/api', calendlyRoutes);
 
 // Mount whereby routes
 app.use('/api', wherbyRoutes);
+
+// Mount SAP SuccessFactors routes
+app.use('/api', sapRoutes);
+
+// Mount Visma routes
+app.use('/api', vismaRoutes);
 
 // Health check
 app.get('/api/health', async (req, res) => {
