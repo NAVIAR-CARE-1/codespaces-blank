@@ -59,10 +59,27 @@
           <a href="/#metode">Metode</a>
           <a href="/#om">Om Betül</a>
           <a href="/#kontakt" class="button button-brass">Kontakt</a>
+          <div class="lang-selector" style="display:flex;gap:8px;align-items:center;margin-left:auto;padding:0 12px;">
+            <button data-lang="no" class="lang-btn" aria-label="Switch to Norwegian" style="padding:6px 10px;border:1px solid rgba(15,35,30,.2);background:transparent;border-radius:4px;cursor:pointer;font-size:0.85rem;font-weight:500;color:var(--text);transition:all 0.2s;">NO</button>
+            <button data-lang="en" class="lang-btn" aria-label="Switch to English" style="padding:6px 10px;border:1px solid rgba(15,35,30,.2);background:transparent;border-radius:4px;cursor:pointer;font-size:0.85rem;font-weight:500;color:var(--text);transition:all 0.2s;">EN</button>
+            <button data-lang="tr" class="lang-btn" aria-label="Switch to Turkish" style="padding:6px 10px;border:1px solid rgba(15,35,30,.2);background:transparent;border-radius:4px;cursor:pointer;font-size:0.85rem;font-weight:500;color:var(--text);transition:all 0.2s;">TR</button>
+          </div>
         </nav>
       </div>
     </div>
   </header>
+
+  <style>
+    button.lang-btn.active {
+      background-color: var(--green-600);
+      color: white;
+      border-color: var(--green-600);
+    }
+    button.lang-btn:hover:not(.active) {
+      border-color: var(--green-600);
+      color: var(--green-600);
+    }
+  </style>
 
   <main id="main">
     <!-- Hero -->
@@ -273,5 +290,6 @@
       });
     });
   </script>
+  <script src="./language-switcher.js"></script>
 </body>
 </html>
