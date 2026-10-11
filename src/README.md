@@ -195,6 +195,18 @@ Yayındaki GoDaddy Airo sitesinde görülen sorunlar. Bunlar o sitede düzeltili
 9. **Tarihli sergiler:** "Autumn 2026 · Oslo" sergisi için yer ya da tarih teyitli değilse "planlanıyor" diye yazılmalı.
 10. **Alan adı:** beta-art.com ve www.beta-art.com GoDaddy sunucusunu gösteriyor (160.153.0.176). Site gerçek bir tarayıcıda HTTPS ile açılıyor.
 
+## Rutin (11.10.2026'dan beri)
+
+Betul: "bütün bu işlemi rutin olarak yap". Her gün 08:58'de (Oslo saati) bir tur çalışır. Betul dosya paylaştığında ya da bir şey istediğinde de aynı tur çalışır.
+
+1. **Kaynak:** Yeni dosyalar ve artifact'te dışarıdan yapılmış değişiklikler incelenir. Kurala uyan aktarılır, uymayan "Bilerek alınmayanlar"a yazılır.
+2. **Fikir ve doğrulama:** Dört açıdan öneri gelir (kurallar, erişilebilirlik, içerik, açık liste). Her öneriyi üç şüpheci çürütmeye çalışır. En fazla üç değişiklik seçilir. Betul'ün kararına bağlı hiçbir şey seçilmez.
+3. **Uygula ve test:** Değişiklikler `src/` içinde tek tek yapılır, her birinden sonra `tools/check_all.sh` çalışır (build, `design_check`, `media_check`, axe, bağlantılar, 320/390 px taşma, katı CSP).
+4. **İnceleme:** Fark üç açıdan gözden geçirilir, doğrulanan sorunlar düzeltilir.
+5. **Yayın rutini (`web-yayin-rutini`):** `versions/beta-art-main-vNN.html` yazılır, eski sürümler silinmez. Commit "vNN: …" olur, GitHub'a gönderilir, taslak PR güncellenir, artifact yeniden yayınlanır. **Vercel adımı atlanır:** BETA ART için yayın dondurması sürüyor, Betul "yayınla" diyene kadar.
+
+Workflow: `.claude/workflows/beta-art-tur.js`. Araçlar: `tools/check_all.sh`, `tools/browser_check.py`, `tools/new_version.py`. Numaralama v09'dan başladı, çünkü Betul'ün kendi dosyaları V04 ve V08'i kullanıyor.
+
 ## Sıradaki turlar
 
 **29.09 akşamından itibaren iş beta-art.com'da (Airo) yapılır.** Airo'nun editöründe sohbet, doğrudan kod düzenleme, yedekler ve ayrı bir yayınlama adımı var ([GoDaddy yardım](https://www.godaddy.com/help/build-a-custom-app-or-site-with-godaddy-airo-ai-builder-42824)). Sıra:
