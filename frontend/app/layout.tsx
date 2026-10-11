@@ -1,26 +1,27 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Providers } from '@/components/Providers';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'NAVIAR CONSULT - Professional Consultation Platform',
-  description: 'Employee consultation and HR management platform for modern organizations',
-  viewport: 'width=device-width, initial-scale=1',
+  title: 'NAVIAR Consult — Consultation workspace',
+  description: 'Workspace for planning employee consultations, documents and follow-up.',
   robots: 'noindex, nofollow',
+  icons: { icon: '/favicon.svg' },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#0b2c26',
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-      </head>
-      <body className="bg-gray-50 text-gray-900">
+      <body>
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
         <Providers>{children}</Providers>
       </body>
     </html>

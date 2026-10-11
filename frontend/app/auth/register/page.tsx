@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { Logo } from '@/components/Logo';
 import { useAuth } from '@/hooks/useAuth';
 import { Lock, Mail, User, Shield } from 'lucide-react';
 
@@ -67,15 +68,13 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 to-secondary-50 flex items-center justify-center p-4 py-8">
+    <main id="main" className="min-h-screen bg-paper flex items-center justify-center p-4 py-8">
       <div className="w-full max-w-md">
         <div className="card p-8 shadow-lg">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="text-4xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent mb-2">
-              NAVIAR CONSULT
-            </div>
-            <p className="text-gray-600">Create your account</p>
+            <Logo width={192} className="mx-auto mb-4" />
+            <h1 className="text-2xl">Create your account</h1>
           </div>
 
           {/* Error Message */}
@@ -93,7 +92,7 @@ export default function RegisterPage() {
                 Full Name
               </label>
               <div className="relative">
-                <User className="absolute left-3 top-3 text-gray-400" size={20} />
+                <User className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} aria-hidden="true" />
                 <input
                   type="text"
                   name="name"
@@ -113,7 +112,7 @@ export default function RegisterPage() {
                 Email Address
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-3 text-gray-400" size={20} />
+                <Mail className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} aria-hidden="true" />
                 <input
                   type="email"
                   name="email"
@@ -133,7 +132,7 @@ export default function RegisterPage() {
                 Role
               </label>
               <div className="relative">
-                <Shield className="absolute left-3 top-3 text-gray-400" size={20} />
+                <Shield className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} aria-hidden="true" />
                 <select
                   name="type"
                   id="type"
@@ -157,7 +156,7 @@ export default function RegisterPage() {
                 Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-3 text-gray-400" size={20} />
+                <Lock className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} aria-hidden="true" />
                 <input
                   type="password"
                   name="password"
@@ -177,7 +176,7 @@ export default function RegisterPage() {
                 Confirm Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-3 text-gray-400" size={20} />
+                <Lock className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} aria-hidden="true" />
                 <input
                   type="password"
                   name="confirmPassword"
@@ -221,6 +220,6 @@ export default function RegisterPage() {
           </p>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

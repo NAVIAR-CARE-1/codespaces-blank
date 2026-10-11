@@ -3,12 +3,13 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { Logo } from '@/components/Logo';
 import { useAuth } from '@/hooks/useAuth';
 import { Lock, Mail } from 'lucide-react';
 
 export default function LoginPage() {
   const router = useRouter();
-  const { login, loading, error, clearError } = useAuth();
+  const { login, loading, error, clearError, startDemo } = useAuth();
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [formError, setFormError] = useState('');
 
@@ -40,15 +41,13 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 to-secondary-50 flex items-center justify-center p-4">
+    <main id="main" className="min-h-screen bg-paper flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="card p-8 shadow-lg">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="text-4xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent mb-2">
-              NAVIAR CONSULT
-            </div>
-            <p className="text-gray-600">Sign in to your account</p>
+            <Logo width={192} className="mx-auto mb-4" />
+            <h1 className="text-2xl">Sign in</h1>
           </div>
 
           {/* Error Message */}
@@ -66,7 +65,7 @@ export default function LoginPage() {
                 Email Address
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-3 text-gray-400" size={20} />
+                <Mail className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} aria-hidden="true" />
                 <input
                   type="email"
                   name="email"
@@ -86,7 +85,7 @@ export default function LoginPage() {
                 Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-3 text-gray-400" size={20} />
+                <Lock className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} aria-hidden="true" />
                 <input
                   type="password"
                   name="password"
@@ -116,23 +115,21 @@ export default function LoginPage() {
               {loading ? 'Signing in...' : 'Sign In'}
             </button>
           </form>
-
-          {/* Divider */}
-          <div className="my-6 flex items-center">
-            <div className="flex-1 border-t border-gray-300"></div>
-            <div className="px-3 text-sm text-gray-600">or</div>
-            <div className="flex-1 border-t border-gray-300"></div>
-          </div>
-
-          {/* Social Login */}
-          <div className="grid grid-cols-2 gap-3">
-            <button className="btn-outline py-2.5 flex items-center justify-center gap-2">
-              <span>🔵</span> Google
-            </button>
-            <button className="btn-outline py-2.5 flex items-center justify-center gap-2">
-              <span>🔷</span> Microsoft
-            </button>
-          </div>
+          {process.env.NODE_ENV === 'development' ? (
+            <div className="mt-6 border-t border-line pt-6 text-center">
+              <button
+                type="button"
+                className="btn-secondary w-full"
+                onClick={() => {
+                  startDemo();
+                  router.push('/dashboard');
+                }}
+              >
+                Continue with demo workspace
+              </button>
+              <p className="mt-2 text-xs text-muted">Development only — sample data, no backend needed.</p>
+            </div>
+          ) : null}
 
           {/* Footer */}
           <p className="text-center text-gray-600 text-sm mt-6">
@@ -155,6 +152,6 @@ export default function LoginPage() {
           </a>
         </p>
       </div>
-    </div>
+    </main>
   );
 }

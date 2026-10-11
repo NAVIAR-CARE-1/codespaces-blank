@@ -89,6 +89,23 @@ const authSlice = createSlice({
     clearError: (state) => {
       state.error = null;
     },
+    startDemoSession: (state) => {
+      const user: User = {
+        id: 'demo-admin',
+        email: 'demo@example.com',
+        name: 'Demo Admin',
+        role: 'admin',
+        organizationId: 'demo-org',
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      };
+      state.user = user;
+      state.token = 'demo-session';
+      state.isAuthenticated = true;
+      state.error = null;
+      localStorage.setItem('authToken', 'demo-session');
+      localStorage.setItem('user', JSON.stringify(user));
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -130,5 +147,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { logout, clearError } = authSlice.actions;
+export const { logout, clearError, startDemoSession } = authSlice.actions;
 export default authSlice.reducer;

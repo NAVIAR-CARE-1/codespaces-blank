@@ -1,6 +1,14 @@
+import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState, AppDispatch } from '@/store/store';
-import { loginUser, registerUser, logout, restoreAuth, clearError } from '@/store/authSlice';
+import {
+  loginUser,
+  registerUser,
+  logout,
+  restoreAuth,
+  clearError,
+  startDemoSession,
+} from '@/store/authSlice';
 import { LoginPayload, RegisterPayload } from '@/types';
 
 export const useAuth = () => {
@@ -32,8 +40,12 @@ export const useAuth = () => {
     dispatch(clearError());
   };
 
-  const restoreSession = () => {
+  const restoreSession = useCallback(() => {
     dispatch(restoreAuth());
+  }, [dispatch]);
+
+  const startDemo = () => {
+    dispatch(startDemoSession());
   };
 
   return {
@@ -47,5 +59,6 @@ export const useAuth = () => {
     logout: handleLogout,
     clearError: handleClearError,
     restoreSession,
+    startDemo,
   };
 };

@@ -1,186 +1,121 @@
-'use client';
-
 import Link from 'next/link';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import { Logo } from '@/components/Logo';
+import { ArrowRight, BarChart3, Calendar, FileText, Plug, ShieldCheck, Users } from 'lucide-react';
 
-const features = [
-  {
-    title: 'Employee Consultations',
-    description: 'Schedule and manage professional consultations with ease',
-    icon: '📅',
-  },
-  {
-    title: 'Document Management',
-    description: 'Securely store and share consultation documents',
-    icon: '📄',
-  },
-  {
-    title: 'Real-time Analytics',
-    description: 'Track consultation metrics and performance insights',
-    icon: '📊',
-  },
-  {
-    title: 'Video Integration',
-    description: 'Seamless video conferencing for remote consultations',
-    icon: '🎥',
-  },
-  {
-    title: 'Role-based Access',
-    description: 'Control access with flexible permission settings',
-    icon: '🔐',
-  },
-  {
-    title: 'Calendar Sync',
-    description: 'Integrate with your favorite calendar applications',
-    icon: '🔗',
-  },
+const MODULES = [
+  { title: 'Employees', description: 'One directory for everyone you plan conversations with, with department and status.', icon: Users },
+  { title: 'Consultations', description: 'Book video, phone or in-person sessions. Overlaps in a consultant’s calendar are caught before saving.', icon: Calendar },
+  { title: 'Documents', description: 'Policies, contracts and meeting notes with access levels and version history.', icon: FileText },
+  { title: 'Analytics', description: 'Activity by month, type, department and format — aggregated, never a score of a person.', icon: BarChart3 },
 ];
 
-const stats = [
-  { label: 'Active Consultants', value: '500+' },
-  { label: 'Organizations', value: '150+' },
-  { label: 'Consultations', value: '10K+' },
+const PRINCIPLES = [
+  'Role-based access: consultation notes are limited to consultants and admins',
+  'An audit log records every change in the workspace',
+  'Note fields remind consultants to leave out health information',
+  'Workspace data can be exported in full at any time',
 ];
+
+const INTEGRATIONS = ['Whereby', 'Calendly', 'SAP SuccessFactors', 'Visma', 'Stripe'];
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50">
-      {/* Navigation */}
-      <nav className="container-base py-6 flex justify-between items-center">
-        <div className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
-          NAVIAR CONSULT
-        </div>
-        <div className="flex gap-4">
-          <Link href="/auth/login" className="btn-secondary">
-            Sign In
+    <div className="min-h-screen bg-paper">
+      <header className="border-b border-line bg-paper">
+        <div className="container-base flex items-center justify-between gap-4 py-5">
+          <Link href="/" className="block w-36 sm:w-44">
+            <Logo width={176} className="h-auto w-full" />
           </Link>
-          <Link href="/auth/register" className="btn-primary">
-            Get Started
-          </Link>
+          <nav aria-label="Account" className="flex gap-2">
+            <Link href="/auth/login" className="btn-outline">
+              Sign in
+            </Link>
+            <Link href="/auth/register" className="btn-primary hidden sm:inline-flex">
+              Create account
+            </Link>
+          </nav>
         </div>
-      </nav>
+      </header>
 
-      {/* Hero Section */}
-      <section className="container-base py-24 text-center">
-        <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-          Professional Consultation
-          <span className="block bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
-            Management Platform
-          </span>
-        </h1>
-        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Streamline employee consultations with integrated scheduling, video conferencing, and
-          comprehensive analytics for modern organizations.
-        </p>
-        <div className="flex gap-4 justify-center">
-          <Link href="/auth/register" className="btn-primary text-lg px-8 py-3">
-            Start Free Trial <ArrowRight className="inline ml-2" size={20} />
-          </Link>
-          <Link href="/auth/login" className="btn-outline text-lg px-8 py-3">
-            Sign In
-          </Link>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="container-base py-16 grid grid-cols-3 gap-8 text-center">
-        {stats.map((stat) => (
-          <div key={stat.label}>
-            <div className="text-4xl font-bold text-primary-600 mb-2">{stat.value}</div>
-            <div className="text-gray-600">{stat.label}</div>
-          </div>
-        ))}
-      </section>
-
-      {/* Features Section */}
-      <section className="container-base py-24">
-        <h2 className="text-4xl font-bold text-center mb-16">
-          Powerful Features for Modern HR
-        </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature) => (
-            <div
-              key={feature.title}
-              className="card p-8 hover:shadow-lg transition-shadow hover:border-primary-200"
-            >
-              <div className="text-4xl mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Integration Section */}
-      <section className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white py-16">
-        <div className="container-base text-center">
-          <h2 className="text-3xl font-bold mb-8">Integrated with Your Favorite Tools</h2>
-          <div className="grid md:grid-cols-4 gap-8">
-            {['Calendly', 'Whereby', 'SAP', 'Stripe'].map((tool) => (
-              <div key={tool} className="text-lg font-medium opacity-90">
-                {tool}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Security Section */}
-      <section className="container-base py-24">
-        <h2 className="text-4xl font-bold text-center mb-16">Enterprise Security</h2>
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="space-y-4">
-              {[
-                'End-to-end encrypted communications',
-                'GDPR compliant data handling',
-                'Role-based access control',
-                'Comprehensive audit logging',
-                'SOC 2 Type II certified',
-              ].map((feature) => (
-                <div key={feature} className="flex items-center gap-3">
-                  <CheckCircle className="text-secondary-600" size={24} />
-                  <span className="text-gray-700">{feature}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="bg-gradient-to-br from-primary-100 to-secondary-100 rounded-lg p-12 text-center">
-            <div className="text-6xl mb-4">🔒</div>
-            <p className="text-gray-700">Your data is protected with enterprise-grade security</p>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-primary-600 text-white py-16">
-        <div className="container-base text-center">
-          <h2 className="text-4xl font-bold mb-8">Ready to Transform Your Consultations?</h2>
-          <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-            Join hundreds of organizations already using NAVIAR CONSULT to streamline their HR
-            processes.
+      <main id="main">
+        <section className="container-base py-[clamp(72px,9vw,120px)]">
+          <p className="eyebrow mb-5">Consultation workspace</p>
+          <h1 className="max-w-3xl text-[clamp(2.25rem,5vw,3.75rem)]">Plan, hold and follow up employee consultations in one place.</h1>
+          <p className="mt-6 max-w-reading text-lg text-ink-soft">
+            NAVIAR Consult brings the employee directory, consultation calendar, documents and reporting together, so the next step after
+            every conversation is clear.
           </p>
-          <Link href="/auth/register" className="inline-block bg-white text-primary-600 font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors">
-            Get Started Free <ArrowRight className="inline ml-2" size={20} />
-          </Link>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-12">
-        <div className="container-base text-center">
-          <p className="mb-4">&copy; 2026 NAVIAR CONSULT. All rights reserved.</p>
-          <div className="flex justify-center gap-8 text-sm">
-            <a href="#" className="hover:text-white transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Terms of Service
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Contact
-            </a>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <Link href="/auth/register" className="btn-primary px-6 py-3 text-base">
+              Create account <ArrowRight size={18} aria-hidden="true" />
+            </Link>
+            <Link href="/auth/login" className="btn-outline px-6 py-3 text-base">
+              Sign in
+            </Link>
           </div>
+        </section>
+
+        <section aria-labelledby="modules-heading" className="border-t border-line bg-white py-[clamp(72px,9vw,120px)]">
+          <div className="container-base">
+            <p className="eyebrow mb-3">What is inside</p>
+            <h2 id="modules-heading" className="mb-12 max-w-2xl text-[clamp(1.75rem,3vw,2.5rem)]">
+              Four modules, one record of each conversation
+            </h2>
+            <ul className="grid gap-px overflow-hidden rounded border border-line bg-line sm:grid-cols-2">
+              {MODULES.map(({ title, description, icon: Icon }) => (
+                <li key={title} className="bg-white p-8">
+                  <Icon size={22} aria-hidden="true" className="text-accent-500" />
+                  <h3 className="mt-4 text-lg font-semibold">{title}</h3>
+                  <p className="mt-2 max-w-reading text-ink-soft">{description}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section aria-labelledby="principles-heading" className="py-[clamp(72px,9vw,120px)]">
+          <div className="container-base grid gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-5">
+              <p className="eyebrow mb-3">How data is handled</p>
+              <h2 id="principles-heading" className="text-[clamp(1.75rem,3vw,2.5rem)]">
+                Built around what a consultation record needs — and what it must leave out
+              </h2>
+            </div>
+            <ul className="space-y-4 lg:col-span-7">
+              {PRINCIPLES.map((p) => (
+                <li key={p} className="flex items-start gap-3 border-b border-line pb-4">
+                  <ShieldCheck size={20} aria-hidden="true" className="mt-0.5 shrink-0 text-primary-500" />
+                  <span className="text-ink-soft">{p}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section aria-labelledby="integrations-heading" className="on-dark bg-primary-700 py-16 text-paper">
+          <div className="container-base flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent-300">Integrations</p>
+              <h2 id="integrations-heading" className="mt-2 text-2xl">
+                Connects to the tools you already use
+              </h2>
+            </div>
+            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-paper/90">
+              {INTEGRATIONS.map((tool) => (
+                <li key={tool} className="flex items-center gap-2">
+                  <Plug size={14} aria-hidden="true" className="text-accent-300" />
+                  {tool}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <footer className="border-t border-line bg-paper py-10">
+        <div className="container-base flex flex-col gap-2 text-sm text-muted sm:flex-row sm:justify-between">
+          <p>© {new Date().getFullYear()} NAVIAR Consult</p>
+          <p>Workspace preview — not for production data.</p>
         </div>
       </footer>
     </div>
