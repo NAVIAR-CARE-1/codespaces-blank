@@ -65,7 +65,7 @@ export function sameDay(a: Date, b: Date): boolean {
 
 function csvCell(value: unknown): string {
   const text = value === null || value === undefined ? '' : String(value);
-  const safe = /^[=+\-@\t\r]/.test(text) ? `'${text}` : text;
+  const safe = /^[=@\t\r]|^[+-](?!\d)/.test(text) ? `'${text}` : text;
   return /[",\n\r]/.test(safe) ? `"${safe.replace(/"/g, '""')}"` : safe;
 }
 
@@ -86,5 +86,5 @@ export function downloadFile(filename: string, content: string | Blob, mime = 't
 }
 
 export function isValidEmail(email: string): boolean {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+  return /^[^\s@?&=#\/]+@[^\s@?&=#\/]+\.[^\s@?&=#\/]+$/.test(email.trim());
 }

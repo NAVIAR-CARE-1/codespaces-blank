@@ -151,7 +151,7 @@ export function AppShell({
               </button>
             </div>
             {menuOpen ? (
-              <nav id="mobile-nav" aria-label="Main" className="border-t border-line px-3 py-3">
+              <nav id="mobile-nav" aria-label="Main" className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-line px-3 py-3">
                 <NavLinks pathname={pathname} onNavigate={() => setMenuOpen(false)} />
                 <div className="mt-3 border-t border-line px-1 pt-3">{userBlock}</div>
               </nav>

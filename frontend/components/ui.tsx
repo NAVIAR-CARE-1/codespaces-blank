@@ -246,14 +246,14 @@ export function Pagination({
         <span className="font-medium text-ink">{total}</span>
       </p>
       <div className="flex items-center gap-1">
-        <button type="button" className="btn-ghost" onClick={() => onPage(page - 1)} disabled={page <= 1}>
+        <button type="button" className="btn-ghost aria-disabled:cursor-not-allowed aria-disabled:opacity-40" onClick={() => page > 1 && onPage(page - 1)} aria-disabled={page <= 1}>
           <ChevronLeft size={16} aria-hidden="true" />
           <span className="sr-only">Previous page</span>
         </button>
         <span className="px-2 tabular-nums" aria-current="page">
           {page} / {pageCount}
         </span>
-        <button type="button" className="btn-ghost" onClick={() => onPage(page + 1)} disabled={page >= pageCount}>
+        <button type="button" className="btn-ghost aria-disabled:cursor-not-allowed aria-disabled:opacity-40" onClick={() => page < pageCount && onPage(page + 1)} aria-disabled={page >= pageCount}>
           <ChevronRight size={16} aria-hidden="true" />
           <span className="sr-only">Next page</span>
         </button>
@@ -292,7 +292,13 @@ export function Modal({
       dialog.showModal();
     } else if (!open && dialog.open) {
       dialog.close();
-      returnFocus.current?.focus();
+      if (returnFocus.current?.isConnected) {
+        returnFocus.current.focus();
+      } else {
+        const heading = document.querySelector<HTMLElement>('main h1');
+        heading?.setAttribute('tabindex', '-1');
+        heading?.focus();
+      }
     }
   }, [open]);
 

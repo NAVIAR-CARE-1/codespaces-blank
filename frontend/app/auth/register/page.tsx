@@ -1,6 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useAnnounce } from '@/components/Announcer';
+
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Logo } from '@/components/Logo';
@@ -24,6 +26,11 @@ export default function RegisterPage() {
     type: 'consultant',
   });
   const [formError, setFormError] = useState('');
+  const announce = useAnnounce();
+  useEffect(() => {
+    const message = formError || error;
+    if (message) announce(message);
+  }, [formError, error, announce]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -101,7 +108,6 @@ export default function RegisterPage() {
                   onChange={handleChange}
                   className="input-base pl-10"
                   placeholder="John Doe"
-                  disabled={loading}
                 />
               </div>
             </div>
@@ -121,7 +127,6 @@ export default function RegisterPage() {
                   onChange={handleChange}
                   className="input-base pl-10"
                   placeholder="you@example.com"
-                  disabled={loading}
                 />
               </div>
             </div>
@@ -139,7 +144,6 @@ export default function RegisterPage() {
                   value={formData.type}
                   onChange={handleChange}
                   className="input-base pl-10"
-                  disabled={loading}
                 >
                   {roles.map((role) => (
                     <option key={role.value} value={role.value}>
@@ -165,7 +169,6 @@ export default function RegisterPage() {
                   onChange={handleChange}
                   className="input-base pl-10"
                   placeholder="At least 8 characters"
-                  disabled={loading}
                 />
               </div>
             </div>
@@ -185,14 +188,13 @@ export default function RegisterPage() {
                   onChange={handleChange}
                   className="input-base pl-10"
                   placeholder="Confirm your password"
-                  disabled={loading}
                 />
               </div>
             </div>
 
             {/* Terms Checkbox */}
             <label className="flex items-center gap-2">
-              <input type="checkbox" className="rounded" disabled={loading} required />
+              <input type="checkbox" className="rounded" required />
               <span className="text-sm text-gray-600">
                 I agree to the{' '}
                 <a href="#" className="text-primary-600 hover:text-primary-700">

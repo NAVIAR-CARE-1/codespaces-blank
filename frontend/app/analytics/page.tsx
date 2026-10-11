@@ -107,7 +107,9 @@ export default function AnalyticsPage() {
   const m = metricsFor(current);
   const p = metricsFor(previous);
   const hasPrevious = previous.length > 0;
-  const eligible = employees.filter((e) => e.status !== 'inactive' && (department === 'all' || e.department === department)).length;
+  const eligibleEmployees = employees.filter((e) => e.status !== 'inactive' && (department === 'all' || e.department === department));
+  const activeIds = new Set(eligibleEmployees.map((e) => e.id));
+  const eligible = eligibleEmployees.length;
 
   const monthly: Datum[] = useMemo(
     () =>
@@ -127,6 +129,7 @@ export default function AnalyticsPage() {
   );
 
   const held = current.filter((c) => c.status === 'completed');
+  const reachedNow = new Set(held.map((c) => c.employeeId).filter((id) => activeIds.has(id))).size;
 
   const byType: Datum[] = CONSULTATION_TYPES.map((t) => ({ label: t, value: held.filter((c) => c.type === t).length })).sort(
     (a, b) => b.value - a.value
@@ -160,14 +163,13 @@ export default function AnalyticsPage() {
       c.start.slice(0, 10),
       c.type,
       deptOf.get(c.employeeId) ?? '',
-      c.consultant,
       c.mode,
       c.status,
       c.durationMin,
     ]);
     downloadFile(
       `consultations-${toDateInputValue(periodStart)}-to-${toDateInputValue(now)}.csv`,
-      toCsv(['Date', 'Type', 'Department', 'Consultant', 'Format', 'Status', 'Duration (min)'], rows),
+      toCsv(['Date', 'Type', 'Department', 'Format', 'Status', 'Duration (min)'], rows),
       'text/csv'
     );
     announce(`Exported ${rows.length} consultations to CSV.`);
@@ -228,9 +230,9 @@ export default function AnalyticsPage() {
         <Kpi label="Average duration" value={m.avgDuration === null ? '—' : `${m.avgDuration} min`}>
           <p className="mt-1 text-xs text-muted">Completed consultations</p>
         </Kpi>
-        <Kpi label="Employees reached" value={`${m.reached}`}>
+        <Kpi label="Employees reached" value={`${reachedNow}`}>
           <p className="mt-1 text-xs text-muted">
-            of {eligible} current employees{eligible ? ` · ${Math.round((m.reached / eligible) * 100)}%` : ''}
+            of {eligible} current employees{eligible ? ` · ${Math.round((reachedNow / eligible) * 100)}%` : ''}
           </p>
         </Kpi>
       </section>
@@ -287,8 +289,7 @@ export default function AnalyticsPage() {
       </div>
 
       <p className="mt-6 max-w-reading text-xs text-muted">
-        Figures are calculated from the sample consultations in this demo workspace. Analytics stay at aggregate level: they show
-        activity, not ratings of employees or consultants.
+        Figures come from the sample consultations in this demo workspace. They show activity, not ratings of employees or consultants. The CSV export lists individual consultations, so share it only with people who may see them.
       </p>
     </AppShell>
   );

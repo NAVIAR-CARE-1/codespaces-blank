@@ -217,7 +217,7 @@ export default function SettingsPage() {
       prev.map((x) => (x.id === i.id ? { ...x, connected: !x.connected, lastSync: !x.connected ? new Date().toISOString() : null } : x))
     );
     logAudit(actor, i.connected ? 'Disconnected integration' : 'Connected integration', i.name);
-    announce(i.connected ? `${i.name} disconnected.` : `${i.name} marked as connected. Credentials are configured on the server.`);
+    announce(i.connected ? `${i.name} disconnected.` : `${i.name} marked as connected in this preview. Live connections need server credentials.`);
   };
 
   const setSecurityValue = <K extends keyof typeof security>(key: K, value: (typeof security)[K], label: string) => {
@@ -253,7 +253,7 @@ export default function SettingsPage() {
       return;
     }
     setWebhookError('');
-    logAudit(actor, 'Updated webhook', webhook);
+    logAudit(actor, 'Updated webhook', new URL(webhook).host);
     announce('Webhook address saved.');
   };
 
@@ -446,7 +446,7 @@ export default function SettingsPage() {
                   <div className="mt-4 flex items-center justify-between gap-2">
                     <span className="text-xs text-muted">{i.lastSync ? `Last sync ${relativeTime(i.lastSync, new Date())}` : ' '}</span>
                     <button type="button" className={i.connected ? 'btn-outline btn-sm' : 'btn-primary btn-sm'} onClick={() => toggleIntegration(i)}>
-                      {i.connected ? 'Disconnect' : 'Connect'}
+                      {i.connected ? 'Disconnect' : 'Connect'}<span className="sr-only"> {i.name}</span>
                     </button>
                   </div>
                 </li>
@@ -458,7 +458,7 @@ export default function SettingsPage() {
       case 'security':
         return (
           <div className="space-y-6">
-            <Section title="Sign-in policy">
+            <Section title="Sign-in policy" description="Stored for review. Enforcement is not connected in this preview.">
               <div className="grid gap-4 sm:grid-cols-3">
                 <SelectField
                   label="Minimum password length"
@@ -521,7 +521,7 @@ export default function SettingsPage() {
                           announce(`${s.device} signed out.`);
                         }}
                       >
-                        Sign out
+                        Sign out<span className="sr-only"> {s.device}</span>
                       </button>
                     ) : null}
                   </li>
@@ -575,7 +575,7 @@ export default function SettingsPage() {
       case 'api':
         return (
           <div className="space-y-6">
-            <Section title="API keys" description="Keys give systems access to the NAVIAR API. A key is shown once, when it is created.">
+            <Section title="API keys" description="Keys are created here and shown once. Key checks are not connected in this preview.">
               <div className="mb-3 flex justify-end">
                 <button type="button" className="btn-primary" onClick={() => setNewKey({ name: '', scope: 'read', error: '', secret: null })}>
                   <Plus size={16} aria-hidden="true" /> Create key
@@ -596,14 +596,14 @@ export default function SettingsPage() {
                         </p>
                       </div>
                       <button type="button" className="btn-outline btn-sm text-danger-700" onClick={() => setRevokeKey(k)}>
-                        Revoke
+                        Revoke<span className="sr-only"> {k.name}</span>
                       </button>
                     </li>
                   ))}
                 </ul>
               )}
             </Section>
-            <Section title="Webhook" description="We send booking and document events to this address as JSON.">
+            <Section title="Webhook" description="Saved for later use. Events are not sent in this preview.">
               <div className="flex flex-col gap-2 sm:flex-row sm:items-start">
                 <div className="flex-1">
                   <label htmlFor="webhook" className="sr-only">
@@ -687,14 +687,14 @@ export default function SettingsPage() {
                 <Download size={16} aria-hidden="true" /> Export workspace data
               </button>
             </Section>
-            <Section title="Retention" description="How long consultation notes are kept after the consultation date.">
+            <Section title="Retention" description="How long consultation notes should be kept after the consultation date. Not enforced in this preview.">
               <SelectField
                 label="Keep consultation notes for"
                 value={retention}
                 onChange={(v) => {
                   setRetention(v);
                   logAudit(actor, 'Changed retention', `Consultation notes: ${v} months`);
-                  announce(`Notes are kept for ${v} months.`);
+                  announce(`Retention set to ${v} months.`);
                 }}
                 options={['12', '24', '36'].map((n) => ({ value: n, label: `${n} months` }))}
                 className="max-w-xs"
@@ -703,7 +703,7 @@ export default function SettingsPage() {
             <section className="rounded border border-danger-200 bg-danger-50 p-5">
               <h3 className="font-display text-base font-semibold text-danger-700">Delete all workspace data</h3>
               <p className="mt-1 max-w-reading text-sm text-ink-soft">
-                Removes every employee, consultation and document from this workspace. Users and settings stay.
+                Removes every employee, consultation and document from this workspace. Users, settings and the audit log stay.
               </p>
               <button type="button" className="btn-danger mt-4" onClick={() => setWipeOpen(true)}>
                 <Trash2 size={16} aria-hidden="true" /> Delete data…
@@ -734,7 +734,7 @@ export default function SettingsPage() {
                 role="tab"
                 id={`tab-${t.id}`}
                 aria-selected={tab === t.id}
-                aria-controls={`panel-${t.id}`}
+                aria-controls={tab === t.id ? `panel-${t.id}` : undefined}
                 tabIndex={tab === t.id ? 0 : -1}
                 onClick={() => setTab(t.id)}
                 onKeyDown={(e) => onTabKey(e, i)}
@@ -756,7 +756,7 @@ export default function SettingsPage() {
       <Modal
         open={invite !== null}
         title="Invite user"
-        description="They get an email with a link to set a password."
+        description="The invitation is recorded here; email sending is not connected in this preview."
         size="sm"
         onClose={() => setInvite(null)}
         footer={
@@ -846,7 +846,7 @@ export default function SettingsPage() {
       <ConfirmDialog
         open={revokeKey !== null}
         title="Revoke API key?"
-        message={revokeKey ? `Systems using “${revokeKey.name}” stop working immediately.` : ''}
+        message={revokeKey ? `Revoking “${revokeKey.name}” removes it from this list.` : ''}
         confirmLabel="Revoke key"
         onConfirm={() => {
           if (!revokeKey) return;
@@ -864,6 +864,11 @@ export default function SettingsPage() {
         confirmLabel="Remove"
         onConfirm={() => {
           if (!removeMember) return;
+          const activeAdmins = team.filter((x) => x.role === 'admin' && x.status === 'active');
+          if (removeMember.role === 'admin' && activeAdmins.length <= 1) {
+            announce('The workspace needs at least one active admin.');
+            return;
+          }
           setTeam((prev) => prev.filter((m) => m.id !== removeMember.id));
           logAudit(actor, 'Removed user', removeMember.email);
           announce(`${removeMember.name} removed.`);

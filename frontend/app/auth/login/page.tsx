@@ -1,6 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useAnnounce } from '@/components/Announcer';
+
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Logo } from '@/components/Logo';
@@ -12,6 +14,11 @@ export default function LoginPage() {
   const { login, loading, error, clearError, startDemo } = useAuth();
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [formError, setFormError] = useState('');
+  const announce = useAnnounce();
+  useEffect(() => {
+    const message = formError || error;
+    if (message) announce(message);
+  }, [formError, error, announce]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -74,7 +81,6 @@ export default function LoginPage() {
                   onChange={handleChange}
                   className="input-base pl-10"
                   placeholder="you@example.com"
-                  disabled={loading}
                 />
               </div>
             </div>
@@ -94,7 +100,6 @@ export default function LoginPage() {
                   onChange={handleChange}
                   className="input-base pl-10"
                   placeholder="••••••••"
-                  disabled={loading}
                 />
               </div>
             </div>
@@ -102,7 +107,7 @@ export default function LoginPage() {
             {/* Remember Me & Forgot Password */}
             <div className="flex justify-between items-center text-sm">
               <label className="flex items-center gap-2">
-                <input type="checkbox" className="rounded" disabled={loading} />
+                <input type="checkbox" className="rounded" />
                 <span className="text-gray-600">Remember me</span>
               </label>
               <a href="#" className="text-primary-600 hover:text-primary-700">

@@ -10,10 +10,10 @@ const MODULES = [
 ];
 
 const PRINCIPLES = [
-  'Role-based access: consultation notes are limited to consultants and admins',
-  'An audit log records every change in the workspace',
+  'Roles for each person: admin, manager, consultant or employee',
+  'An audit log of access, sharing and settings changes',
   'Note fields remind consultants to leave out health information',
-  'Workspace data can be exported in full at any time',
+  'Workspace data can be exported as JSON at any time',
 ];
 
 const INTEGRATIONS = ['Whereby', 'Calendly', 'SAP SuccessFactors', 'Visma', 'Stripe'];
@@ -97,7 +97,7 @@ export default function Home() {
             <div>
               <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent-300">Integrations</p>
               <h2 id="integrations-heading" className="mt-2 text-2xl">
-                Connects to the tools you already use
+                Designed to work with the tools you already use
               </h2>
             </div>
             <ul className="flex flex-wrap gap-x-6 gap-y-2 text-paper/90">

@@ -109,12 +109,6 @@ export default function DocumentsPage() {
   const [moveTo, setMoveTo] = useState<DocCategory>('Reports');
   const fileInput = useRef<HTMLInputElement>(null);
   const versionInput = useRef<HTMLInputElement>(null);
-  const objectUrls = useRef<string[]>([]);
-
-  useEffect(() => {
-    const urls = objectUrls.current;
-    return () => urls.forEach((u) => URL.revokeObjectURL(u));
-  }, []);
 
   useEffect(() => {
     if (library !== 'all' && library !== 'starred' && library !== 'archived') setUploadCategory(library);
@@ -172,7 +166,7 @@ export default function DocumentsPage() {
   const pageCount = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const currentPage = Math.min(page, pageCount);
   const pageItems = filtered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
-  const selectedDocs = documents.filter((d) => selected.has(d.id));
+  const selectedDocs = filtered.filter((d) => selected.has(d.id));
 
   const patch = (id: string, change: Partial<DocRecord>) =>
     setDocuments((prev) => prev.map((d) => (d.id === id ? { ...d, ...change } : d)));
@@ -187,7 +181,6 @@ export default function DocumentsPage() {
         return;
       }
       const url = URL.createObjectURL(file);
-      objectUrls.current.push(url);
       const nowIso = new Date().toISOString();
       accepted.push({
         id: newId('doc'),
@@ -227,7 +220,6 @@ export default function DocumentsPage() {
     const file = files?.[0];
     if (!preview || !file) return;
     const url = URL.createObjectURL(file);
-    objectUrls.current.push(url);
     const nowIso = new Date().toISOString();
     const nextVersion = (preview.versions[preview.versions.length - 1]?.version ?? 0) + 1;
     patch(preview.id, {
@@ -271,7 +263,7 @@ export default function DocumentsPage() {
   };
 
   const moveSelected = () => {
-    const ids = new Set(selected);
+    const ids = new Set(selectedDocs.map((d) => d.id));
     setDocuments((prev) => prev.map((d) => (ids.has(d.id) ? { ...d, category: moveTo } : d)));
     logAudit('Demo Admin', 'Moved documents', `${ids.size} → ${moveTo}`);
     announce(`${ids.size} document${ids.size === 1 ? '' : 's'} moved to ${moveTo}.`);
@@ -428,9 +420,9 @@ export default function DocumentsPage() {
               </div>
             </div>
 
-            {selected.size > 0 ? (
+            {selectedDocs.length > 0 ? (
               <div className="flex flex-wrap items-center gap-2 border-b border-line bg-mist px-4 py-2.5 text-sm">
-                <span className="mr-1 font-medium">{selected.size} selected</span>
+                <span className="mr-1 font-medium">{selectedDocs.length} selected</span>
                 {library === 'archived' ? (
                   <button type="button" className="btn-outline btn-sm" onClick={() => setArchived(selectedDocs, false)}>
                     <ArchiveRestore size={14} aria-hidden="true" /> Restore
@@ -467,7 +459,7 @@ export default function DocumentsPage() {
               </EmptyState>
             ) : view === 'list' ? (
               <ul className="divide-y divide-line">
-                <li className="hidden items-center gap-3 bg-warm px-4 py-2 text-xs font-medium uppercase tracking-wide text-muted md:flex">
+                <li className="hidden items-center gap-3 bg-warm px-4 py-2 text-xs font-medium uppercase tracking-wide text-muted xl:flex">
                   <input
                     type="checkbox"
                     checked={allOnPage}
@@ -502,15 +494,15 @@ export default function DocumentsPage() {
                         <span className="block truncate font-medium text-ink hover:underline">{d.name}</span>
                         <span className="block truncate text-xs text-muted">
                           {d.category} · {d.owner}
-                          <span className="md:hidden"> · {formatSize(d.sizeKB)}</span>
+                          <span className="xl:hidden"> · {formatSize(d.sizeKB)}</span>
                         </span>
                       </span>
                     </button>
-                    <span className="hidden w-28 md:block">
+                    <span className="hidden w-28 xl:block">
                       <Badge tone={ACCESS_TONE[d.access]}>{ACCESS_LABEL[d.access]}</Badge>
                     </span>
-                    <span className="hidden w-20 text-right text-sm tabular-nums text-ink-soft md:block">{formatSize(d.sizeKB)}</span>
-                    <span className="hidden w-28 text-sm text-ink-soft md:block">{formatDate(d.updatedAt)}</span>
+                    <span className="hidden w-20 text-right text-sm tabular-nums text-ink-soft xl:block">{formatSize(d.sizeKB)}</span>
+                    <span className="hidden w-28 text-sm text-ink-soft xl:block">{formatDate(d.updatedAt)}</span>
                     <span className="shrink-0">{actions(d)}</span>
                   </li>
                 ))}
@@ -752,7 +744,7 @@ export default function DocumentsPage() {
 
             <div>
               <label htmlFor="share-email" className="label">
-                Also share with a person
+                Also share with a person{sharing.access === 'private' ? ' (choose Team or Organisation first)' : ''}
               </label>
               <div className="flex gap-2">
                 <input
@@ -766,7 +758,7 @@ export default function DocumentsPage() {
                 <button
                   type="button"
                   className="btn-outline"
-                  disabled={!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(shareEmail.trim())}
+                  disabled={sharing.access === 'private' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(shareEmail.trim())}
                   onClick={() => {
                     const email = shareEmail.trim().toLowerCase();
                     if (!sharing.sharedWith.includes(email)) patch(sharing.id, { sharedWith: [...sharing.sharedWith, email] });
@@ -788,7 +780,10 @@ export default function DocumentsPage() {
                         <button
                           type="button"
                           className="rounded p-0.5 hover:bg-primary-100"
-                          onClick={() => patch(sharing.id, { sharedWith: sharing.sharedWith.filter((x) => x !== email) })}
+                          onClick={() => {
+                            patch(sharing.id, { sharedWith: sharing.sharedWith.filter((x) => x !== email) });
+                            logAudit('Demo Admin', 'Stopped sharing document', `${sharing.name} ← ${email}`);
+                          }}
                         >
                           <X size={12} aria-hidden="true" />
                           <span className="sr-only">Stop sharing with {email}</span>

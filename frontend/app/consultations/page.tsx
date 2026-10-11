@@ -122,7 +122,7 @@ export default function ConsultationsPage() {
 
   useEffect(() => {
     const id = new URLSearchParams(window.location.search).get('book');
-    if (id && employees.some((e) => e.id === id)) {
+    if (id && employees.some((e) => e.id === id && e.status !== 'inactive')) {
       setBooking(defaultBooking(id));
       window.history.replaceState(null, '', '/consultations');
     }
@@ -628,6 +628,8 @@ export default function ConsultationsPage() {
               <button
                 type="button"
                 className="btn-primary"
+                disabled={new Date(detail.start) > now}
+                title={new Date(detail.start) > now ? 'Available after the start time' : undefined}
                 onClick={() => update(detail.id, { status: 'completed' }, 'Completed consultation', 'Marked as completed.')}
               >
                 Mark completed
@@ -676,7 +678,7 @@ export default function ConsultationsPage() {
                     <button
                       type="button"
                       className="inline-flex items-center gap-1.5 font-medium text-primary-600 underline underline-offset-2"
-                      onClick={() => announce('Video rooms open once Whereby is connected under Settings → Integrations.')}
+                      onClick={() => announce('Video room links are not generated in this preview.')}
                     >
                       <Video size={14} aria-hidden="true" /> Join video
                     </button>
@@ -732,13 +734,13 @@ export default function ConsultationsPage() {
                     id="follow-up"
                     type="date"
                     className="input-base"
-                    value={detail.followUp ? detail.followUp.slice(0, 10) : ''}
+                    value={detail.followUp ? toDateInputValue(new Date(detail.followUp)) : ''}
                     onChange={(e) =>
                       update(
                         detail.id,
                         { followUp: e.target.value ? new Date(`${e.target.value}T09:00:00`).toISOString() : null },
                         'Set follow-up',
-                        e.target.value ? `Follow-up set for ${formatDate(e.target.value)}.` : 'Follow-up removed.'
+                        e.target.value ? `Follow-up set for ${formatDate(new Date(`${e.target.value}T09:00:00`).toISOString())}.` : 'Follow-up removed.'
                       )
                     }
                   />

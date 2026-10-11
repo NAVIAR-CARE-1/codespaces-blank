@@ -26,7 +26,7 @@ function useWidth<T extends HTMLElement>() {
 
 function niceMax(max: number): { top: number; step: number } {
   if (max <= 0) return { top: 4, step: 1 };
-  const rough = max / 4;
+  const rough = Math.max(1, max / 4);
   const pow = 10 ** Math.floor(Math.log10(rough));
   const step = [1, 2, 5, 10].map((m) => m * pow).find((s) => s >= rough) ?? 10 * pow;
   return { top: Math.ceil(max / step) * step, step };
@@ -74,7 +74,7 @@ export function ChartCard({
         </div>
         <button type="button" className="btn-ghost btn-sm no-print" aria-pressed={showTable} onClick={() => setShowTable((s) => !s)}>
           {showTable ? <BarChart3 size={14} aria-hidden="true" /> : <Table2 size={14} aria-hidden="true" />}
-          {showTable ? 'Chart' : 'Table'}
+          Table view
         </button>
       </div>
       {showTable ? (

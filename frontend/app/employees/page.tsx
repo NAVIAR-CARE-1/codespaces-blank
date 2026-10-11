@@ -155,19 +155,19 @@ export default function EmployeesPage() {
     });
   };
 
-  const selectedEmployees = employees.filter((e) => selected.has(e.id));
+  const selectedEmployees = filtered.filter((e) => selected.has(e.id));
 
   const exportCsv = (list: Employee[]) => {
     const csv = toCsv(
       ['Name', 'Email', 'Phone', 'Title', 'Department', 'Location', 'Status', 'Start date', 'Manager'],
-      list.map((e) => [e.name, e.email, e.phone, e.title, e.department, e.location, STATUS_LABEL[e.status], e.startDate.slice(0, 10), e.manager])
+      list.map((e) => [e.name, e.email, e.phone, e.title, e.department, e.location, STATUS_LABEL[e.status], toDateInputValue(new Date(e.startDate)), e.manager])
     );
     downloadFile(`employees-${toDateInputValue(new Date())}.csv`, csv, 'text/csv');
     announce(`Exported ${list.length} employee${list.length === 1 ? '' : 's'} to CSV.`);
   };
 
   const setBulkStatus = (next: EmployeeStatus) => {
-    const ids = new Set(selected);
+    const ids = new Set(selectedEmployees.map((e) => e.id));
     setEmployees((prev) => prev.map((e) => (ids.has(e.id) ? { ...e, status: next } : e)));
     logAudit('Demo Admin', 'Changed employee status', `${ids.size} employees → ${STATUS_LABEL[next]}`);
     announce(`${ids.size} employee${ids.size === 1 ? '' : 's'} set to ${STATUS_LABEL[next].toLowerCase()}.`);
@@ -189,7 +189,7 @@ export default function EmployeesPage() {
       department: e.department,
       location: e.location,
       status: e.status,
-      startDate: e.startDate.slice(0, 10),
+      startDate: toDateInputValue(new Date(e.startDate)),
     });
     setErrors({});
     setProfile(null);
@@ -318,9 +318,9 @@ export default function EmployeesPage() {
             </div>
           </div>
 
-          {selected.size > 0 ? (
+          {selectedEmployees.length > 0 ? (
             <div className="flex flex-wrap items-center gap-2 border-b border-line bg-mist px-4 py-2.5 text-sm">
-              <span className="mr-2 font-medium">{selected.size} selected</span>
+              <span className="mr-2 font-medium">{selectedEmployees.length} selected</span>
               <button type="button" className="btn-outline btn-sm" onClick={() => setBulkStatus('active')}>
                 <UserCheck size={14} aria-hidden="true" /> Mark active
               </button>
@@ -359,7 +359,7 @@ export default function EmployeesPage() {
             </EmptyState>
           ) : (
             <>
-              <div className="hidden md:block">
+              <div className="hidden overflow-x-auto md:block">
                 <table className="table-base">
                   <thead>
                     <tr>
